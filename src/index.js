@@ -13,3 +13,10 @@ console.log(555);
 
 // https://www.npmjs.com/package/parcel-transformer-hbs - посилання на шаблонізатор
 // import CardTemplate from '../templates/gallery-card.hbs';
+
+//https://www.npmjs.com/package/tui-pagination - посилання
+
+//https://swiperjs.com/get-started - посилання на слайдер
+//  import Swiper from 'swiper';
+// import Swiper styles - додаткові стилі
+//  import 'swiper/css';

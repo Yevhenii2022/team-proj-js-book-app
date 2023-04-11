@@ -13,7 +13,8 @@
   }
 
   @include desktop {
-    width: $desktop;
+    width: 100%;
+    max-width: 1440px;
     padding: 0 24px;
   }
 }
