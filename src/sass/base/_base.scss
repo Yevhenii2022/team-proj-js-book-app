@@ -1,0 +1,15 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  color: $color-text-grey;
+  background-color: $color-home-background;
+
+  // Забороняє прокрутку сторінки при відкритому модальному вікні
+  &.no-scroll {
+    overflow: hidden;
+  }
+}

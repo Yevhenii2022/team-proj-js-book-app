@@ -1,0 +1,31 @@
+// Usage example:
+//
+// @include tablet {
+//   font-size: 32px;
+// }
+
+// @include transition(transform);
+
+@mixin mobile {
+  @media screen and (min-width: $phone) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: $desktop) {
+    @content;
+  }
+}
+
+@mixin transition($property...) {
+  transition-property: $property;
+  transition-duration: $transition-duration;
+  transition-timing-function: $cubic;
+}

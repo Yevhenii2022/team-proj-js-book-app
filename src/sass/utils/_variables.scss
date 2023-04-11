@@ -1,0 +1,27 @@
+// // Main Colors
+$color-dark: #111111;
+$color-dark-accent: #202024;
+$color-blue: #4f2ee8;
+$color-white: #ffffff;
+$color-background-authorization: #f6f6f6;
+$color-home-background: #d0d0d0;
+$color-background-backdrop: rgba(17, 17, 17, 0.4);
+
+// // Texts
+$color-text-grey: #b4afaf;
+$color-text-dark: rgba(17, 17, 17, 0.6);
+$color-text-dark-theme: rgba(255, 255, 255, 0.6);
+
+// //Hover-activ
+$color-hover-activ: #eac645;
+
+// // Breakpoints
+$phone: 375px;
+$befor-tablet: 767px;
+$tablet: 768px;
+$befor-desktop: 1439px;
+$desktop: 1440px;
+
+// // Transitions
+$transition-duration: 300ms;
+$cubic: cubic-bezier(0.4, 0, 0.2, 1);
