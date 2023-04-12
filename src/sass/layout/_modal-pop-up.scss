@@ -74,3 +74,52 @@
 }
 
 // Стилі для оформлення змісту модального вікна книги
+.modal-pop__container {
+  // margin: 0 auto;
+  padding: 40px 24px;
+  width: 100%;
+}
+
+.modal-info {
+  @include tablet {
+    display: flex;
+    gap: 24px;
+  }
+}
+
+.modal-info__image {
+  margin: 0 auto 14px;
+  border-radius: 8px;
+
+  @include tablet {
+    margin-bottom: 40px;
+    width: 192px;
+    height: 281px;
+  }
+}
+
+.modal-info__title {
+  margin-bottom: 4px;
+}
+
+.modal-info__author {
+  margin-bottom: 18px;
+}
+
+.modal-info__text {
+  margin-bottom: 14px;
+  max-width: 350px;
+}
+
+.modal-info__list {
+  margin-bottom: 40px;
+  display: flex;
+  gap: 20px;
+}
+
+.modal-info__button {
+  display: block;
+  margin: 0 auto;
+  // margin-left: 50px;
+  padding: 14px 28px;
+}
