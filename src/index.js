@@ -8,6 +8,7 @@ import {
 } from './js/api-book';
 
 import './js/refs';
+import './js/modal-pop';
 
 // приклади імпортів NPM пакетів
 
