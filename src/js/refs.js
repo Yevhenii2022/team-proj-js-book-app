@@ -1,5 +1,3 @@
-export default refs;
-
 const refs = {
   //Header
   // headerEl: document.querySelector('.header'),
@@ -12,3 +10,5 @@ const refs = {
   // Spinner/loader
   // Scroll up
 };
+
+export default refs;

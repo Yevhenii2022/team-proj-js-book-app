@@ -7,6 +7,8 @@ import {
   getBooksId,
 } from './js/api-book';
 
+import './js/refs';
+
 // приклади імпортів NPM пакетів
 
 // import axios from 'axios';
