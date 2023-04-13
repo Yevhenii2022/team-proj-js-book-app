@@ -7,6 +7,9 @@ import {
   getBooksId,
 } from './js/api-book';
 
+import refs from './js/refs';
+import './js/modal-pop';
+
 // приклади імпортів NPM пакетів
 
 // import axios from 'axios';
