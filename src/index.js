@@ -6,8 +6,11 @@ import {
   getTopBooks,
   getBooksId,
 } from './js/api-book';
-// import './js/home-categories';
-// import './js/refs';
+
+import './js/refs';
+import './js/modal-pop';
+import './js/home-categories';
+
 // приклади імпортів NPM пакетів
 
 // import axios from 'axios';
