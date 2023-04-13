@@ -12,7 +12,7 @@ axios.defaults.baseURL = BASE_URL;
 
 async function getCategoryList() {
   const { data } = await axios.get(CATEGORY_LIST);
-  return data.map(({ list_name }) => list_name);
+  return data;
 }
 
 async function getTopBooks() {
