@@ -1,6 +1,13 @@
 //IMPORTS
-// import './js/pagination';
-console.log(555);
+// import './js/api-book';
+import {
+  getCategoryList,
+  getBooksCategory,
+  getTopBooks,
+  getBooksId,
+} from './js/api-book';
+
+import './js/refs';
 
 // приклади імпортів NPM пакетів
 
