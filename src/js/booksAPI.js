@@ -1,19 +1,19 @@
 import axios from 'axios';
 
-const main_url = "https://books-backend.p.goit.global/api-docs/";
-const category_list = '/books/category-list';
-const top_books = '/books/top-books';
+const BASE_URL = "https://books-backend.p.goit.global/api-docs/";
+const CATEGORY_LIST = '/books/category-list';
+const TOP_BOOKS = '/books/top-books';
 
-axios.defaults.baseURL= main_url;
+axios.defaults.baseURL= BASE_URL;
 
-export async function getcategorylist()
+export async function getCategoryList()
 {
-    const {data} = await axios.get(category_list);
+    const {data} = await axios.get(CATEGORY_LIST);
     return data.map(({list_name}) => list_name);
 }
-export async function gettopbooks()
+export async function getTopBooks()
 {
-    const {data} = await axios.get(top_books);
+    const {data} = await axios.get(TOP_BOOKS);
     return data;
 }
 
