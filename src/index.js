@@ -1,14 +1,7 @@
 //IMPORTS
-// import './js/api-book';
-import {
-  getCategoryList,
-  getBooksCategory,
-  getTopBooks,
-  getBooksId,
-} from './js/api-book';
-
-import './js/refs';
-
+// import './js/pagination';
+console.log(555);
+import './js/shopping-list';
 // приклади імпортів NPM пакетів
 
 // import axios from 'axios';
