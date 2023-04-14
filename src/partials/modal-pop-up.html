@@ -1,5 +1,5 @@
 <!-- Модальне вікно вибранної книги -->
-<div class="backdrop backdrop--is-hidden" data-modal>
+<div class="backdrop backdrop--is-hidden">
   <div class="modal-pop" data-modal-dark>
     <button class="modal-pop__button--close" data-modal-close>
       <svg
@@ -13,8 +13,8 @@
     </button>
 
     <!-- DIV для основного контенту -->
-    <div class="modal-pop__container">
-      <div class="modal-info">
+    <div class="modal-pop__container" data-modal>
+      <!-- <div class="modal-info">
         <img class="modal-info__image" src="./images/book_mobile.jpg" alt="" />
         <div class="modal-info__box">
           <h2 class="modal-info__title">HELLO BEAUTIFUL</h2>
@@ -45,7 +45,7 @@
       </div>
       <button class="modal-info__button" type="button">
         Add to shopping list
-      </button>
+      </button> -->
     </div>
   </div>
 </div>

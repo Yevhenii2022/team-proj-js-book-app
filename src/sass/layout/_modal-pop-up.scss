@@ -19,13 +19,13 @@
   opacity: 0;
   pointer-events: none;
 
-  // .modal-pop {
-  //   transform: translate(-50%, -50%) scale(0.7);
+  .modal-pop {
+    transform: translate(-50%, -50%) scale(0.7);
 
-  //   @media screen and (max-width: $befor-tablet) {
-  //     transform: translate(0, 0) scale(0.7);
-  //   }
-  // }
+    @media screen and (max-width: $befor-tablet) {
+      transform: translate(0, 0) scale(0.7);
+    }
+  }
 }
 
 .modal-pop {
