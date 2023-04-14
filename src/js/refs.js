@@ -3,10 +3,13 @@ const refs = {
   headerEl: document.querySelector('.header'),
 
   // Home
+
   categoriesSidebar: document.querySelector('.sidebar__categories'),
   homeBooksByType: document.querySelector('.home-typeBook'),
   homeBook: document.querySelector('.home-book'),
   homeList: document.querySelector('.home-list'),
+
+  cardContainerEl: document.querySelector('.books__container'),
 
   //Shopping-list
 
