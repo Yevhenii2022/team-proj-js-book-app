@@ -9,6 +9,7 @@ import {
 
 import './js/refs';
 import './js/modal-pop';
+import './js/home__support';
 
 // приклади імпортів NPM пакетів
 
