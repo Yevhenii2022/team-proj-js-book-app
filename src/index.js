@@ -11,7 +11,7 @@ import './js/refs';
 import './js/modal-pop';
 import './js/home-categories';
 import './js/home-cards';
-
+import './js/scroll-up';
 // приклади імпортів NPM пакетів
 
 // import axios from 'axios';
