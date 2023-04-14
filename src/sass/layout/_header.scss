@@ -1,0 +1,129 @@
+// .container {
+// margin-left: auto;
+// margin-right: auto;
+// padding-left: 20px;
+// padding-right: 20px;
+
+// @media screen and(max-width: 767.98px) {
+//     max-width: 375px;
+// }
+
+// @media screen and(min-width: $tablet) {
+//     width: 768px;
+//     padding-left: 32px;
+//     padding-right: 32px;
+// }
+
+// @media screen and(min-width: $desktop) {
+//     width: 1200px;
+//     padding-left: 24px;
+//     padding-right: 24px;
+// }
+
+// }
+
+.header__container {
+  display: flex;
+  align-items: center;
+
+  border: 1.5px solid #111111;
+  border-radius: 0px 0px 8px 8px;
+  background-color: #ffffff;
+}
+
+.logo {
+  padding-top: 18px;
+  padding-bottom: 18px;
+
+  @media screen and(min-width: $tablet) {
+    margin-right: 32px;
+  }
+
+  @media screen and(min-width: $desktop) {
+    margin-right: 99px;
+  }
+}
+
+// .logo__svg {
+//   //   fill-opacity: 0;
+//   fill: #f6f6f6;
+//   // stroke-width: 0;
+//   stroke: #4f2ee8;
+// }
+
+.navigation__list {
+  display: none;
+
+  @media screen and(min-width: $tablet) {
+    display: flex;
+    align-items: center;
+  }
+
+  @media screen and(min-width: $desktop) {
+    gap: 8px;
+  }
+}
+
+.navigation__link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+
+  color: $color-dark;
+
+  font-size: 14px;
+  line-height: calk(18 / 14);
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.navigation__link--with-icon {
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+.navigation__link--hover {
+  font-weight: 700;
+  border-radius: 36px;
+  background-color: $color-hover-activ;
+}
+// .header .navigation__link:hover,
+// .header .navigation__link:focus {
+//   font-weight: 700;
+//   border-radius: 36px;
+//   background-color: $color-hover-activ;
+// }
+
+.burger-meny-btn {
+  width: 28px;
+  height: 28px;
+  border: 0;
+  padding: 0;
+
+  background-color: transparent;
+  color: $color-dark;
+  cursor: pointer;
+
+  &:hover {
+    color: $color-blue;
+  }
+
+  @media screen and(min-width: $tablet) {
+    display: none;
+  }
+}
+
+.burger-meny-btn__icon {
+  //   fill: #111111;
+  fill-opacity: 0;
+  //   display: flex;
+  //   margin: auto;
+  //   stroke-width: 0;
+  stroke: #111111;
+}
+
+.navigation--btn__icon {
+  fill-opacity: 0;
+  // stroke-width: 0;
+  stroke: #111111;
+}
