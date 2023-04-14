@@ -1,7 +1,24 @@
+{{#each books}}
+  <div class='books__list'>
+    <h3 class='books__list-title'>{{list_name}}</h3>
+    <div class='books__card'>
+      <img
+        src='{{book_image}}'
+        alt='{{title}}'
+        class='books__title-img'
+        width='180'
+        height='256'
+      />
+      <p class='books__title'>{{title}}</p>
+      <p class='books__author'>{{author}}</p>
+    </div>
+  </div>
+{{/each}}
 
-{{!-- Приклади --
 
-{{#each this}}
+{{!-- Приклади -- --}}
+
+{{!-- {{#each this}}
   <li>
     <a href='{{url}}' target='_blank' rel='noopener noreferrer'>
       <article>
@@ -34,4 +51,4 @@
       <p class='clouds'>Облаков: {{this.clouds.all}}%</p>
     </li>
   </ul>
-</div> 
+</div>  --}}

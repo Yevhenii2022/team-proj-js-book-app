@@ -1,0 +1,125 @@
+.books__main-title {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: calc(38 / 32);
+  letter-spacing: -0.04em;
+  color: $color-dark;
+  margin-bottom: 40px;
+
+  @media screen and(min-width: $tablet) {
+    font-size: 48px;
+    line-height: 52px;
+  }
+
+  @media screen and(min-width: $desktop) {
+    font-size: 48px;
+    line-height: calc(52 / 48);
+  }
+}
+.books__main-title-attribute {
+  color: $color-blue;
+}
+.books__container {
+  @media screen and(min-width: $desktop) {
+    margin-left: 40px;
+  }
+}
+.books__card-container {
+   
+  @media screen and(min-width: $tablet) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+  }
+}
+
+.books__list-title {
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: $color-text-grey;
+  margin-bottom: 18px;
+
+  @media screen and(min-width: $tablet) {
+    line-height: calc(24 / 14);
+  }
+}
+
+.books__card {
+  margin-bottom: 40px;
+}
+
+.books__card-title-img {
+
+  border-radius: 8px;
+  margin-bottom: 14px;
+
+  @media screen and(max-width: $befor-tablet) {
+    // width: 335px;
+    margin-bottom: 14px;
+  }
+
+  @media screen and(min-width: $tablet) {
+    // width: 218px;
+  }
+  @media screen and(min-width: $desktop) {
+    height: 256px;
+    width: 180px;
+    margin-bottom: 14px;
+  }
+}
+.books__card-title {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: calc(18 / 16);
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+
+  color: $color-dark;
+  margin-bottom: 4px;
+  @media screen and(min-width: $tablet) {
+    width: 218px;
+  }
+  @media screen and(min-width: $desktop) {
+    width: 180px;
+    font-size: 14px;
+    line-height: calc(24 / 14);
+    letter-spacing: 0.03em;
+  }
+}
+.books__card-author {
+  font-style: italic;
+  font-size: 12px;
+  line-height: calc(14 / 12);
+  letter-spacing: -0.04em;
+
+  color: $color-text-grey;
+}
+
+.overlay {
+  width: 100%;
+  height: 27%;
+  opacity: 0;
+  background-color: rgba(234, 198, 67, 0.75);
+  border-radius: 0 0 8px 8px;
+  transition: transform cubic-bezier(0.075, 0.82, 0.165, 1);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translateY(100%);
+}
+
+// .overlay__text {
+//   text-transform: uppercase;
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+// }
+// .overlay:hover ,
+// .overlay:focus  {
+//   opacity: 1;
+//   transform: translateY(0px);
+// }
