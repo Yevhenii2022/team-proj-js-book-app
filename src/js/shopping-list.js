@@ -183,10 +183,12 @@ function onTrashClick(e) {
 
   save(SHOP_LIST_KEY, bookList);
 
-  renderShoppingList(bookList, page);
+  // renderShoppingList(bookList, page);
   bookCount = bookList.length;
 
   pagination.setTotalItems(bookCount);
+  pagination.movePageTo(page);
+ 
   if (shoppingListEl.childNodes.length === 0) {
     pagination.movePageTo(currentPage - 1);
 
