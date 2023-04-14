@@ -1,0 +1,16 @@
+.sidebar__categories {
+  margin-bottom: 40px;
+}
+.category-item {
+  color: rgba(17, 17, 17, 0.6);
+}
+.category-item:not(:last-child) {
+  margin-bottom: 24px;
+}
+
+.category-item.active,
+.category-item:hover,
+.category-item:focus {
+  text-transform: uppercase;
+  font-weight: 700;
+}
