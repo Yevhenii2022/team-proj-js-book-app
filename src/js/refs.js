@@ -11,6 +11,10 @@ const refs = {
   closeModalPopBtn: document.querySelector('[data-modal-close]'),
   modalPop: document.querySelector('[data-modal]'),
   backdrop: document.querySelector('.backdrop'),
+  categoriesSidebar: document.querySelector('.sidebar__categories'),
+  homeBooksByType: document.querySelector('.home-typeBook'),
+  homeBook:document.querySelector('.home-book'),
+  homeList: document.querySelector('.home-list'),
 
   // Mobile - menu - modal
 
@@ -24,3 +28,4 @@ const refs = {
 };
 
 export default refs;
+
