@@ -94,14 +94,14 @@ function renderLogos() {
 
 renderLogos();
 
-logoContainer.addEventListener('click', onTransition);
+// logoContainer.addEventListener('click', onTransition);
 
-function onTransition(event) {
-  const url = event.target.dataset.url;
-  if (url) {
-    window.open(url, '_blank');
-  }
-}
+// function onTransition(event) {
+//   const url = event.target.dataset.url;
+//   if (url) {
+//     window.open(url, '_blank');
+//   }
+// }
 
 //////////////////////swiper//////////////////////////
 
