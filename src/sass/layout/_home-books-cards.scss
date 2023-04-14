@@ -25,7 +25,6 @@
   }
 }
 .books__card-container {
-   
   @media screen and(min-width: $tablet) {
     display: flex;
     flex-wrap: wrap;
@@ -34,8 +33,8 @@
 }
 
 .books__list-title {
+  display: block;
   font-size: 14px;
-  line-height: 18px;
   letter-spacing: 0.03em;
   text-transform: uppercase;
   color: $color-text-grey;
@@ -46,12 +45,7 @@
   }
 }
 
-.books__card {
-  margin-bottom: 40px;
-}
-
 .books__card-title-img {
-
   border-radius: 8px;
   margin-bottom: 14px;
 
@@ -79,6 +73,7 @@
 
   color: $color-dark;
   margin-bottom: 4px;
+  
   @media screen and(min-width: $tablet) {
     width: 218px;
   }
@@ -96,6 +91,32 @@
   letter-spacing: -0.04em;
 
   color: $color-text-grey;
+}
+.books__btn { 
+  display: block;
+  margin-left: auto;
+  margin-top: 8px;
+  margin-bottom: 40px;
+  padding: 14px 28px;
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+
+  color: $color-dark;
+  background-color: transparent;
+  border: 2px solid $color-blue;
+  border-radius: 40px;
+ 
+
+  @media screen and(min-width: $tablet) {
+    margin-top: 20px;
+  }
+  @media screen and(min-width: $desktop) {
+    margin-top: 32px;
+  }
 }
 
 .overlay {
