@@ -1,13 +1,76 @@
-
-// .pagination__first-item {
+strong.tui-pagination.tui-pagination.tui-is-selected{
+   width: 44px;
+    height:44px;
+    border-radius:50%;
+        border: 1px solid #111111;
+    margin-bottom:40px;
+    margin-right: 8px;
+    background: black;
+    border:  black;;
+}
+// a.tui-page-btn{
+//        width: 44px;
 //     height:44px;
 //     border-radius:50%;
+//     border: 1px solid #111111;
 //     margin-bottom:40px;
+//     margin-right: 8px;
+//     background: white;
 // }
+// // .tui-pagination .tui-is-selected, .tui-pagination strong   {
+// //     height:44px;
+// //     border-radius:50%;
+// //     margin-bottom:40px;
+// //     margin-right: 8px;
+// //     background-color: black;
+// // }
 // .tui-pagination .tui-page-btn {
+//     width: 44px;
 //       height:44px;
+//               border: 1px solid #111111;
 //     border-radius:50%;
 //     margin-bottom:40px;
-//     background-color: black;
+//        margin-right: 8px;
+//     // background-color: black;
 // }
+// .tui-pagination .tui-prev {
+//        margin-bottom:40px;
+//        margin-right: 4px;
+//         width: 44px;
+//       height:44px;
+//               border: 1px solid #111111;
+//     border-radius:50%;
+//       background: white;
+
+// }
+// // .tui-pagination .tui-last {
+// //      margin-bottom:40px;
+// //     //    margin-right: 4px;
+// //         width: 44px;
+// //       height:44px;
+// //               border: 1px solid #111111;
+// //     border-radius:50%;
+// //       background: white;
+// // }
+// .pagination__last-item {
+//         margin-bottom:40px;
+//     //    margin-right: 4px;
+//         width: 44px;
+//       height:44px;
+//               border: 1px solid #111111;
+//     border-radius:50%;
+//       background: white;
+// }
+
+// // .pagination__first-item {
+// //     height:44px;
+// //     border-radius:50%;
+// //     margin-bottom:40px;
+// // }
+// // .tui-pagination .tui-page-btn {
+// //       height:44px;
+// //     border-radius:50%;
+// //     margin-bottom:40px;
+// //     background-color: black;
+// // }
 
