@@ -114,5 +114,18 @@
       <path
         d="M25.395 21.134a3.675 3.675 0 0 0 2.603 1.085 3.67 3.67 0 0 0 2.603-1.085l16.794-16.83a3.675 3.675 0 0 1 2.603-1.085 3.67 3.67 0 0 1 2.603 6.255l-16.83 16.83a11 11 0 0 1-15.546 0L3.395 9.474a3.669 3.669 0 0 1-.791-3.975A3.659 3.659 0 0 1 4.588 3.5a3.651 3.651 0 0 1 2.82 0c.447.186.852.459 1.193.803l16.793 16.83z" />
     </symbol>
+    <symbol id="icon-logo-002" viewBox="0 0 31 32">
+      <path fill="#f6f6f6" d="m0 .615 15.714 15.549 15.055 15.22V.615H0z" style="fill:var(--color1, #f6f6f6)" />
+      <path fill="#f6f6f6" d="m4.285 4.681 11.484 11.374 10.824 11.044H4.285V4.681z"
+        style="fill:var(--color1, #f6f6f6)" />
+      <path fill="#4f2ee8" d="M26.666 27.171 15.183 15.797 4.359 4.753h22.308v22.418z"
+        style="fill:var(--color2, #4f2ee8)" />
+      <path fill="#4f2ee8" d="m8.901 9.297 13.077 13.077H8.901V9.297z" style="fill:var(--color2, #4f2ee8)" />
+      <path fill="#f6f6f6" d="m8.901 9.297 13.077 13.077V9.297H8.901z" style="fill:var(--color1, #f6f6f6)" />
+    </symbol>
+    <symbol id="arrow-narrow-right" viewBox="0 0 32 32">
+      <path fill="none" stroke="#eac645" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.2"
+        d="M5.333 16h21.333m.001 0-8-8m8 8-8 8" style="stroke:var(--color1, #eac645)" />
+    </symbol>
   </defs>
 </svg>
