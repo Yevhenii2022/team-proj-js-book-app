@@ -154,9 +154,3 @@ function onTrashClick(e) {
 
   renderShoppingList(currentData);
 }
-
-// const pageBtnFirst = document.querySelector('.pagination__first-item');
-// pageBtnFirst.style.backgroundColor = "black";
-// pageBtnFirst.style.width = "44px";
-// pageBtnFirst.style.fontSize = "22px";
-// pageBtnFirst.style.paddingTop = "11px";
