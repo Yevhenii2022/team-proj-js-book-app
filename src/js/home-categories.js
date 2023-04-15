@@ -9,11 +9,17 @@ const renderCategories = async () => {
     const ListCategory = document.querySelectorAll('.category-item');
     ListCategory.forEach(itemCategory => {
         itemCategory.addEventListener('click', event => {
-            if (event.target.dataset.id === 'all-categories') {
-                renderTopBooks();
-            } else {
-                showTypeBook(event.target.dataset.id);
-            }
+        const ActiveCategory = document.querySelector('.category-item.active');
+        if (ActiveCategory) {
+        ActiveCategory.classList.remove('active');
+        }
+        event.target.classList.add('active');
+
+        if (event.target.dataset.id === 'all-categories') {
+            renderTopBooks();
+        } else {
+            showTypeBook(event.target.dataset.id);
+        }
         });
     });
 };
@@ -21,7 +27,7 @@ const renderCategories = async () => {
 renderCategories();
 
 function markupCategoriesList(categories) {
-    return `<li class="category-item" data-id="all-categories">
+    return `<li class="category-item active" data-id="all-categories">
         All categories</li>
         ${categories.map(category => `<li class="category-item" data-id="${category.list_name}">
         ${category.list_name}
