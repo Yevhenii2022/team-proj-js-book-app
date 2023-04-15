@@ -201,6 +201,13 @@
   }
 }
 
+.shopping__book-author--tablet {
+  display: none;
+  @include tablet {
+    display: block;
+  }
+}
+
 .shopping__btn {
   display: flex;
   justify-content: center;
