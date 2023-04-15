@@ -17,6 +17,7 @@ import './js/modal-pop';
 import './js/scroll-up';
 import './js/books-localStorage';
 import './js/storage-methods';
+import './js/dark-theme'
 
 // приклади імпортів NPM пакетів
 import './js/slider';
