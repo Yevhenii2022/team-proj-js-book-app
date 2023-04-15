@@ -1,9 +1,10 @@
-import { getCategoryList, getBooksCategory, getTopBooks } from './api-book'
+import { getCategoryList, getBooksCategory } from './api-book'
 import refs from './refs';
+import {createTopBooksMarkup} from './home-cards';
 
 
 
-const renderCategories = async () => {
+ const renderCategories = async () => {
     const category = await getCategoryList();
     refs.categoriesSidebar.innerHTML = await markupCategoriesList(category);
     const ListCategory = document.querySelectorAll('.category-item');
@@ -16,7 +17,7 @@ const renderCategories = async () => {
         event.target.classList.add('active');
 
         if (event.target.dataset.id === 'all-categories') {
-            renderTopBooks();
+            createTopBooksMarkup();
         } else {
             showTypeBook(event.target.dataset.id);
         }
@@ -35,44 +36,46 @@ function markupCategoriesList(categories) {
         .join('')}`;
 };
 
-const renderTopBooks = async () => {
-    let topBooks = await getTopBooks();
-    topBooks = topBooks.map(type => {
-        return { ...type, books: type.books.slice(0,5)};
-    });
-    refs.homeList.innerHTML = await markupTopBooksList(
-    topBooks
-    );  
-};
+// const renderTopBooks = async () => {
+//     let topBooks = await getTopBooks();
+//     topBooks = topBooks.map(type => {
+//         return { ...type, books: type.books.slice(0,5)};
+//     });
+//     refs.homeList.innerHTML = await markupTopBooksList(
+//     topBooks
+//     );  
+// };
 
-function markupTopBooksList(data) {
-    return  data.map((typeBooks) => {
-            return `
-                <li>
-                <ul> 
-                ${typeBooks.books
-                .map(book => markupTopBook(book, typeBooks))
-                .join('')}
-                </ul>
-                </li>`;
-            })
-            .join('')
-}
+// function markupTopBooksList(data) {
+//     return  data.map((typeBooks) => {
+//             return `
+//                 <li>
+//                 <ul> 
+//                 ${typeBooks.books
+//                 .map(book => markupTopBook(book, typeBooks))
+//                 .join('')}
+//                 </ul>
+//                 </li>`;
+//             })
+//             .join('')
+// }
 
-function markupTopBook(book) {
-    return `
-        <li>
-        <img
-        class="img"
-        src="${book.book_image ? book.book_image : ``}"
-        alt="${book.title}"
-        loading="lazy"
-        />
-        </li>`;
-}
+// function markupTopBook(book) {
+//     return `
+//         <li>
+//         <img
+//         class="img"
+//         src="${book.book_image ? book.book_image : ``}"
+//         alt="${book.title}"
+//         loading="lazy"
+//         />
+//         </li>`;
+// }
 
 const showTypeBook = async type => {
     const typeBooksMore = await getBooksCategory(type);
+    refs.homeContainer.classList.remove('container_active');
+    refs.homeBooksByType.classList.add('container_active');
     refs.homeBooksByType.innerHTML = markupTopBooksByType(
     typeBooksMore,
     type
@@ -80,16 +83,34 @@ const showTypeBook = async type => {
 };
 
 function markupTopBooksByType(data, typeBooks) {
-    return `<ul >
-            ${data.map(book => `<li >
-            <img
-            class="img"
-            src="${book.book_image ? book.book_image : ``}"
-            alt="${book.title}"
-            loading="lazy"
-            />
-            </li>`
-            )
-            .join('')}
-            </ul>`
-};
+    return `
+        <h3 class="books__main-title">${typeBooks.substring(
+        0,
+        typeBooks.lastIndexOf(' ')
+      )}<span class="books__main-title-attribute"> ${typeBooks.split(' ').pop()}</span></h3>
+    <ul class="books__card-container">
+         ${data
+           .map(
+             book => `<li class="books__item">
+             <a href="#" class="books__item-link">
+              <div class="books__card">
+        <img
+                class="books__card-title-img"
+                src="${book.book_image}"
+                alt="${book.title}"
+                width="180"
+          height="256"
+                loading="lazy"
+              />
+              <p class="books__overlay-text">Quick view</p>
+    </div>
+    <div class="books__descr">
+    <h3 class="books__card-title">${book.title}</h3>
+              <p class="books__card-author">
+              ${book.author}
+              </p>
+              </a>
+        </li>`
+           )
+           .join('')}
+         </ul>`}

@@ -1,17 +1,50 @@
 .home-container{
-
-  position: relative;
+  margin-top: 40px;
+  @media screen and(min-width: $desktop) {
+    display: grid;
+    
+    gap: 40px;
+     grid-template-areas: "sidebar content";
+  }
+}
+.main {
+ 
+  @media screen and(min-width: $desktop) {
+    grid-area: content;
+  }
 }
 
 
+ 
+
+.home__main-container{
+  display: none;
+}
+.home__main-container.container_active{
+  display: block;
+}
+.home-typeBook{
+  display: none;
+}
+.home-typeBook.container_active{
+  display: block;
+}
 .sidebar__categories {
   display: block;
   height: 228px;
   overflow: auto;
-  
-  font-weight: 400;
-  font-size: 16px;
-  
+  max-width: 336px; 
+  margin-bottom: 40px; 
+  @media screen and(min-width: $tablet) {
+    height: 472px;
+    margin-bottom: 0; 
+  }
+
+  @media screen and(min-width: $desktop) {
+    height: 228px;
+    margin-bottom: 85px;
+    
+  }
 }
 .category-item {
  
@@ -20,6 +53,15 @@
 }
 .category-item:not(:last-child) {
   margin-bottom: 24px;
+  @media screen and(min-width: $tablet) {
+    margin-bottom: 32px;
+    
+  }
+
+  @media screen and(min-width: $desktop) {
+    margin-bottom: 24px;
+    
+  }
 }
 
 .category-item.active,
@@ -33,19 +75,28 @@
 
 
 .sidenav {
-  height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 356px; /* Set the width of the sidebar */
-  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-   /* Stay on top */
-  top: 72; /* Stay at the top */
-  left: 20;
-  overflow-x: hidden;
-  overflow-y: hidden;
-   /* Disable horizontal scroll */
-}
-.main {
-  position: relative;
-
- margin-left: 396px;
+  
  
-right: 0;}
+  @media screen and(min-width: $tablet) {
+    display: flex;
+   
+    margin-bottom: 100px;
+  }
+
+  @media screen and(min-width: $desktop) {
+    max-width: 356px;
+    grid-area: sidebar;
+    display: inline;
+  }
+  
+  
+}
+.books__card-author{
+  @media screen and(min-width: $tablet) {
+    width: 218px;
+  }
+  @media screen and(min-width: $desktop) {
+    width: 180px;
+    
+  }
+}
