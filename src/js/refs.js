@@ -12,7 +12,7 @@ const refs = {
   //Shopping-list
 
   //Pop-up-modal
-  openModalPopBtn: document.querySelector('[data-modal-open]'),
+  // addBookBtnEl: document.querySelector('[data-modal-add-book]'),
   closeModalPopBtn: document.querySelector('[data-modal-close]'),
   modalPopEl: document.querySelector('[data-modal]'),
   backdrop: document.querySelector('.backdrop'),
