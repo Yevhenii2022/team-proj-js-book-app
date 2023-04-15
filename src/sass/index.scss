@@ -2,3 +2,8 @@
 @import './base/module';
 @import './components/module';
 @import './layout/module';
+
+@import './layout/shopping-list/shopping-list';
+@import './layout/shopping-list/pagination';
+@import './layout/home-categories';
+@import './layout/home-books-cards';
