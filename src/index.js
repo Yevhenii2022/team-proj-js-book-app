@@ -1,7 +1,6 @@
 //IMPORTS
 // import './js/pagination';
-console.log(555);
-import './js/shopping-list';
+
 // import './js/api-book';
 import {
   getCategoryList,

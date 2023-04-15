@@ -188,7 +188,7 @@ function onTrashClick(e) {
 
   pagination.setTotalItems(bookCount);
   pagination.movePageTo(page);
- 
+
   if (shoppingListEl.childNodes.length === 0) {
     pagination.movePageTo(currentPage - 1);
 
