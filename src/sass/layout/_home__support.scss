@@ -118,7 +118,11 @@
 }
 
 .logo__img {
-  filter: brightness(100) contrast(100%) grayscale(1);
+  @include transition(filter);
+  &:hover,
+  &:focus {
+    filter: brightness(60%) sepia(80) saturate(5) hue-rotate(5deg);
+  }
 }
 
 .buttonSlider {
