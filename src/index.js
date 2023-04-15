@@ -1,4 +1,6 @@
 //IMPORTS
+// import './js/pagination';
+
 // import './js/api-book';
 import {
   getCategoryList,
@@ -17,7 +19,7 @@ import './js/books-localStorage';
 import './js/storage-methods';
 
 // приклади імпортів NPM пакетів
-
+import './js/slider';
 // import axios from 'axios';
 
 // import Notiflix from 'notiflix';
