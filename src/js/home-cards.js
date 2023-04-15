@@ -6,20 +6,21 @@ const createTopBooksMarkup = async () => {
   let markup = await getTopBooks();
   markup = markup.map(el => {
     return { ...el, books: el.books };
-  })
+  });
   refs.cardContainerEl.innerHTML = await booksCardTemplate(markup);
-}
+};
 
 createTopBooksMarkup();
 
 function booksCardTemplate(data) {
-  return data.map((elements) => {
-    return `
+  return data
+    .map(elements => {
+      return `
         <li class="books__list">
   <h3 class="books__list-title">${elements.list_name}</h3>
-  <ul class="books__card-container"> ${elements.books.map((book) => {
-      return `
-    <li class="books__item"  data-id='${book._id}' >
+  <ul class="books__card-container"> ${elements.books.map(book => {
+    return `
+    <li class="books__item"   >
       <a href="#" class="books__item-link">
       <div class="books__card">
         <img
@@ -28,6 +29,7 @@ function booksCardTemplate(data) {
           class="books__card-title-img"
           width="180"
           height="256"
+          data-id='${book._id}'
         />
         <div class="books__overlay">
           <p class="books__overlay-text">quick view</p>
@@ -38,14 +40,14 @@ function booksCardTemplate(data) {
           <p class="books__card-author">${book.author}</p>
         </div>
      </a>
-    </li>  ` })}
+    </li>  `;
+  })}
   </ul>
   <button class="books__btn" type="button">see more</button>
-</li>`
-  }).join('')
-
+</li>`;
+    })
+    .join('');
 }
-
 
 let currentRenderWidth = 375;
 
@@ -69,4 +71,3 @@ if (currentRenderWidth < 768) {
 } else {
   amountRenderedBooks = 5;
 }
-

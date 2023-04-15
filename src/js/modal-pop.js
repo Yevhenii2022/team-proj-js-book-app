@@ -7,7 +7,7 @@ import appleImg from '../images/book-store-icon/apple-books.png';
 import bookShopImg from '../images/book-store-icon/book-shop.png';
 
 import { getLocalStorageData } from './books-localStorage';
-console.log(getLocalStorageData());
+// console.log(getLocalStorageData());
 
 // Здійснення відкриття модального вікна
 // let bookForRendering;
@@ -23,18 +23,27 @@ console.log(getLocalStorageData());
 // }
 
 //Work of Modal-Pop
-refs.headerEl.addEventListener('click', openModalPop);
-// console.log(refs.addBookBtnEl);
+refs.listBookEl.addEventListener('click', openModalPop);
+// console.log(refs.listBookEl);
 //OPEN/CLOSE MODAL VINDOW
-function openModalPop() {
+function openModalPop(event) {
   // refs.scrollBtn.classList.remove('btn__scroll--show');
-  // console.log(event, 'dfdf');
+
+  event.preventDefault();
+
+  if (event.target.nodeName !== 'IMG') return;
+  const ffffff = event.target;
+  // console.log(ffffff);
+  const bookId = event.target.getAttribute('data-id');
+  // console.log(bookId);
+
   refs.backdrop.classList.remove('backdrop--is-hidden');
   refs.backdrop.addEventListener('click', handleBackdropClick);
   refs.closeModalPopBtn.addEventListener('click', closeModalPop);
   window.addEventListener('keydown', onEscKeyPress);
 
-  renderBookById('643282b1e85766588626a089');
+  // renderBookById(event.target.getAttribute('data-id'));
+  renderBookById(bookId);
 }
 
 function closeModalPop() {
@@ -70,7 +79,7 @@ async function renderBookById(id) {
 
   try {
     const data = await getBooksId(id);
-    console.log(data);
+    // console.log(data);
 
     const { book_image, title, author, description, buy_links } = data;
 

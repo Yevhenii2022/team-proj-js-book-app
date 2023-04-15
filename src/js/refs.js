@@ -1,6 +1,5 @@
 const refs = {
   //Header
-  headerEl: document.querySelector('.header'),
 
   // Home
   categoriesSidebar: document.querySelector('.sidebar__categories'),
@@ -12,11 +11,10 @@ const refs = {
   //Shopping-list
 
   //Pop-up-modal
-  // addBookBtnEl: document.querySelector('[data-modal-add-book]'),
+  listBookEl: document.querySelector('.books__container'),
   closeModalPopBtn: document.querySelector('[data-modal-close]'),
   modalPopEl: document.querySelector('[data-modal]'),
   backdrop: document.querySelector('.backdrop'),
-
 
   // Mobile - menu - modal
 

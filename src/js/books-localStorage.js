@@ -14,7 +14,7 @@ refs.modalPopEl.addEventListener('click', event => {
   }
 });
 
-console.log(refs.modalPopEl);
+// console.log(refs.modalPopEl);
 
 function handleModalPopElClick() {
   console.log('ffffff');
