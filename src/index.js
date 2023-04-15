@@ -1,6 +1,6 @@
 //IMPORTS
 // import './js/pagination';
-
+// import throttle from 'lodash.throttle';
 // import './js/api-book';
 import {
   getCategoryList,
