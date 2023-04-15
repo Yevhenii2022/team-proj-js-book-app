@@ -1,6 +1,6 @@
 import { getTopBooks } from './api-book';
 import refs from './refs';
-import booksCardTpl from '../templates/gallery-card.hbs';
+// import booksCardTpl from '../templates/gallery-card.hbs';
 let currentRenderWidth = 375;
 
 addEventListener('resize', event => {
@@ -43,7 +43,7 @@ function booksCardTemplate(data) {
   <ul class="books__card-container"> ${elements.books
     .map(book => {
       return `
-    <li class="books__item"  data-id='${book._id}' >
+    <li class="books__item">
       <a href="#" class="books__item-link">
       <div class="books__card">
         <img
@@ -52,6 +52,7 @@ function booksCardTemplate(data) {
           class="books__card-title-img"
           width="180"
           height="256"
+          data-id='${book._id}'
         />
         <div class="books__overlay">
           <p class="books__overlay-text">quick view</p>
@@ -72,5 +73,3 @@ function booksCardTemplate(data) {
     })
     .join('');
 }
-
-
