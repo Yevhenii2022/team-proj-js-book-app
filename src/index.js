@@ -2,8 +2,25 @@
 // import './js/pagination';
 console.log(555);
 import './js/shopping-list';
-// приклади імпортів NPM пакетів
+// import './js/api-book';
+import {
+  getCategoryList,
+  getBooksCategory,
+  getTopBooks,
+  getBooksId,
+} from './js/api-book';
 
+import './js/refs';
+import './js/home-categories';
+import './js/home-cards';
+import './js/home__support';
+import './js/modal-pop';
+import './js/scroll-up';
+import './js/books-localStorage';
+import './js/storage-methods';
+
+// приклади імпортів NPM пакетів
+import './js/slider';
 // import axios from 'axios';
 
 // import Notiflix from 'notiflix';

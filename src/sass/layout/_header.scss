@@ -32,6 +32,9 @@
 }
 
 .logo {
+  display: flex;
+  align-items: center;
+
   padding-top: 18px;
   padding-bottom: 18px;
 
@@ -44,12 +47,15 @@
   }
 }
 
-// .logo__svg {
-//   //   fill-opacity: 0;
-//   fill: #f6f6f6;
-//   // stroke-width: 0;
-//   stroke: #4f2ee8;
-// }
+.logo:hover {
+  scale: 1.1;
+}
+
+.logo-book {
+  width: 57px;
+  height: 17px;
+  margin-left: 5px;
+}
 
 .navigation__list {
   display: none;
@@ -82,17 +88,11 @@
   padding-top: 7px;
   padding-bottom: 7px;
 }
-.navigation__link--hover {
+.is-activ {
   font-weight: 700;
   border-radius: 36px;
   background-color: $color-hover-activ;
 }
-// .header .navigation__link:hover,
-// .header .navigation__link:focus {
-//   font-weight: 700;
-//   border-radius: 36px;
-//   background-color: $color-hover-activ;
-// }
 
 .burger-meny-btn {
   width: 28px;
@@ -114,16 +114,114 @@
 }
 
 .burger-meny-btn__icon {
-  //   fill: #111111;
-  fill-opacity: 0;
-  //   display: flex;
-  //   margin: auto;
-  //   stroke-width: 0;
-  stroke: #111111;
+  // fill-opacity: 0;
+  // stroke: #111111;
+  stroke: currentColor;
 }
 
 .navigation--btn__icon {
-  fill-opacity: 0;
-  // stroke-width: 0;
-  stroke: #111111;
+  fill: #111111;
+}
+
+// SWITHCER
+
+.swithcer {
+  position: relative;
+  display: flex;
+  width: 40px;
+  height: 20px;
+  margin-left: auto;
+  margin-right: 14px;
+  padding: 0;
+
+  border: 0;
+  border-radius: 10px;
+  @media screen and(min-width: $tablet) {
+    margin-right: 24px;
+  }
+}
+
+.input {
+  visibility: hidden;
+}
+
+.label {
+  position: absolute;
+  width: 40px;
+  height: 20px;
+  background: linear-gradient(180deg, #4f2ee8 0%, #dcdcdc 100%);
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.circle::before {
+  content: '';
+  position: absolute;
+  cursor: pointer;
+  left: 2px;
+  top: 1px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  transition: 0.4s;
+  background-color: #fff;
+  animation: toggleOff 0.4s linear forwards;
+}
+
+.input:checked + .label {
+  background: linear-gradient(180deg, #4f2ee8 0%, #686868 100%);
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.input:checked + .label .circle::before {
+  animation: toggleOn 0.4s linear forwards;
+  background-color: black;
+}
+
+@keyframes toggleOn {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(18px);
+  }
+}
+
+@keyframes toggleOff {
+  0% {
+    transform: translateX(18px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+// SIGN-UP-BUTTON
+
+.sign-up-btn {
+  display: none;
+  @media screen and(min-width: $tablet) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 184px;
+    padding: 13px 14px;
+
+    background-color: $color-blue;
+    
+    border: 1.5px solid $color-dark;
+    border-radius: 18px;
+    cursor: pointer;
+  }
+}
+
+.sign-up-btn__text {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: calc(18 / 14);
+  letter-spacing: -0.04em;
+  color: $color-white;
 }

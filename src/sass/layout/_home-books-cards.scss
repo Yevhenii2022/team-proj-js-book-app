@@ -25,7 +25,6 @@
   }
 }
 .books__card-container {
-   
   @media screen and(min-width: $tablet) {
     display: flex;
     flex-wrap: wrap;
@@ -34,8 +33,8 @@
 }
 
 .books__list-title {
+  display: block;
   font-size: 14px;
-  line-height: 18px;
   letter-spacing: 0.03em;
   text-transform: uppercase;
   color: $color-text-grey;
@@ -47,26 +46,26 @@
 }
 
 .books__card {
-  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 14px;
 }
 
 .books__card-title-img {
-
   border-radius: 8px;
-  margin-bottom: 14px;
 
   @media screen and(max-width: $befor-tablet) {
-    // width: 335px;
-    margin-bottom: 14px;
+    width: 335px;
+    height: 485px;
   }
 
   @media screen and(min-width: $tablet) {
-    // width: 218px;
+    width: 218px;
+    height: 316px;
   }
   @media screen and(min-width: $desktop) {
     height: 256px;
     width: 180px;
-    margin-bottom: 14px;
   }
 }
 .books__card-title {
@@ -79,6 +78,7 @@
 
   color: $color-dark;
   margin-bottom: 4px;
+
   @media screen and(min-width: $tablet) {
     width: 218px;
   }
@@ -97,29 +97,80 @@
 
   color: $color-text-grey;
 }
+.books__btn {
+  display: block;
+  margin-left: auto;
+  margin-top: 8px;
+  margin-bottom: 40px;
+  padding: 14px 28px;
 
-.overlay {
-  width: 100%;
-  height: 27%;
-  opacity: 0;
-  background-color: rgba(234, 198, 67, 0.75);
-  border-radius: 0 0 8px 8px;
-  transition: transform cubic-bezier(0.075, 0.82, 0.165, 1);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+
+  color: $color-dark;
+  background-color: transparent;
+  border: 2px solid $color-blue;
+  border-radius: 40px;
+
+  @media screen and(min-width: $tablet) {
+    margin-top: 20px;
+  }
+  @media screen and(min-width: $desktop) {
+    margin-top: 32px;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $color-blue;
+    color: $color-white;
+  }
+}
+
+.books__item-link {
+  &:hover,
+  &:focus {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+      1px 4px 6px rgba(0, 0, 0, 0.16);
+  }
+  &:hover .books__overlay {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.books__overlay {
   position: absolute;
   bottom: 0;
   left: 0;
   transform: translateY(100%);
-}
+  border-radius: 0 0 8px 8px;
 
-// .overlay__text {
-//   text-transform: uppercase;
-//   position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   transform: translate(-50%, -50%);
-// }
-// .overlay:hover ,
-// .overlay:focus  {
-//   opacity: 1;
-//   transform: translateY(0px);
-// }
+  width: 100%;
+  height: 27%;
+  opacity: 0;
+
+  background: #eac645;
+  user-select: none;
+
+  transition-duration: 300ms;
+  transition-timing-function: ease-out;
+
+  &-text {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+
+    font-weight: 500;
+    font-size: 14px;
+    line-height: calc(18 / 14);
+
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+
+    color: $color-dark;
+  }
+}
