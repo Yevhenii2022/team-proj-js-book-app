@@ -150,4 +150,6 @@
 
 .swiper-button-next__icon {
   fill: #4f2ee8;
+
+  transition: transform 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
