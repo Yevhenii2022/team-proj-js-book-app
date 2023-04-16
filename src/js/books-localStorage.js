@@ -5,13 +5,6 @@ import refs from './refs';
 // const isShoppingListPage = location.pathname.includes('shopping-list');
 
 const shoppingListArray = [];
-// const savedDataShoppingList = localStorage.getItem('shoppingList');
-// const parsedDataShoppingList = JSON.parse(savedDataShoppingList);
-// if (parsedDataShoppingList) {
-//   for (const array of parsedDataShoppingList) {
-//     shoppingListArray.push(array);
-//   }
-// }
 
 refs.modalPopEl.addEventListener('click', event => {
   event.preventDefault();
@@ -24,46 +17,23 @@ refs.modalPopEl.addEventListener('click', event => {
 function handleModalPopElClick() {
   console.log('click btn');
   const activeBook = LsService.load('active-book');
-  // console.log(activeBook);
 
   const watchedBtnRef = refs.modalPopEl.querySelector('.modal-info__button');
   console.log(watchedBtnRef);
+  LsService.remove('selected-books');
 
-  // if (shoppingListArray.find(el => el.id === activeBook.id)) {
-  //   const idx = shoppingListArray.findIndex(el => el.id === activeBook.id);
-  //   shoppingListArray.splice(idx, 1);
-  //   LsService.save('selected-books', shoppingListArray);
-  //   Notiflix.Notify.warning('This book was removed from your Shopping list!');
-  //   watchedBtnRef.textContent = 'add to shopping list';
-  //   removeBookFromList(activeBook.id);
-  //   return;
-  // }
+  if (shoppingListArray.find(el => el._id === activeBook._id)) {
+    const idx = shoppingListArray.findIndex(el => el._id === activeBook._id);
+    shoppingListArray.splice(idx, 1);
+    LsService.save('selected-books', shoppingListArray);
+    Notiflix.Notify.warning('This book was removed from your Shopping list!');
+    watchedBtnRef.textContent = 'add to shopping list';
+    // LsService.remove('selected-books');
+    return;
+  }
 
   shoppingListArray.push(activeBook);
   LsService.save('selected-books', shoppingListArray);
   Notiflix.Notify.success('This book was added to your Shopping list!');
   watchedBtnRef.textContent = 'remove from the shopping list';
-  addBookBackToList(activeBook.id);
-}
-
-function removeBookFromList(itemID) {
-  if (isShoppingListPage) {
-    const bookCard = document.querySelector(`[data-id="${itemID}"]`);
-
-    bookCard.style.display = 'none';
-  }
-}
-
-function addBookBackToList(itemID) {
-  if (isLibraryPage) {
-    const bookCard = document.querySelector(`[data-id="${itemID}"]`);
-
-    bookCard.style.display = 'block';
-  }
-}
-
-export function getLocalStorageData() {
-  if (LsService.load('selected-books')) {
-    shoppingListArray.push(...LsService.load('selected-books'));
-  }
 }

@@ -7,25 +7,9 @@ import amazonImg from '../images/book-store-icon/amazon.png';
 import appleImg from '../images/book-store-icon/apple-books.png';
 import bookShopImg from '../images/book-store-icon/book-shop.png';
 
-import { getLocalStorageData } from './books-localStorage';
-console.log(getLocalStorageData());
-
-// Здійснення відкриття модального вікна
-// let bookForRendering;
-
-// const shoppingListArray = [];
-
-// const savedDataShoppingList = localStorage.getItem('shoppingList');
-// const parsedDataShoppingList = JSON.parse(savedDataShoppingList);
-// if (parsedDataShoppingList) {
-//   for (const array of parsedDataShoppingList) {
-//     shoppingListArray.push(array);
-//   }
-// }
-
 //Work of Modal-Pop
 refs.listBookEl.addEventListener('click', openModalPop);
-// console.log(refs.listBookEl);
+
 //OPEN/CLOSE MODAL VINDOW
 function openModalPop(event) {
   // refs.scrollBtn.classList.remove('btn__scroll--show');
@@ -43,7 +27,6 @@ function openModalPop(event) {
   refs.closeModalPopBtn.addEventListener('click', closeModalPop);
   window.addEventListener('keydown', onEscKeyPress);
 
-  // renderBookById(event.target.getAttribute('data-id'));
   renderBookById(bookId);
 }
 
@@ -87,9 +70,9 @@ async function renderBookById(id) {
 
     const { book_image, title, author, description, buy_links } = book;
 
-    // const isActivBook = Boolean(
-    //   LsService.load('selected-books')?.find(el => el._id === book._id)
-    // );
+    const isActivBook = Boolean(
+      LsService.load('selected-books')?.find(el => el._id === book._id)
+    );
 
     const markup = `
       <div class="modal-info">
@@ -100,17 +83,23 @@ async function renderBookById(id) {
           <p class="modal-info__text">${description}</p>
           <ul class="modal-info__list">
             <li>
-              <a class="modal-info__link" href="${buy_links[0].url}" target="_blank">
+              <a class="modal-info__link" href="${
+                buy_links[0].url
+              }" target="_blank">
                 <img src="${amazonImg}" />
               </a>
             </li>
             <li>
-              <a class="modal-info__link" href="${buy_links[1].url}" target="_blank">
+              <a class="modal-info__link" href="${
+                buy_links[1].url
+              }" target="_blank">
                 <img src="${appleImg}" alt="apple-books" />
               </a>
             </li>
             <li>
-              <a class="modal-info__link" href="${buy_links[4].url}" target="_blank">
+              <a class="modal-info__link" href="${
+                buy_links[4].url
+              }" target="_blank">
                 <img src="${bookShopImg}" />
               </a>
             </li>
@@ -118,11 +107,9 @@ async function renderBookById(id) {
         </div>
       </div>
       <button class="modal-info__button" type="button">
-                    // 
-                      // isActivBook
-                        // ? 'remove from the shopping list'
-                        : 'add to shopping list'
-                    // 
+      ${
+        isActivBook ? 'remove from the shopping list' : 'add to shopping list'
+      }                 
       </button>`;
     refs.modalPopEl.innerHTML = markup;
   } catch (error) {

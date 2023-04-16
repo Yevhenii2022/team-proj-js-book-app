@@ -15,7 +15,7 @@ let numberOfClicks = Math.ceil(
     scrolledDistance
 );
 
-console.log(numberOfClicks);
+// console.log(numberOfClicks);
 btnDownEl.addEventListener('click', onMoveDownClick);
 
 function onMoveDownClick() {
