@@ -2,9 +2,7 @@ import LsService from './storage-methods';
 import Notiflix from 'notiflix';
 import refs from './refs';
 
-// const isShoppingListPage = location.pathname.includes('shopping-list');
-
-const shoppingListArray = [];
+const shoppingListArray = LsService.load(refs.SHOP_LIST_KEY);
 
 refs.modalPopEl.addEventListener('click', event => {
   event.preventDefault();
@@ -15,16 +13,16 @@ refs.modalPopEl.addEventListener('click', event => {
 });
 
 function handleModalPopElClick() {
-  console.log('click btn');
+  // console.log('click btn');
   const activeBook = LsService.load('active-book');
 
   const watchedBtnRef = refs.modalPopEl.querySelector('.modal-info__button');
-  console.log(watchedBtnRef);
+  // console.log(watchedBtnRef);
 
   if (shoppingListArray.find(el => el._id === activeBook._id)) {
     const idx = shoppingListArray.findIndex(el => el._id === activeBook._id);
     shoppingListArray.splice(idx, 1);
-    LsService.save('selected-books', shoppingListArray);
+    LsService.save(refs.SHOP_LIST_KEY, shoppingListArray);
     Notiflix.Notify.warning('This book was removed from your Shopping list!');
     watchedBtnRef.textContent = 'add to shopping list';
     // LsService.remove('selected-books');
