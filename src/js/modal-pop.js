@@ -45,6 +45,7 @@ function closeModalPop() {
   // if (scrollParam > coords) {
   //   refs.scrollBtn????.classList.add('btn__scroll--show');
   // }
+  LsService.remove('selected-books');
 }
 
 function onEscKeyPress(event) {
