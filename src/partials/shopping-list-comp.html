@@ -1,28 +1,43 @@
-<div class="shopping-container container"  id="shopping-list">
-  <!-- charity -->
-  <div class="charity shopping__charity"></div>
-  <!-- shopping-list -->
-  <section class="shopping">
-    <h1 class="shopping__heading">
-      Shopping<span class="shopping__heading--color"> List</span>
-    </h1>
-    <ul class="shopping__cards"></ul>
-    <div class="shopping__storage">
-      <p class="shopping__storage-notification">
-        This page is empty, add some books and proceed to order.
-      </p>
-      <img
-        srcset="
-          ./images/shopping-list-empty-bg/shoping-list-empty-mobile-sm.png    265w,
-          ./images/shopping-list-empty-bg/shoping-list-empty-mobile-sm-2x.png 530w,
-          ./images/shopping-list-empty-bg/shoping-list-empty-lg.png           322w,
-          ./images/shopping-list-empty-bg/shoping-list-empty-lg-2x.png        644w
-        "
-        sizes="(min-width: 1440px) 322px, 265px"
-        src="./images/shopping-list-empty-bg/shoping-list-empty-mobile-sm.png"
-        alt="Images haven't found"
-      />
-    </div>
-    <!-- pagination -->
-  </section>
+<!-- charity -->
+<div class="support__container charity shopping__charity">
+  <div class="wrapper">
+    <h1 class="support__title">Support Ukraine</h1>
+    <svg class="support__icon" width="20" height="32">
+      <use href="./images/icons.svg#icon-arms-icon"></use>
+    </svg>
+  </div>
+
+  <div class="swiper-container">
+    <div class="logoContainer"></div>
+  </div>
+  <button class="swiper-button-next" type="button">
+    <svg class="swiper-button-next__icon" width="22" height="22">
+      <use href="./images/icons.svg#icon-arrow-down-icon"></use>
+    </svg>
+  </button>
 </div>
+<!-- shopping-list -->
+<section class="shopping">
+  <h1 class="shopping__heading">
+    Shopping<span class="shopping__heading--color"> List</span>
+  </h1>
+  <ul class="shopping__cards"></ul>
+  <div class="shopping__storage">
+    <p class="shopping__storage-notification">
+      This page is empty, add some books and proceed to order.
+    </p>
+    <img
+      srcset="
+        ./images/shopping-list-empty-bg/shoping-list-empty-mobile-sm.png    265w,
+        ./images/shopping-list-empty-bg/shoping-list-empty-mobile-sm-2x.png 530w,
+        ./images/shopping-list-empty-bg/shoping-list-empty-lg.png           322w,
+        ./images/shopping-list-empty-bg/shoping-list-empty-lg-2x.png        644w
+      "
+      sizes="(min-width: 1440px) 322px, 265px"
+      src="./images/shopping-list-empty-bg/shoping-list-empty-mobile-sm.png"
+      alt="Images haven't found"
+    />
+  </div>
+  <!-- pagination -->
+  <div id="tui-pagination-container" class="tui-pagination pagination"></div>
+</section>
