@@ -5,8 +5,8 @@ const refs = {
   categoriesSidebar: document.querySelector('.sidebar__categories'),
   homeBooksByType: document.querySelector('.home-typeBook'),
   homeBook: document.querySelector('.home-book'),
-  homeList: document.querySelector('.home-list'),
   cardContainerEl: document.querySelector('.books__container'),
+  homeContainer:document.querySelector('.home__main-container'),
 
   //Shopping-list
 

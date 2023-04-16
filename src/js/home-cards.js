@@ -1,6 +1,8 @@
 import { getTopBooks } from './api-book';
 import refs from './refs';
 // import booksCardTpl from '../templates/gallery-card.hbs';
+
+export  {createTopBooksMarkup};
 let currentRenderWidth = 375;
 
 addEventListener('resize', event => {
@@ -29,6 +31,8 @@ const createTopBooksMarkup = async () => {
   markup = markup.map(el => {
     return { ...el, books: el.books };
   });
+  refs.homeBooksByType.classList.remove('container_active');
+  refs.homeContainer.classList.add('container_active');
   refs.cardContainerEl.innerHTML = await booksCardTemplate(markup);
 };
 
