@@ -13,7 +13,7 @@ refs.listBookEl.addEventListener('click', openModalPop);
 
 //OPEN/CLOSE MODAL VINDOW
 function openModalPop(event) {
-  // refs.scrollBtnEl.classList.add('btn-up_hide');
+  refs.scrollBtnEl.classList.add('btn-up_hide');
   document.body.classList.add('no-scroll');
 
   event.preventDefault();
@@ -33,7 +33,7 @@ function openModalPop(event) {
 }
 
 function closeModalPop() {
-  document.body.classList.toggle('no-scroll');
+  document.body.classList.remove('no-scroll');
   refs.backdrop.classList.toggle('backdrop--is-hidden');
 
   refs.backdrop.removeEventListener('click', handleBackdropClick);
