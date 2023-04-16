@@ -33,15 +33,21 @@
   display: block;
   height: 228px;
   overflow: auto;
+  overflow-y: hidden;
   max-width: 336px; 
   margin-bottom: 40px; 
+  font-weight: 400;
+  font-size: 16px;
+  line-height: calc(18/16);
   @media screen and(min-width: $tablet) {
     height: 472px;
     margin-bottom: 0; 
+    font-size: 18px;
+  line-height: calc(24/18);
   }
 
   @media screen and(min-width: $desktop) {
-    height: 228px;
+    
     margin-bottom: 85px;
     
   }
