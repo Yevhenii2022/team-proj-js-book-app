@@ -1,79 +1,46 @@
-.dark-mode {
+.dark-mode,
+.dark-mode .modal-pop {
     background-color: $color-dark-accent;
-    color: $color-white;
+   
   }
   .dark-mode .header__container {
     border: 1.5px solid $color-white;
     background-color:  $color-dark;
   }
+
+  .dark-mode .shopping__card {
+    background-color: $color-dark;
+}
   
-  .dark-mode .logo-book {
-    fill: $color-white;
+  .dark-mode .category-item.active,
+  .dark-mode .category-item:hover {
+    color: $color-hover-activ;
+ }
+
+  .dark-mode .navigation__link,
+  .dark-mode .navigation--btn__icon,
+  .dark-mode .books__main-title,
+  .dark-mode .books__card-title,
+  .dark-mode .books__btn,
+  .dark-mode .burger-meny-btn__icon,
+  .dark-mode .logo-book,
+  .dark-mode .shopping__title,
+  .dark-mode .shopping__book-description--tablet,
+  .dark-mode .shopping__heading,
+  .dark-mode .modal-info__title,
+  .dark-mode {
     color: $color-white;
-    transform: 0.4s;
+    fill: $color-white;
   }
 
-  .dark-mode .navigation__link{
-    color: $color-white;
-    fill: $color-white;
-  }
-
-.dark-mode .navigation--btn__icon {
-   fill: $color-white;
-}
-
-.dark-mode .books__main-title {
-    color:  $color-white;
-}
-
-.dark-mode .books__card-title {
-    color:  $color-white;
-}
-
-.dark-mode .books__btn {
-    color:  $color-white;
-}
-
-.dark-mode .burger-meny-btn__icon {
-    color:  $color-white;
-}
-
-.dark-mode .modal-pop{
-    background-color: $color-dark-accent;
-}
-
-.dark-mode .modal-pop__button--close {
-    background-color: $color-dark-accent;
-}
-
-.dark-mode .modal-info__author {
+.dark-mode .modal-info__author,
+.dark-mode .shopping__book-author--tablet,
+.dark-mode .shopping__book-author,
+.dark-mode .shopping__storage-notification {
    color: $color-text-grey;
 }
  
-.dark-mode .shopping__card {
-    background-color: $color-dark;
-}
 
-.dark-mode .shopping__title {
-    color:  $color-white;
-}
 
-.dark-mode .shopping__book-description--tablet {
-    color:  $color-white;
-}
 
-.dark-mode .shopping__heading {
-    color: $color-white;
-}
 
-.dark-mode .shopping__book-author--tablet {
-    color: $color-text-grey;
-}
-
-.dark-mode .tui-pagination .tui-is-selected {
-    background-color: $color-white;
-}
-
-.dark-mode .shopping__storage-notification {
-    color: $color-text-grey;
-}
