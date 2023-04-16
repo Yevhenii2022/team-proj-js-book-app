@@ -19,19 +19,21 @@
 .books__main-title-attribute {
   color: $color-blue;
 }
-// .books__container {
-//   @media screen and(min-width: $desktop) {
-//     margin-left: 40px;
-//   }
-// }
+
 .books__card-container {
   @media screen and(min-width: $tablet) {
     display: flex;
     flex-wrap:wrap;
-    gap: 25px;
+    gap:40px 25px ;
   }
 }
 
+.books__item{
+  @media screen and(max-width: $befor-tablet){
+     margin-bottom: 40px;
+  }
+ 
+}
 
 .books__list-title {
   display: block;

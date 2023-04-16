@@ -108,7 +108,7 @@ function markupTopBooksByType(data, typeBooks) {
             </div> 
             </div>
             <div class="books__descr">
-            <h3 class="books__card-title">${book.title}</h3>
+            <h3 class="books__card-title">${cutBookTitle(book.title)}</h3>
             <p class="books__card-author">
             ${book.author}
             </p>
@@ -118,3 +118,20 @@ function markupTopBooksByType(data, typeBooks) {
            .join('')}
          </ul>`
 };
+
+
+function cutBookTitle(title) {
+    if (window.innerWidth <= 767 && title.length >= 27)
+      return title
+        .substring(0, 27)
+        .toUpperCase()
+        .replace(/\s[A-Z]*$/g, '...');
+  
+    if (window.innerWidth > 767 && title.length >= 19)
+      return title
+        .substring(0, 19)
+        .toUpperCase()
+        .replace(/\s[A-Z]*$/g, '...');
+  
+    return title;
+  }
