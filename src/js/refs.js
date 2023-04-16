@@ -6,7 +6,7 @@ const refs = {
   homeBooksByType: document.querySelector('.home-typeBook'),
   homeBook: document.querySelector('.home-book'),
   cardContainerEl: document.querySelector('.books__container'),
-  homeContainer:document.querySelector('.home__main-container'),
+  homeContainer: document.querySelector('.home__main-container'),
 
   //Shopping-list
 
