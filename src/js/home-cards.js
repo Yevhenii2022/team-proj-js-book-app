@@ -1,5 +1,6 @@
 import { getTopBooks } from './api-book';
 import refs from './refs';
+import { spinerStart, spinerStop } from './loader';
 // import booksCardTpl from '../templates/gallery-card.hbs';
 
 export { createTopBooksMarkup };
@@ -25,8 +26,9 @@ if (currentRenderWidth < 768) {
 } else {
   amountRenderedBooks = 5;
 }
-// console.log(amountRenderedBooks);
+
 const createTopBooksMarkup = async () => {
+  spinerStart();
   let markup = await getTopBooks();
   markup = markup.map(el => {
     return { ...el, books: el.books };
@@ -34,6 +36,7 @@ const createTopBooksMarkup = async () => {
   refs.homeBooksByType.classList.remove('container_active');
   refs.homeContainer.classList.add('container_active');
   refs.cardContainerEl.innerHTML = await booksCardTemplate(markup);
+  spinerStop();
 };
 
 createTopBooksMarkup();
@@ -45,8 +48,8 @@ function booksCardTemplate(data) {
         <li class="books__list">
   <h3 class="books__list-title">${elements.list_name}</h3>
   <ul class="books__card-container"> ${elements.books
-          .map(book => {
-            return `
+    .map(book => {
+      return `
     <li class="books__item">
       <a href="#" class="books__item-link">
       <div class="books__card">
@@ -68,16 +71,15 @@ function booksCardTemplate(data) {
         </div>
      </a>
     </li>`;
-          })
-          .slice(0, amountRenderedBooks)
-          .join('')}
+    })
+    .slice(0, amountRenderedBooks)
+    .join('')}
   </ul>
   <button class="books__btn" type="button">see more</button>
 </li>`;
     })
     .join('');
 }
-
 
 function cutBookTitle(title) {
   if (window.innerWidth <= 767 && title.length >= 27)
