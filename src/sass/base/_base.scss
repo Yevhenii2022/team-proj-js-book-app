@@ -9,7 +9,7 @@ body {
   background-color: $color-home-background;
 
   // Забороняє прокрутку сторінки при відкритому модальному вікні
-  // &.no-scroll {
-  //   overflow: hidden;
-  // }
+  &.no-scroll {
+    overflow: hidden;
+  }
 }
