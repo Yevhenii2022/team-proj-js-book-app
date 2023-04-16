@@ -1,53 +1,49 @@
-.home-container{
-  margin-top: 40px;
+.home-container {
+  padding-top: 40px;
+
   @media screen and(min-width: $desktop) {
     display: grid;
-    
+
     gap: 40px;
-     grid-template-areas: "sidebar content";
+    grid-template-areas: 'sidebar content';
   }
 }
 .main {
- 
   @media screen and(min-width: $desktop) {
     grid-area: content;
   }
 }
 
-
- 
-
-.home__main-container{
+.home__main-container {
   display: none;
 }
-.home__main-container.container_active{
+.home__main-container.container_active {
   display: block;
 }
-.home-typeBook{
+.home-typeBook {
   display: none;
 }
-.home-typeBook.container_active{
+.home-typeBook.container_active {
   display: block;
 }
 .sidebar__categories {
   display: block;
   height: 228px;
   overflow: auto;
-  max-width: 336px; 
-  margin-bottom: 40px; 
+  max-width: 336px;
+  margin-bottom: 40px;
   @media screen and(min-width: $tablet) {
+    width: 335px;
     height: 472px;
-    margin-bottom: 0; 
+    margin-bottom: 0;
   }
 
   @media screen and(min-width: $desktop) {
-    height: 228px;
+    height: 328px;
     margin-bottom: 85px;
-    
   }
 }
 .category-item {
- 
   color: rgba(17, 17, 17, 0.6);
   cursor: pointer;
 }
@@ -55,12 +51,10 @@
   margin-bottom: 24px;
   @media screen and(min-width: $tablet) {
     margin-bottom: 32px;
-    
   }
 
   @media screen and(min-width: $desktop) {
     margin-bottom: 24px;
-    
   }
 }
 
@@ -69,34 +63,29 @@
 .category-item:focus {
   text-transform: uppercase;
   font-weight: 700;
-  color: #4F2EE8;
+  color: #4f2ee8;
 }
 
-
-
 .sidenav {
-  
- 
-  @media screen and(min-width: $tablet) {
+  margin-bottom: 40px;
+  @media screen and (min-width: $tablet) {
     display: flex;
-   
+
     margin-bottom: 100px;
   }
 
   @media screen and(min-width: $desktop) {
+    margin-bottom: 0;
     max-width: 356px;
     grid-area: sidebar;
     display: inline;
   }
-  
-  
 }
-.books__card-author{
+.books__card-author {
   @media screen and(min-width: $tablet) {
     width: 218px;
   }
   @media screen and(min-width: $desktop) {
     width: 180px;
-    
   }
 }
