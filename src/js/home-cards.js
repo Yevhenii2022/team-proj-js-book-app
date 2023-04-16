@@ -2,7 +2,7 @@ import { getTopBooks } from './api-book';
 import refs from './refs';
 // import booksCardTpl from '../templates/gallery-card.hbs';
 
-export  {createTopBooksMarkup};
+export { createTopBooksMarkup };
 let currentRenderWidth = 375;
 
 addEventListener('resize', event => {
@@ -45,8 +45,8 @@ function booksCardTemplate(data) {
         <li class="books__list">
   <h3 class="books__list-title">${elements.list_name}</h3>
   <ul class="books__card-container"> ${elements.books
-    .map(book => {
-      return `
+          .map(book => {
+            return `
     <li class="books__item">
       <a href="#" class="books__item-link">
       <div class="books__card">
@@ -63,17 +63,34 @@ function booksCardTemplate(data) {
         </div>
        </div> 
         <div class="books__descr">
-          <h3 class="books__card-title">${book.title}</h3>
+          <h3 class="books__card-title">${cutBookTitle(book.title)}</h3>
           <p class="books__card-author">${book.author}</p>
         </div>
      </a>
     </li>`;
-    })
-    .slice(0, amountRenderedBooks)
-    .join('')}
+          })
+          .slice(0, amountRenderedBooks)
+          .join('')}
   </ul>
   <button class="books__btn" type="button">see more</button>
 </li>`;
     })
     .join('');
+}
+
+
+function cutBookTitle(title) {
+  if (window.innerWidth <= 767 && title.length >= 27)
+    return title
+      .substring(0, 27)
+      .toUpperCase()
+      .replace(/\s[A-Z]*$/g, '...');
+
+  if (window.innerWidth > 767 && title.length >= 19)
+    return title
+      .substring(0, 19)
+      .toUpperCase()
+      .replace(/\s[A-Z]*$/g, '...');
+
+  return title;
 }
