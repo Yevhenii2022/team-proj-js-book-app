@@ -10,12 +10,11 @@
 
 .support__container {
   max-width: 335px;
-
+  margin: 0 auto;
   padding-top: 24px;
   padding-bottom: 20px;
   padding-left: 40px;
-  padding-right: 58px;
-  margin: 0 auto;
+  padding-right: 40px;
 
   background: radial-gradient(
     183.6% 183.01% at 59.76% -23.42%,
@@ -27,22 +26,11 @@
 
   @include tablet {
     max-width: 335px;
-
-    padding-top: 24px;
-    padding-bottom: 20px;
-    padding-left: 40px;
-    padding-right: 58px;
-    margin: 0 auto;
   }
 
   @include desktop {
-    max-width: 356px;
-
-    padding-top: 24px;
-    padding-bottom: 20px;
-    padding-left: 40px;
-    padding-right: 58px;
-    margin: 0 auto;
+    margin: 0;
+    width: 356px;
   }
 }
 
@@ -117,9 +105,13 @@
   height: 32px;
 }
 
-.logo__img {
-  filter: brightness(100) contrast(100%) grayscale(1);
-}
+// .logo__img {
+//   @include transition(filter);
+//   &:hover,
+//   &:focus {
+//     filter: brightness(60%) sepia(80) saturate(5) hue-rotate(5deg);
+//   }
+// }
 
 .buttonSlider {
   width: 32px;
@@ -146,6 +138,18 @@
   &:focus {
     background-color: $color-hover-activ;
   }
+}
+
+.fund-item p,
+.fund-item .logo__img {
+  @include transition(filter);
+}
+
+.fund-item:hover p,
+.fund-item:focus p,
+.fund-item:hover .logo__img,
+.fund-item:focus .logo__img {
+  filter: brightness(60%) sepia(80) saturate(5) hue-rotate(5deg);
 }
 
 .swiper-button-next__icon {
