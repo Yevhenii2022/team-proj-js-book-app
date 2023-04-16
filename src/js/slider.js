@@ -1,4 +1,3 @@
-/* --------------------------------- slider --------------------------------- */
 const swiperOverflowContainerEl = document.querySelector('.swiper-container');
 const logosContainerEl = document.querySelector('.logoContainer');
 const logoItemEl = document.querySelector('.logo__item');
@@ -16,6 +15,7 @@ let numberOfClicks = Math.ceil(
 );
 
 // console.log(numberOfClicks);
+
 btnDownEl.addEventListener('click', onMoveDownClick);
 
 function onMoveDownClick() {
@@ -27,8 +27,6 @@ function onMoveDownClick() {
     logosContainerEl.style.transform = `translateY(${
       -scrolledDistance * currentClick
     }px)`;
-
-    console.log(logosContainerEl.style.transform);
     ++currentClick;
   } else {
     currentClick = 1;
