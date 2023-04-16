@@ -1,30 +1,15 @@
 import refs from './refs';
 import { getBooksId } from './api-book';
 import Notiflix from 'notiflix';
+import LsService from './storage-methods';
 import defaultImage from '../images/shopping-list-empty-bg/shoping-list-empty-lg.png';
 import amazonImg from '../images/book-store-icon/amazon.png';
 import appleImg from '../images/book-store-icon/apple-books.png';
 import bookShopImg from '../images/book-store-icon/book-shop.png';
 
-import { getLocalStorageData } from './books-localStorage';
-// console.log(getLocalStorageData());
-
-// Здійснення відкриття модального вікна
-// let bookForRendering;
-
-// const shoppingListArray = [];
-
-// const savedDataShoppingList = localStorage.getItem('shoppingList');
-// const parsedDataShoppingList = JSON.parse(savedDataShoppingList);
-// if (parsedDataShoppingList) {
-//   for (const array of parsedDataShoppingList) {
-//     shoppingListArray.push(array);
-//   }
-// }
-
 //Work of Modal-Pop
 refs.listBookEl.addEventListener('click', openModalPop);
-// console.log(refs.listBookEl);
+
 //OPEN/CLOSE MODAL VINDOW
 function openModalPop(event) {
   // refs.scrollBtn.classList.remove('btn__scroll--show');
@@ -33,16 +18,15 @@ function openModalPop(event) {
 
   if (event.target.nodeName !== 'IMG') return;
   const ffffff = event.target;
-  // console.log(ffffff);
+  console.log(ffffff);
   const bookId = event.target.getAttribute('data-id');
-  // console.log(bookId);
+  console.log(bookId);
 
   refs.backdrop.classList.remove('backdrop--is-hidden');
   refs.backdrop.addEventListener('click', handleBackdropClick);
   refs.closeModalPopBtn.addEventListener('click', closeModalPop);
   window.addEventListener('keydown', onEscKeyPress);
 
-  // renderBookById(event.target.getAttribute('data-id'));
   renderBookById(bookId);
 }
 
@@ -53,6 +37,7 @@ function closeModalPop() {
   refs.backdrop.removeEventListener('click', handleBackdropClick);
   refs.closeModalPopBtn.removeEventListener('click', closeModalPop);
   window.removeEventListener('keydown', onEscKeyPress);
+  LsService.remove('active-book');
 
   // const scrollParam = window.scrollY;
   // const coords = document.documentElement.clientHeight;
@@ -78,10 +63,16 @@ async function renderBookById(id) {
   refs.modalPopEl.innerHTML = '';
 
   try {
-    const data = await getBooksId(id);
-    // console.log(data);
+    const book = await getBooksId(id);
+    console.log(book);
+    console.log(book._id);
+    LsService.save('active-book', book);
 
-    const { book_image, title, author, description, buy_links } = data;
+    const { book_image, title, author, description, buy_links } = book;
+
+    const isActivBook = Boolean(
+      LsService.load('selected-books')?.find(el => el._id === book._id)
+    );
 
     const markup = `
       <div class="modal-info">
@@ -92,17 +83,23 @@ async function renderBookById(id) {
           <p class="modal-info__text">${description}</p>
           <ul class="modal-info__list">
             <li>
-              <a class="modal-info__link" href="${buy_links[0].url}" target="_blank">
+              <a class="modal-info__link" href="${
+                buy_links[0].url
+              }" target="_blank">
                 <img src="${amazonImg}" />
               </a>
             </li>
             <li>
-              <a class="modal-info__link" href="${buy_links[1].url}" target="_blank">
+              <a class="modal-info__link" href="${
+                buy_links[1].url
+              }" target="_blank">
                 <img src="${appleImg}" alt="apple-books" />
               </a>
             </li>
             <li>
-              <a class="modal-info__link" href="${buy_links[4].url}" target="_blank">
+              <a class="modal-info__link" href="${
+                buy_links[4].url
+              }" target="_blank">
                 <img src="${bookShopImg}" />
               </a>
             </li>
@@ -110,7 +107,9 @@ async function renderBookById(id) {
         </div>
       </div>
       <button class="modal-info__button" type="button">
-        Add to shopping list
+      ${
+        isActivBook ? 'remove from the shopping list' : 'add to shopping list'
+      }                 
       </button>`;
     refs.modalPopEl.innerHTML = markup;
   } catch (error) {

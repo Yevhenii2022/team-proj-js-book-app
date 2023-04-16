@@ -2,7 +2,7 @@ import { getTopBooks } from './api-book';
 import refs from './refs';
 // import booksCardTpl from '../templates/gallery-card.hbs';
 
-export  {createTopBooksMarkup};
+export { createTopBooksMarkup };
 let currentRenderWidth = 375;
 
 addEventListener('resize', event => {
@@ -25,7 +25,7 @@ if (currentRenderWidth < 768) {
 } else {
   amountRenderedBooks = 5;
 }
-console.log(amountRenderedBooks);
+// console.log(amountRenderedBooks);
 const createTopBooksMarkup = async () => {
   let markup = await getTopBooks();
   markup = markup.map(el => {
