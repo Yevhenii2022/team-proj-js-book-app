@@ -7,7 +7,7 @@
     background-color:  $color-dark;
   }
   
-  .dark-mode .logo-book{
+  .dark-mode .logo-book {
     fill: $color-white;
     color: $color-white;
     transform: 0.4s;
@@ -34,7 +34,7 @@
     color:  $color-white;
 }
 
-.dark-mode .burger-meny-btn__icon{
+.dark-mode .burger-meny-btn__icon {
     color:  $color-white;
 }
 
@@ -46,8 +46,11 @@
     background-color: $color-dark-accent;
 }
 
-
-.dark-mode .shopping__card{
+.dark-mode .modal-info__author {
+   color: $color-text-grey;
+}
+ 
+.dark-mode .shopping__card {
     background-color: $color-dark;
 }
 
@@ -63,7 +66,7 @@
     color: $color-white;
 }
 
-.dark-mode .shopping__book-author--tablet{
+.dark-mode .shopping__book-author--tablet {
     color: $color-text-grey;
 }
 
