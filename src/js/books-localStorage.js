@@ -28,7 +28,7 @@ function handleModalPopElClick() {
     LsService.save('selected-books', shoppingListArray);
     Notiflix.Notify.warning('This book was removed from your Shopping list!');
     watchedBtnRef.textContent = 'add to shopping list';
-    // LsService.remove('selected-books');
+    LsService.remove('selected-books');
     return;
   }
 
