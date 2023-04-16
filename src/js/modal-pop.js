@@ -13,7 +13,8 @@ refs.listBookEl.addEventListener('click', openModalPop);
 
 //OPEN/CLOSE MODAL VINDOW
 function openModalPop(event) {
-  // refs.scrollBtn.classList.remove('btn__scroll--show');
+  // refs.scrollBtnEl.classList.add('btn-up_hide');
+  document.body.classList.add('no-scroll');
 
   event.preventDefault();
 
@@ -40,12 +41,12 @@ function closeModalPop() {
   window.removeEventListener('keydown', onEscKeyPress);
   LsService.remove('active-book');
 
-  // const scrollParam = window.scrollY;
-  // const coords = document.documentElement.clientHeight;
+  const scrollParam = window.scrollY;
+  const coords = document.documentElement.clientHeight;
 
-  // if (scrollParam > coords) {
-  //   refs.scrollBtn????.classList.add('btn__scroll--show');
-  // }
+  if (scrollParam > coords) {
+    refs.scrollBtnEl.classList.remove('btn-up_hide');
+  }
 }
 
 function onEscKeyPress(event) {
