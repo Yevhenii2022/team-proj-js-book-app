@@ -1,8 +1,3 @@
-.tui-pagination{
-    @include desktop {
-    margin-left: 295px !important;
-  }
-}
 .tui-pagination .tui-page-btn{
     width: 25px !important;
     height:25px !important;
@@ -10,11 +5,11 @@
     border: 0.1px solid gray !important;
     margin-bottom:40px;
     margin-right: 5px;
-    padding: 7px 0 15px !important;
+    padding: 5px 0 14px !important;
     font-size: 12px !important;
     background: white;
     & .tui-next-is-ellip {margin-right: 8px !important};
-    @media screen and (min-width: 780px)  {
+    @include tablet  {
     width: 44px !important;
     height:44px !important;
     margin-right: 8px;
@@ -27,18 +22,21 @@
     background:#111111 !important;
     border-color: gray !important;
     margin-right: 5px;
-    padding: 7px 0 15px !important;
-      @media screen and (min-width: 376px)  {
+    padding: 5px 0 15px !important;
+ @include tablet  {
     padding: 12px 0 18px !important;
     margin-right: 8px;
   }
 }
 .tui-pagination {
     position: relative;
+    @include desktop {
+    margin-left: 295px !important;
+  }
     & .tui-last, .tui-next, .tui-prev, .tui-first  {
     background: #EAC645 ;
     margin-right: 4px;
-  @media screen and (min-width: 780px)  {
+   @include tablet  {
     margin-right: 6px;
   }
   } 
@@ -57,26 +55,26 @@
    right: 30%;
    width: 12px !important;
    height: 10px !important;
-  @media screen and (min-width: 780px) {
+   @include tablet {
    top: 35%;
-   right: 30%;
-   width: 16px !important;
+   right:35%;
+   width: 14px !important;
    height: 12px !important;
   }
    }
    & .tui-ico-last {
    background-position:  0 -12px;
-   right: 25%;
-    @media screen and (min-width: 780px) {
+   right: 20%;
+   @include tablet {
    right: 30%;
   }
   }
    & .tui-ico-prev, .tui-ico-next {
    top: 30%;
-   right:45%;
-    width: 6px !important;
+   right:40%;
+   width: 6px !important;
    height: 10px !important;
-   @media screen and (min-width: 780px)  {
+ @include tablet {
    top: 35%;
    right: 40%;
    width: 8px !important;
@@ -84,18 +82,21 @@
   }
    
    }
+    
    & .tui-ico-next{
-   right:40%;
-    @media screen and (min-width: 780px) {
+   right:35%;
+ @include tablet {
      right: 35%;
   }
-   
-   }
+      }
    & .tui-ico-ellip{
+     position: absolute;
+         right: 25%;
      width: 10px !important;
      height: 1.5px !important;
-     margin-top: 7px !important;
-    @media screen and (min-width: 780px)  {
+     margin-top: 9px !important;
+    @include tablet  {
+        right: 37%;
      height: 2px !important;
      margin-top: 15px !important;
   }
@@ -103,13 +104,13 @@
     }
    .tui-page-btn.tui-prev {
     margin-right: 8px;
-  @media screen and (min-width: 780px)  {
+  @include tablet  {
     margin-right: 10px !important;
   }
 }
    .tui-page-btn.tui-next-is-ellip.pagination__last-item {
     margin-right: 8px;
-   @media screen and (min-width: 780px)  {
+  @include tablet  {
     margin-right: 10px;
   }
 }
