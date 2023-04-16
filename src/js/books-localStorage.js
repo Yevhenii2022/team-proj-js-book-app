@@ -20,7 +20,6 @@ function handleModalPopElClick() {
 
   const watchedBtnRef = refs.modalPopEl.querySelector('.modal-info__button');
   console.log(watchedBtnRef);
-  LsService.remove('selected-books');
 
   if (shoppingListArray.find(el => el._id === activeBook._id)) {
     const idx = shoppingListArray.findIndex(el => el._id === activeBook._id);
