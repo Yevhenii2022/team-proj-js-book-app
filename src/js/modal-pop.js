@@ -13,12 +13,13 @@ refs.listBookEl.addEventListener('click', openModalPop);
 
 //OPEN/CLOSE MODAL VINDOW
 function openModalPop(event) {
-  refs.scrollBtnEl.classList.add('btn-up_hide');
-  document.body.classList.add('no-scroll');
-
   event.preventDefault();
 
   if (event.target.nodeName !== 'IMG') return;
+
+  refs.scrollBtnEl.classList.add('btn-up_hide');
+  document.body.classList.add('no-scroll');
+
   const ffffff = event.target;
   console.log(ffffff);
   const bookId = event.target.getAttribute('data-id');
