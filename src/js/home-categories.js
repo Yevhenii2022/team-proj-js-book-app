@@ -3,6 +3,7 @@ import refs from './refs';
 import { createTopBooksMarkup } from './home-cards';
 import { spinerStart, spinerStop } from './loader';
 
+
 const renderCategories = async () => {
   spinerStart();
   const category = await getCategoryList();
@@ -78,11 +79,14 @@ function markupCategoriesList(categories) {
 
 const showTypeBook = async type => {
   spinerStart();
+  
   const typeBooksMore = await getBooksCategory(type);
   refs.homeContainer.classList.remove('container_active');
   refs.homeBooksByType.classList.add('container_active');
   refs.homeBooksByType.innerHTML = markupTopBooksByType(typeBooksMore, type);
+  
   spinerStop();
+  
 };
 
 function markupTopBooksByType(data, typeBooks) {
@@ -139,3 +143,4 @@ function cutBookTitle(title) {
 
   return title;
 }
+
