@@ -33,9 +33,6 @@
 }
 .tui-pagination {
   position: relative;
-  @include desktop {
-    margin-left: 0 !important;
-  }
   & .tui-last,
   .tui-next,
   .tui-prev,
