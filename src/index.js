@@ -8,6 +8,7 @@ import {
 } from './js/api-book';
 
 import './js/refs';
+import './js/header-nav';
 import './js/home-categories';
 import './js/home-cards';
 import './js/home__support';
@@ -15,8 +16,10 @@ import './js/modal-pop';
 import './js/scroll-up';
 import './js/books-localStorage';
 import './js/storage-methods';
+import './js/dark-theme'
 import './js/slider';
 import './js/loader';
+
 
 // приклади імпортів NPM пакетів
 
