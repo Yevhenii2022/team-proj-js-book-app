@@ -2,6 +2,9 @@ import { getCategoryList, getBooksCategory } from './api-book';
 import refs from './refs';
 import { createTopBooksMarkup } from './home-cards';
 import { spinerStart, spinerStop } from './loader';
+import { cutBookTitle, cutBookAuthor } from './home-cards';
+
+export {showTypeBook, markupTopBooksByType};
 
 
 const renderCategories = async () => {
@@ -33,12 +36,12 @@ function markupCategoriesList(categories) {
   return `<li class="category-item active" data-id="all-categories">
         All categories</li>
         ${categories
-          .map(
-            category => `<li class="category-item" data-id="${category.list_name}">
+      .map(
+        category => `<li class="category-item" data-id="${category.list_name}">
         ${category.list_name}
         </li>`
-          )
-          .join('')}`;
+      )
+      .join('')}`;
 }
 
 // const renderTopBooks = async () => {
@@ -79,28 +82,28 @@ function markupCategoriesList(categories) {
 
 const showTypeBook = async type => {
   spinerStart();
-  
+
   const typeBooksMore = await getBooksCategory(type);
   refs.homeContainer.classList.remove('container_active');
   refs.homeBooksByType.classList.add('container_active');
   refs.homeBooksByType.innerHTML = markupTopBooksByType(typeBooksMore, type);
-  
+
   spinerStop();
-  
+
 };
 
 function markupTopBooksByType(data, typeBooks) {
   return `
         <h3 class="books__main-title">${typeBooks.substring(
-          0,
-          typeBooks.lastIndexOf(' ')
-        )}<span class="books__main-title-attribute"> ${typeBooks
+    0,
+    typeBooks.lastIndexOf(' ')
+  )}<span class="books__main-title-attribute"> ${typeBooks
     .split(' ')
     .pop()}</span></h3>
         <ul class="books__card-container">
         ${data
-          .map(
-            book => `<li class="books__item">
+      .map(
+        book => `<li class="books__item">
             <a href="#" class="books__item-link">
             <div class="books__card">
             <img
@@ -119,28 +122,13 @@ function markupTopBooksByType(data, typeBooks) {
             <div class="books__descr">
             <h3 class="books__card-title">${cutBookTitle(book.title)}</h3>
             <p class="books__card-author">
-            ${book.author}
+            ${cutBookAuthor(book.author)}
             </p>
             </a>
             </li>`
-          )
-          .join('')}
+      )
+      .join('')}
          </ul>`;
 }
 
-function cutBookTitle(title) {
-  if (window.innerWidth <= 767 && title.length >= 27)
-    return title
-      .substring(0, 27)
-      .toUpperCase()
-      .replace(/\s[A-Z]*$/g, '...');
-
-  if (window.innerWidth > 767 && title.length >= 19)
-    return title
-      .substring(0, 19)
-      .toUpperCase()
-      .replace(/\s[A-Z]*$/g, '...');
-
-  return title;
-}
 

@@ -23,16 +23,15 @@
 .books__card-container {
   @media screen and(min-width: $tablet) {
     display: flex;
-    flex-wrap:wrap;
-    gap:40px 25px ;
+    flex-wrap: wrap;
+    gap: 40px 25px;
   }
 }
 
-.books__item{
-  @media screen and(max-width: $befor-tablet){
-     margin-bottom: 40px;
+.books__item {
+  @media screen and(max-width: $befor-tablet) {
+    margin-bottom: 40px;
   }
- 
 }
 
 .books__list-title {
@@ -53,7 +52,6 @@
   overflow: hidden;
   margin-bottom: 14px;
 }
-
 
 .books__card-title-img {
   border-radius: 8px;
@@ -156,7 +154,7 @@
   height: 27%;
   opacity: 0;
 
-  background: #eac645;
+  background: $color-hover-activ;
   user-select: none;
 
   transition-duration: 300ms;
