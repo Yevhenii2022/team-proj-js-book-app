@@ -13,6 +13,7 @@ import './js/header-nav';
 import './js/home-categories';
 import './js/home-cards';
 import './js/home__support';
+import './js/menu-modal';
 import './js/modal-pop';
 import './js/scroll-up';
 import './js/books-localStorage';
