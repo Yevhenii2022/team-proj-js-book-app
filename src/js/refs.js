@@ -7,7 +7,7 @@ const refs = {
   homeBook: document.querySelector('.home-book'),
   cardContainerEl: document.querySelector('.books__container'),
   homeContainer: document.querySelector('.home__main-container'),
-
+ 
   //Shopping-list
   shoppingListEl: document.querySelector('.shopping__cards'),
   notificationContainerEl: document.querySelector('.shopping__storage'),
