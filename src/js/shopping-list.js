@@ -2,6 +2,7 @@ import refs from './refs';
 import { getPagination } from './pagination';
 import localStoragemethod from './storage-methods';
 import { spinerStart, spinerStop } from './loader';
+import { setActiveState } from './set-active-state';
 import amazonImage1 from '../images/shopping-list-shops/amazon-shop-1x.png';
 import amazonImage2 from '../images/shopping-list-shops/amazon-shop-2x.png';
 import appleImage1 from '../images/shopping-list-shops/apple-shop-1x.png';
@@ -9,7 +10,8 @@ import appleImage2 from '../images/shopping-list-shops/apple-shop-2x.png';
 import bookshopImage1 from '../images/shopping-list-shops/bookshop-1x.png';
 import bookshopImage2 from '../images/shopping-list-shops/bookshop-2x.png';
 import bookshopImage2 from '../images/shopping-list-shops/bookshop-2x.png';
-console.log('Is it works?');
+
+setActiveState(refs.navlinks);
 let bookList = localStoragemethod.load(refs.SHOP_LIST_KEY);
 
 let currentPage = 1;
