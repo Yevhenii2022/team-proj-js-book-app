@@ -3,6 +3,29 @@ import refs from './refs';
 import { createTopBooksMarkup } from './home-cards';
 import { spinerStart, spinerStop } from './loader';
 
+let currentRenderWidth = 375;
+
+addEventListener('resize', event => {
+  if (
+    (window.innerWidth > 767 && currentRenderWidth < 768) ||
+    (window.innerWidth > 1439 && currentRenderWidth < 1440) ||
+    (window.innerWidth < 1440 && currentRenderWidth > 1439) ||
+    (window.innerWidth < 768 && currentRenderWidth > 767)
+  ) {
+    location.reload();
+  }
+});
+
+currentRenderWidth = window.innerWidth;
+let amountRenderedBooks = 1;
+if (currentRenderWidth < 768) {
+  amountRenderedBooks = 1;
+} else if (currentRenderWidth > 767 && currentRenderWidth < 1440) {
+  amountRenderedBooks = 3;
+} else {
+  amountRenderedBooks = 5;
+}
+
 const renderCategories = async () => {
   spinerStart();
   const category = await getCategoryList();
@@ -78,11 +101,14 @@ function markupCategoriesList(categories) {
 
 const showTypeBook = async type => {
   spinerStart();
+  
   const typeBooksMore = await getBooksCategory(type);
   refs.homeContainer.classList.remove('container_active');
   refs.homeBooksByType.classList.add('container_active');
   refs.homeBooksByType.innerHTML = markupTopBooksByType(typeBooksMore, type);
+  
   spinerStop();
+  
 };
 
 function markupTopBooksByType(data, typeBooks) {
@@ -120,6 +146,7 @@ function markupTopBooksByType(data, typeBooks) {
             </a>
             </li>`
           )
+          .slice(0, amountRenderedBooks)
           .join('')}
          </ul>`;
 }
@@ -139,3 +166,4 @@ function cutBookTitle(title) {
 
   return title;
 }
+

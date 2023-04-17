@@ -4,17 +4,21 @@ import { spinerStart, spinerStop } from './loader';
 // import booksCardTpl from '../templates/gallery-card.hbs';
 
 export { createTopBooksMarkup };
+
 let currentRenderWidth = 375;
 
 addEventListener('resize', event => {
+  let state = false;
   if (
     (window.innerWidth > 767 && currentRenderWidth < 768) ||
     (window.innerWidth > 1439 && currentRenderWidth < 1440) ||
     (window.innerWidth < 1440 && currentRenderWidth > 1439) ||
     (window.innerWidth < 768 && currentRenderWidth > 767)
   ) {
-    location.reload();
-  }
+    
+      location.reload();
+    }
+  
 });
 
 currentRenderWidth = window.innerWidth;
@@ -26,6 +30,7 @@ if (currentRenderWidth < 768) {
 } else {
   amountRenderedBooks = 5;
 }
+console.dir(amountRenderedBooks)
 
 const createTopBooksMarkup = async () => {
   spinerStart();
