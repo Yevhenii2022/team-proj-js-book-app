@@ -8,6 +8,7 @@ import {
 } from './js/api-book';
 
 import './js/refs';
+import './js/header-nav';
 import './js/home-categories';
 import './js/home-cards';
 import './js/home__support';
