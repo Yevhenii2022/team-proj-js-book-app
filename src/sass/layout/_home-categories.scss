@@ -11,6 +11,7 @@
 .main {
   @media screen and(min-width: $desktop) {
     grid-area: content;
+    margin-left: 336px;
   }
 }
 
@@ -19,27 +20,34 @@
 }
 .home__main-container.container_active {
   display: block;
+ 
 }
 .home-typeBook {
   display: none;
 }
 .home-typeBook.container_active {
   display: block;
+  
 }
 .sidebar__categories {
   display: block;
   height: 228px;
   overflow: auto;
-  max-width: 336px;
-  margin-bottom: 40px;
+  max-width: 336px; 
+  margin-bottom: 40px; 
+  font-weight: 400;
+  font-size: 16px;
+  line-height: calc(18/16);
   @media screen and(min-width: $tablet) {
     width: 335px;
     height: 472px;
-    margin-bottom: 0;
+    margin-bottom: 0; 
+    font-size: 18px;
+  line-height: calc(24/18);
   }
 
   @media screen and(min-width: $desktop) {
-    height: 328px;
+    
     margin-bottom: 85px;
   }
 }
@@ -70,11 +78,12 @@
   margin-bottom: 40px;
   @media screen and (min-width: $tablet) {
     display: flex;
-
+    
     margin-bottom: 100px;
   }
 
   @media screen and(min-width: $desktop) {
+    position: fixed;
     margin-bottom: 0;
     max-width: 356px;
     grid-area: sidebar;
@@ -83,9 +92,9 @@
 }
 .books__card-author {
   @media screen and(min-width: $tablet) {
-    width: 218px;
+    max-width: 218px;
   }
   @media screen and(min-width: $desktop) {
-    width: 180px;
+    max-width: 180px;
   }
 }

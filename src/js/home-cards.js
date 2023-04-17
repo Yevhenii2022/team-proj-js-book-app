@@ -1,12 +1,22 @@
 import { getTopBooks } from './api-book';
 import refs from './refs';
 import { spinerStart, spinerStop } from './loader';
+import throttle from 'lodash.throttle';
 // import booksCardTpl from '../templates/gallery-card.hbs';
 
 export { createTopBooksMarkup };
-let currentRenderWidth = 375;
 
-addEventListener('resize', event => {
+const homeContainer = document.querySelector('.home__main-container');
+let isActive;
+let currentRenderWidth = 375;
+let reloadState = true;
+
+
+window.addEventListener('resize', throttle(onResizewindow, 200));
+
+function onResizewindow() {
+  isActive = homeContainer.classList.contains('container_active');
+  if (!isActive) return;
   if (
     (window.innerWidth > 767 && currentRenderWidth < 768) ||
     (window.innerWidth > 1439 && currentRenderWidth < 1440) ||
@@ -15,7 +25,7 @@ addEventListener('resize', event => {
   ) {
     location.reload();
   }
-});
+}
 
 currentRenderWidth = window.innerWidth;
 let amountRenderedBooks = 1;
@@ -26,6 +36,7 @@ if (currentRenderWidth < 768) {
 } else {
   amountRenderedBooks = 5;
 }
+console.dir(amountRenderedBooks)
 
 const createTopBooksMarkup = async () => {
   spinerStart();
