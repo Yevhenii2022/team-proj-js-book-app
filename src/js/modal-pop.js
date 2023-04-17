@@ -21,9 +21,9 @@ function openModalPop(event) {
   document.body.classList.add('no-scroll');
 
   const ffffff = event.target;
-  console.log(ffffff);
+  // console.log(ffffff);
   const bookId = event.target.getAttribute('data-id');
-  console.log(bookId);
+  // console.log(bookId);
 
   refs.backdrop.classList.remove('backdrop--is-hidden');
   refs.backdrop.addEventListener('click', handleBackdropClick);
@@ -68,11 +68,13 @@ async function renderBookById(id) {
   try {
     spinerStart();
     const book = await getBooksId(id);
-    console.log(book);
-    console.log(book._id);
+    // console.log(book);
+    // console.log(book._id);
     LsService.save('active-book', book);
 
     const { book_image, title, author, description, buy_links } = book;
+
+    console.log(buy_links[0].url);
 
     const isActivBook = Boolean(
       LsService.load('selected-books')?.find(el => el._id === book._id)
@@ -111,9 +113,7 @@ async function renderBookById(id) {
         </div>
       </div>
       <button class="modal-info__button" type="button">
-      ${
-        isActivBook ? 'remove from the shopping list' : 'add to shopping list'
-      }                 
+      ${isActivBook ? 'remove from the shopping list' : 'add to shopping list'}
       </button>`;
     refs.modalPopEl.innerHTML = markup;
   } catch (error) {
