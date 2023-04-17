@@ -75,7 +75,7 @@
   &:hover,
   &:focus {
     stroke: $color-blue;
-    scale: 1.06;
+    scale: 1.05;
   }
 }
 
@@ -184,4 +184,26 @@
   margin: 0 auto;
   // margin-left: 50px;
   padding: 14px 28px;
+
+  font-size: 18px;
+  line-height: calc(24px / 18px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: $color-dark;
+
+  // background-color: inherit;
+  // border: 2px solid $accent-color;
+  // border-radius: 32px;
+
+  // @include transition(color, background-color);
+
+  // @media screen and (max-width: 375px) {
+  //   font-size: calc(18vw * 100 / 375);
+  // }
+
+  // @include tablet {
+  //   padding: 20px;
+  //   width: 100%;
+  // }
 }
