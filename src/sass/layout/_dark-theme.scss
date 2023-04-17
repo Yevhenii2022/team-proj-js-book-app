@@ -39,7 +39,10 @@
 .dark-mode .shopping__storage-notification {
    color: $color-text-grey;
 }
- 
+
+.dark-mode .shoppingshop:nth-child(1)> .shopping__shop-img {
+  filter: grayscale(1) brightness(10);
+}
 
 
 
