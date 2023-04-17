@@ -1,6 +1,7 @@
 // Стилі для модального вікна вибранної книги
 .backdrop {
   position: fixed;
+  z-index: 100;
   top: 0px;
   left: 0px;
   padding: 0 20px;
@@ -80,6 +81,14 @@
   width: 100%;
 }
 
+.modal-info__box {
+  max-width: 287px;
+
+  @include tablet {
+    width: 279px;
+  }
+}
+
 .modal-info {
   @include tablet {
     display: flex;
@@ -89,7 +98,11 @@
 
 .modal-info__image {
   margin: 0 auto 14px;
+  max-width: 287px;
+  max-height: 408px;
   border-radius: 8px;
+  overflow: hidden;
+  outline: 1px solid $color-text-grey;
 
   @include tablet {
     margin-bottom: 40px;
@@ -120,6 +133,6 @@
 .modal-info__button {
   display: block;
   margin: 0 auto;
-  // margin-left: 50px;
+  // margin-left: 40px;
   padding: 14px 28px;
 }

@@ -13,11 +13,13 @@ refs.listBookEl.addEventListener('click', openModalPop);
 
 //OPEN/CLOSE MODAL VINDOW
 function openModalPop(event) {
-  // refs.scrollBtn.classList.remove('btn__scroll--show');
-
   event.preventDefault();
 
   if (event.target.nodeName !== 'IMG') return;
+
+  refs.scrollBtnEl.classList.add('btn-up_hide');
+  document.body.classList.add('no-scroll');
+
   const ffffff = event.target;
   console.log(ffffff);
   const bookId = event.target.getAttribute('data-id');
@@ -32,7 +34,7 @@ function openModalPop(event) {
 }
 
 function closeModalPop() {
-  document.body.classList.toggle('no-scroll');
+  document.body.classList.remove('no-scroll');
   refs.backdrop.classList.toggle('backdrop--is-hidden');
 
   refs.backdrop.removeEventListener('click', handleBackdropClick);
@@ -40,12 +42,12 @@ function closeModalPop() {
   window.removeEventListener('keydown', onEscKeyPress);
   LsService.remove('active-book');
 
-  // const scrollParam = window.scrollY;
-  // const coords = document.documentElement.clientHeight;
+  const scrollParam = window.scrollY;
+  const coords = document.documentElement.clientHeight;
 
-  // if (scrollParam > coords) {
-  //   refs.scrollBtn????.classList.add('btn__scroll--show');
-  // }
+  if (scrollParam > coords) {
+    refs.scrollBtnEl.classList.remove('btn-up_hide');
+  }
 }
 
 function onEscKeyPress(event) {

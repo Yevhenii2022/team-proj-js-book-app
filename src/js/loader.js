@@ -9,5 +9,3 @@ export const spinerStart = () => {
 export const spinerStop = () => {
   Loading.remove();
 };
-
-console.log(spinerStart);

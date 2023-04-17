@@ -2,20 +2,19 @@
   position: fixed;
   width: 54px;
   height: 54px;
-  right: 25px;
-  bottom: 145px;
+  right: 0;
+  bottom: 70px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: rgba(79, 46, 232, 0.7);
   border-radius: 50%;
-  border: 5px solid transparent;
+  border: 5px solid  transparent;
   transform: translate(-50%, -50%);
   transition: border 0.2s ease-in-out, opacity 0.5s ease-in-out;
-
   opacity: 1;
-}
+ }
 .btn-up::before {
   content: '';
   width: 25px;
