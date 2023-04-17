@@ -1,6 +1,7 @@
-import dataBooks from '../test-json-api/category.json';
-import { getPagination, paginationEl } from './pagination';
-import { save, load } from './local-storage';
+import refs from './refs';
+import { getPagination } from './pagination';
+import localStoragemethod from './storage-methods';
+import { spinerStart, spinerStop } from './loader';
 import amazonImage1 from '../images/shopping-list-shops/amazon-shop-1x.png';
 import amazonImage2 from '../images/shopping-list-shops/amazon-shop-2x.png';
 import appleImage1 from '../images/shopping-list-shops/apple-shop-1x.png';
@@ -8,15 +9,8 @@ import appleImage2 from '../images/shopping-list-shops/apple-shop-2x.png';
 import bookshopImage1 from '../images/shopping-list-shops/bookshop-1x.png';
 import bookshopImage2 from '../images/shopping-list-shops/bookshop-2x.png';
 import bookshopImage2 from '../images/shopping-list-shops/bookshop-2x.png';
-
-const shoppingListEl = document.querySelector('.shopping__cards');
-const notificationContainerEl = document.querySelector('.shopping__storage');
-const shoppingHeadingEl = document.querySelector('.shopping__heading');
-const logoTrashPath = new URL('../images/icons.svg', import.meta.url);
-
-const SHOP_LIST_KEY = 'data';
-save(SHOP_LIST_KEY, dataBooks);
-let bookList = load(SHOP_LIST_KEY);
+console.log('Is it works?');
+let bookList = localStoragemethod.load(refs.SHOP_LIST_KEY);
 
 let currentPage = 1;
 let itemsPerPage = 3;
@@ -37,6 +31,7 @@ function renderShoppingList(data, page = 1) {
 
   if (currentData.length) {
     removeEmptyNotificationContainer();
+    spinerStart();
     const markup = currentData
       .map(
         ({
@@ -125,7 +120,7 @@ function renderShoppingList(data, page = 1) {
   </div>
   <button type="button" class="shopping__btn" aria-label="Delete the book from shopping list">
     <svg class="shopping__btn-icon" width="18" height="18">
-      <use href="${logoTrashPath}#icon-trash"></use>
+      <use href="${refs.logoTrashPath}#icon-trash"></use>
     </svg>
   </button>
   <p class="shopping__book-description">${description}</p>
@@ -133,23 +128,26 @@ function renderShoppingList(data, page = 1) {
         }
       )
       .join('');
-    shoppingListEl.innerHTML = markup;
-    shoppingListEl.addEventListener('click', onTrashClick);
+    refs.shoppingListEl.innerHTML = markup;
+    refs.shoppingListEl.addEventListener('click', onTrashClick);
+    spinerStop();
   } else {
     pasteEmptyNotificationContainer();
   }
 }
 
 function pasteEmptyNotificationContainer() {
-  shoppingListEl.innerHTML = '';
-  notificationContainerEl.classList.add('empty-js');
-  shoppingHeadingEl.style.marginBottom = '140px';
+  refs.shoppingListEl.innerHTML = '';
+  refs.notificationContainerEl.classList.add('empty-js');
+  refs.shoppingHeadingEl.style.marginBottom = '140px';
+  refs.paginationEl.style.display = 'none';
 }
 
 function removeEmptyNotificationContainer() {
-  notificationContainerEl.classList.remove('empty-js');
-  shoppingHeadingEl.style.marginBottom = '';
+  refs.notificationContainerEl.classList.remove('empty-js');
+  refs.shoppingHeadingEl.style.marginBottom = '';
   removeEventListener('click', onTrashClick);
+  refs.paginationEl.style.display = 'block';
 }
 
 function cutNameCategory(name) {
@@ -169,40 +167,25 @@ function onTrashClick(e) {
   if (!target) {
     return;
   }
-  const liEl = target.closest('.shopping__btn').closest('.shopping__card');
-  const seekedId = liEl.dataset.id.trim();
-  let removedElIndex = [...shoppingListEl.childNodes].indexOf(liEl);
+  const bookEl = target.closest('.shopping__btn').closest('.shopping__card');
+  const seekedId = bookEl.dataset.id.trim();
 
   const removedElIndexFromStorage = bookList.findIndex(
     item => item._id === seekedId
   );
 
   bookList.splice(removedElIndexFromStorage, 1);
+  localStoragemethod.save(refs.SHOP_LIST_KEY, bookList);
 
-  deleteCard(removedElIndex);
-
-  save(SHOP_LIST_KEY, bookList);
-
-  // renderShoppingList(bookList, page);
   bookCount = bookList.length;
-
   pagination.setTotalItems(bookCount);
   pagination.movePageTo(page);
 
-  if (shoppingListEl.childNodes.length === 0) {
+  if (refs.shoppingListEl.childNodes.length === 0) {
     pagination.movePageTo(currentPage - 1);
 
     if (!bookList.length) {
-      paginationEl.style.display = 'none';
+      refs.paginationEl.style.display = 'none';
     }
   }
-}
-
-function deleteCard(index) {
-  const number = shoppingListEl.children.length - 1;
-  if (!number) {
-    pasteEmptyNotificationContainer();
-    return;
-  }
-  shoppingListEl.removeChild(shoppingListEl.childNodes[index]);
 }

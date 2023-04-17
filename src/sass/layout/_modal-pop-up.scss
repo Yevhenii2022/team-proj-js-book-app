@@ -1,6 +1,7 @@
 // Стилі для модального вікна вибранної книги
 .backdrop {
   position: fixed;
+  z-index: 100;
   top: 0px;
   left: 0px;
   padding: 0 20px;
@@ -30,12 +31,16 @@
 
 .modal-pop {
   width: 100%;
+  margin-bottom: 50px;
+  margin-top: 50px;
+
   background-color: $color-white;
   border: 2px solid $color-dark;
   border-radius: 18px;
   position: relative;
 
   @include tablet {
+    margin: 0;
     width: 579px;
     height: 465px;
     position: absolute;
@@ -48,36 +53,53 @@
 
 .modal-pop__button--close {
   position: absolute;
-  top: 18px;
-  right: 18px;
+  top: 12px;
+  right: 12px;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
 
-  width: 28px;
-  height: 28px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  border-radius: 50%;
-  color: $color-dark;
-
-  @include transition(background-color, color);
-
-  &:hover,
-  &:focus {
-    background-color: $color-blue;
-    color: $color-blue;
+  @include tablet {
+    top: 24px;
+    right: 24px;
   }
 }
 
 .modal-pop__icon-close {
-  fill: $color-dark;
+  display: block;
+  stroke: $color-dark;
+
+  @include transition(stroke, scale);
+
+  @media screen and (max-width: 767px) {
+    width: 24px;
+    height: 24px;
+  }
+
+  &:hover,
+  &:focus {
+    stroke: $color-blue;
+    scale: 1.05;
+  }
 }
 
 // Стилі для оформлення змісту модального вікна книги
 .modal-pop__container {
-  // margin: 0 auto;
   padding: 40px 24px;
   width: 100%;
+
+  @include tablet {
+    height: 100%;
+    padding: 40px;
+  }
+}
+
+.modal-info__box {
+  max-width: 287px;
+
+  @include tablet {
+    width: 279px;
+  }
 }
 
 .modal-info {
@@ -90,6 +112,8 @@
 .modal-info__image {
   margin: 0 auto 14px;
   border-radius: 8px;
+  overflow: hidden;
+  outline: 1px solid $color-text-grey;
 
   @include tablet {
     margin-bottom: 40px;
@@ -99,27 +123,128 @@
 }
 
 .modal-info__title {
-  margin-bottom: 4px;
+  margin-bottom: 8px;
+  font-size: 24px;
+  line-height: calc(28px / 24px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: $color-dark;
+
+  @media screen and (max-width: $befor-tablet) {
+    margin-bottom: 4px;
+    font-size: 16px;
+    line-height: calc(18px / 16px);
+  }
 }
 
 .modal-info__author {
-  margin-bottom: 18px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-style: italic;
+  line-height: calc(18px / 14px);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+
+  @media screen and (max-width: $befor-tablet) {
+    margin-bottom: 18px;
+    font-size: 12px;
+    line-height: calc(14px / 12px);
+  }
 }
 
 .modal-info__text {
   margin-bottom: 14px;
-  max-width: 350px;
+  max-width: 279px;
+
+  min-height: 70px;
+  max-height: 145px;
+
+  font-size: 14px;
+  line-height: calc(18px / 14px);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  color: $color-dark;
+  overflow-y: auto;
+}
+
+.modal__pop::-webkit-scrollbar,
+.modal-info__text::-webkit-scrollbar,
+.modal-pop__container::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
 
 .modal-info__list {
   margin-bottom: 40px;
   display: flex;
   gap: 20px;
+  align-items: center;
+}
+
+.modal-info__link {
+  @include transition(filter);
+  &:hover {
+    filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.3));
+  }
 }
 
 .modal-info__button {
   display: block;
   margin: 0 auto;
-  // margin-left: 50px;
-  padding: 14px 28px;
+  padding: 14px 10px;
+
+  font-size: 18px;
+  line-height: calc(24px / 18px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: $color-dark;
+
+  background-color: inherit;
+  border: 2px solid $color-blue;
+  border-radius: 32px;
+
+  @include transition(color, background-color);
+
+  @media screen and (max-width: $befor-tablet) {
+    font-size: 14px;
+  }
+
+  @include tablet {
+    padding: 20px;
+    width: 100%;
+  }
+
+  &:hover,
+  &:focus {
+    color: $color-white;
+    background-color: $color-blue;
+  }
 }
+
+// .pop-up__description {
+//   text-align: center;
+//   margin: 0 auto;
+//   margin-top: 8px;
+//   max-width: 242px;
+
+//   @include fonts(
+//     10px,
+//     12px,
+//     400,
+//     -0.04em,
+//     false,
+//     var(--categories-links-color)
+//   );
+
+//   @media screen and (max-width: 375px) {
+//     font-size: calc(10vw * 100 / 375);
+//     line-height: calc(12 / 10);
+//   }
+
+//   @include tablet {
+//     width: 324px;
+//     font-size: 12;
+//     line-height: calc(14 / 12);
+//   }
+// }

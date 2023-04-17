@@ -1,7 +1,5 @@
 //IMPORTS
-// import './js/pagination';
-// import throttle from 'lodash.throttle';
-// import './js/api-book';
+
 import {
   getCategoryList,
   getBooksCategory,
@@ -18,9 +16,14 @@ import './js/scroll-up';
 import './js/books-localStorage';
 import './js/storage-methods';
 import './js/dark-theme'
+import './js/slider';
+import './js/loader';
+
 
 // приклади імпортів NPM пакетів
-import './js/slider';
+
+// import throttle from 'lodash.throttle';
+
 // import axios from 'axios';
 
 // import Notiflix from 'notiflix';
