@@ -49,29 +49,34 @@
 
 .modal-pop__button--close {
   position: absolute;
-  top: 18px;
-  right: 18px;
+  top: 12px;
+  right: 12px;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
 
-  width: 28px;
-  height: 28px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  border-radius: 50%;
-  color: $color-dark;
-
-  @include transition(background-color, color);
-
-  &:hover,
-  &:focus {
-    background-color: $color-blue;
-    color: $color-blue;
+  @include tablet {
+    top: 24px;
+    right: 24px;
   }
 }
 
 .modal-pop__icon-close {
-  fill: $color-dark;
+  display: block;
+  stroke: $color-dark;
+
+  @include transition(stroke, scale);
+
+  @media screen and (max-width: 767px) {
+    width: 24px;
+    height: 24px;
+  }
+
+  &:hover,
+  &:focus {
+    stroke: $color-blue;
+    scale: 1.06;
+  }
 }
 
 // Стилі для оформлення змісту модального вікна книги
@@ -98,8 +103,6 @@
 
 .modal-info__image {
   margin: 0 auto 14px;
-  max-width: 287px;
-  max-height: 408px;
   border-radius: 8px;
   overflow: hidden;
   outline: 1px solid $color-text-grey;
@@ -112,22 +115,68 @@
 }
 
 .modal-info__title {
-  margin-bottom: 4px;
+  margin-bottom: 8px;
+  font-size: 24px;
+  line-height: calc(28px / 24px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: $color-dark;
+
+  @media screen and (max-width: $befor-tablet) {
+    margin-bottom: 4px;
+    font-size: 16px;
+    line-height: calc(18px / 16px);
+  }
 }
 
 .modal-info__author {
-  margin-bottom: 18px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-style: italic;
+  line-height: calc(18px / 14px);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+
+  @media screen and (max-width: $befor-tablet) {
+    margin-bottom: 18px;
+    font-size: 12px;
+    line-height: calc(14px / 12px);
+  }
 }
 
 .modal-info__text {
   margin-bottom: 14px;
-  max-width: 350px;
+  max-width: 279px;
+
+  min-height: 70px;
+  max-height: 145px;
+
+  font-size: 14px;
+  line-height: calc(18px / 14px);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  color: $color-dark;
+  overflow-y: auto;
+}
+
+.modal__pop::-webkit-scrollbar,
+.modal-info__text::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
 
 .modal-info__list {
   margin-bottom: 40px;
   display: flex;
   gap: 20px;
+  align-items: center;
+}
+
+.modal-info__link {
+  @include transition(filter);
+  &:hover {
+    filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.3));
+  }
 }
 
 .modal-info__button {
