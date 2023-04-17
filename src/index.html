@@ -41,10 +41,17 @@
     <!-- <a href="./shopping-list.html">Shopping list</a> -->
     <main class="container">
       <!-- home -->
-
-      <include src="./partials/home-categories.html"></include>
-      <include src="./partials/home__support.html"></include>
-      <include src="./partials/home.html"></include>
+      <div class="home-container">
+        
+        <aside class="sidenav">
+          <include src="./partials/categories.html"></include>
+          <include src="./partials/home__support.html"></include>
+        </aside>
+        <div class="main ">
+          <include src="./partials/home.html"></include>
+          <include src="./partials/home-categories.html"></include>
+        </div>
+      </div>
     </main>
 
     <!-- spinner/loader -->

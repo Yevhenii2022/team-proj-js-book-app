@@ -1,6 +1,9 @@
 import { getTopBooks } from './api-book';
 import refs from './refs';
+import { spinerStart, spinerStop } from './loader';
 // import booksCardTpl from '../templates/gallery-card.hbs';
+
+export { createTopBooksMarkup };
 let currentRenderWidth = 375;
 
 addEventListener('resize', event => {
@@ -23,13 +26,17 @@ if (currentRenderWidth < 768) {
 } else {
   amountRenderedBooks = 5;
 }
-console.log(amountRenderedBooks);
+
 const createTopBooksMarkup = async () => {
+  spinerStart();
   let markup = await getTopBooks();
   markup = markup.map(el => {
     return { ...el, books: el.books };
   });
+  refs.homeBooksByType.classList.remove('container_active');
+  refs.homeContainer.classList.add('container_active');
   refs.cardContainerEl.innerHTML = await booksCardTemplate(markup);
+  spinerStop();
 };
 
 createTopBooksMarkup();
@@ -59,7 +66,7 @@ function booksCardTemplate(data) {
         </div>
        </div> 
         <div class="books__descr">
-          <h3 class="books__card-title">${book.title}</h3>
+          <h3 class="books__card-title">${cutBookTitle(book.title)}</h3>
           <p class="books__card-author">${book.author}</p>
         </div>
      </a>
@@ -72,4 +79,20 @@ function booksCardTemplate(data) {
 </li>`;
     })
     .join('');
+}
+
+function cutBookTitle(title) {
+  if (window.innerWidth <= 767 && title.length >= 27)
+    return title
+      .substring(0, 27)
+      .toUpperCase()
+      .replace(/\s[A-Z]*$/g, '...');
+
+  if (window.innerWidth > 767 && title.length >= 19)
+    return title
+      .substring(0, 19)
+      .toUpperCase()
+      .replace(/\s[A-Z]*$/g, '...');
+
+  return title;
 }
