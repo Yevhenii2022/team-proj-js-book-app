@@ -1,0 +1,49 @@
+.dark-mode,
+.dark-mode .modal-pop {
+    background-color: $color-dark-accent;
+   
+  }
+  .dark-mode .header__container {
+    border: 1.5px solid $color-white;
+    background-color:  $color-dark;
+  }
+
+  .dark-mode .shopping__card {
+    background-color: $color-dark;
+}
+  
+  .dark-mode .category-item.active,
+  .dark-mode .category-item:hover {
+    color: $color-hover-activ;
+ }
+
+  .dark-mode .navigation__link,
+  .dark-mode .navigation--btn__icon,
+  .dark-mode .books__main-title,
+  .dark-mode .books__card-title,
+  .dark-mode .books__btn,
+  .dark-mode .burger-meny-btn__icon,
+  .dark-mode .logo-book,
+  .dark-mode .shopping__title,
+  .dark-mode .shopping__book-description--tablet,
+  .dark-mode .shopping__heading,
+  .dark-mode .modal-info__title,
+  .dark-mode {
+    color: $color-white;
+    fill: $color-white;
+  }
+
+.dark-mode .modal-info__author,
+.dark-mode .shopping__book-author--tablet,
+.dark-mode .shopping__book-author,
+.dark-mode .shopping__storage-notification {
+   color: $color-text-grey;
+}
+
+.dark-mode .shoppingshop:nth-child(1)> .shopping__shop-img {
+  filter: grayscale(1) brightness(10);
+}
+
+
+
+
