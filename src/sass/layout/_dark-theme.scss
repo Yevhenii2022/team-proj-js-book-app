@@ -11,6 +11,10 @@
   .dark-mode .shopping__card {
     background-color: $color-dark;
 }
+
+.dark-mode .category-item {
+  color: $color-text-dark-theme;
+}
   
   .dark-mode .category-item.active,
   .dark-mode .category-item:hover {
@@ -28,9 +32,12 @@
   .dark-mode .shopping__book-description--tablet,
   .dark-mode .shopping__heading,
   .dark-mode .modal-info__title,
-  .dark-mode {
+  .dark-mode .modal-info__text,
+  .dark-mode .modal-pop__icon-close,
+  .dark-mode .modal-info__button{
     color: $color-white;
     fill: $color-white;
+    stroke: $color-white;
   }
 
 .dark-mode .modal-info__author,
