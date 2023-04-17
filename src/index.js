@@ -17,6 +17,7 @@ import './js/books-localStorage';
 import './js/storage-methods';
 import './js/slider';
 import './js/loader';
+import './js/menu-mobile';
 
 // приклади імпортів NPM пакетів
 

@@ -1,0 +1,40 @@
+.sign-up-btn
+{ 
+        @media screen and(min-width: $befor-tablet) 
+        {
+          align-items: left;
+          justify-content: space-between;
+          min-width: 184px;
+          padding: 13px 14px;
+      
+          background-color: $color-blue;
+          
+          border: 1.5px solid $color-dark;
+          border-radius: 18px;
+          cursor: pointer; 
+      }
+    }
+
+    .burger-meny-btn__icon
+    {
+        @media screen and(min-width: $befor-tablet) 
+        {
+        cursor: pointer;
+        background-color: $color-blue;
+        background-image: url(/src/images/mobile-menu-bkg/mobile-menu-bg.png);
+        transform: rotate(-15deg);
+        }
+    }
+    
+
+
+.sign-up-btn__text
+{
+    letter-spacing: -0.04em;
+    color: $color-white;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: -0.04em;
+    text-align: left;
+}
