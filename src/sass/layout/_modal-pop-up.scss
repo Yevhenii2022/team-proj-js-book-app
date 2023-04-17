@@ -31,12 +31,16 @@
 
 .modal-pop {
   width: 100%;
+  margin-bottom: 50px;
+  margin-top: 50px;
+
   background-color: $color-white;
   border: 2px solid $color-dark;
   border-radius: 18px;
   position: relative;
 
   @include tablet {
+    margin: 0;
     width: 579px;
     height: 465px;
     position: absolute;
@@ -81,9 +85,13 @@
 
 // Стилі для оформлення змісту модального вікна книги
 .modal-pop__container {
-  // margin: 0 auto;
   padding: 40px 24px;
   width: 100%;
+
+  @include tablet {
+    height: 100%;
+    padding: 40px;
+  }
 }
 
 .modal-info__box {
@@ -160,7 +168,8 @@
 }
 
 .modal__pop::-webkit-scrollbar,
-.modal-info__text::-webkit-scrollbar {
+.modal-info__text::-webkit-scrollbar,
+.modal-pop__container::-webkit-scrollbar {
   width: 0;
   height: 0;
 }
@@ -182,8 +191,7 @@
 .modal-info__button {
   display: block;
   margin: 0 auto;
-  // margin-left: 40px;
-  padding: 14px 28px;
+  padding: 14px 10px;
 
   font-size: 18px;
   line-height: calc(24px / 18px);
@@ -192,18 +200,51 @@
   text-transform: uppercase;
   color: $color-dark;
 
-  // background-color: inherit;
-  // border: 2px solid $accent-color;
-  // border-radius: 32px;
+  background-color: inherit;
+  border: 2px solid $color-blue;
+  border-radius: 32px;
 
-  // @include transition(color, background-color);
+  @include transition(color, background-color);
 
-  // @media screen and (max-width: 375px) {
-  //   font-size: calc(18vw * 100 / 375);
-  // }
+  @media screen and (max-width: $befor-tablet) {
+    font-size: 14px;
+  }
 
-  // @include tablet {
-  //   padding: 20px;
-  //   width: 100%;
-  // }
+  @include tablet {
+    padding: 20px;
+    width: 100%;
+  }
+
+  &:hover,
+  &:focus {
+    color: $color-white;
+    background-color: $color-blue;
+  }
 }
+
+// .pop-up__description {
+//   text-align: center;
+//   margin: 0 auto;
+//   margin-top: 8px;
+//   max-width: 242px;
+
+//   @include fonts(
+//     10px,
+//     12px,
+//     400,
+//     -0.04em,
+//     false,
+//     var(--categories-links-color)
+//   );
+
+//   @media screen and (max-width: 375px) {
+//     font-size: calc(10vw * 100 / 375);
+//     line-height: calc(12 / 10);
+//   }
+
+//   @include tablet {
+//     width: 324px;
+//     font-size: 12;
+//     line-height: calc(14 / 12);
+//   }
+// }
