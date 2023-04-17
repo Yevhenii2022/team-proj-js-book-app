@@ -33,6 +33,7 @@
   width: 100%;
   margin-bottom: 50px;
   margin-top: 50px;
+  padding: 40px 24px;
 
   background-color: $color-white;
   border: 2px solid $color-dark;
@@ -41,8 +42,8 @@
 
   @include tablet {
     margin: 0;
+    padding: 40px;
     width: 579px;
-    height: 465px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -85,12 +86,12 @@
 
 // Стилі для оформлення змісту модального вікна книги
 .modal-pop__container {
-  padding: 40px 24px;
+  // padding: 40px 24px;
   width: 100%;
 
   @include tablet {
     height: 100%;
-    padding: 40px;
+    // padding: 40px;
   }
 }
 
@@ -222,29 +223,26 @@
   }
 }
 
-// .pop-up__description {
-//   text-align: center;
-//   margin: 0 auto;
-//   margin-top: 8px;
-//   max-width: 242px;
+.modal-info__description {
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 8px;
+  width: 242px;
 
-//   @include fonts(
-//     10px,
-//     12px,
-//     400,
-//     -0.04em,
-//     false,
-//     var(--categories-links-color)
-//   );
+  font-size: 10px;
+  line-height: calc(12px / 10px);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  color: rgba(17, 17, 17, 0.5);
 
-//   @media screen and (max-width: 375px) {
-//     font-size: calc(10vw * 100 / 375);
-//     line-height: calc(12 / 10);
-//   }
+  @media screen and (max-width: 375px) {
+    font-size: calc(10vw * 100 / 375);
+    line-height: calc(12 / 10);
+  }
 
-//   @include tablet {
-//     width: 324px;
-//     font-size: 12;
-//     line-height: calc(14 / 12);
-//   }
-// }
+  @include tablet {
+    width: 324px;
+    font-size: 12;
+    line-height: calc(14 / 12);
+  }
+}

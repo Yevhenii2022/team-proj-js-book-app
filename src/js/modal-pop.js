@@ -114,7 +114,8 @@ async function renderBookById(id) {
       </div>
       <button class="modal-info__button" type="button">
       ${isActivBook ? 'remove from the shopping list' : 'add to shopping list'}
-      </button>`;
+      </button>
+     `;
     refs.modalPopEl.innerHTML = markup;
   } catch (error) {
     console.log(error);
