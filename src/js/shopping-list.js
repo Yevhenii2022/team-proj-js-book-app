@@ -9,7 +9,7 @@ import appleImage2 from '../images/shopping-list-shops/apple-shop-2x.png';
 import bookshopImage1 from '../images/shopping-list-shops/bookshop-1x.png';
 import bookshopImage2 from '../images/shopping-list-shops/bookshop-2x.png';
 import bookshopImage2 from '../images/shopping-list-shops/bookshop-2x.png';
-
+console.log('Is it works?');
 let bookList = localStoragemethod.load(refs.SHOP_LIST_KEY);
 
 let currentPage = 1;
