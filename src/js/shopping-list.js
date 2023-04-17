@@ -28,10 +28,11 @@ function renderShoppingList(data, page = 1) {
   const startIndex = (page - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   let currentData = data.slice(startIndex, endIndex);
+  spinerStart();
 
   if (currentData.length) {
     removeEmptyNotificationContainer();
-    spinerStart();
+
     const markup = currentData
       .map(
         ({
@@ -130,10 +131,10 @@ function renderShoppingList(data, page = 1) {
       .join('');
     refs.shoppingListEl.innerHTML = markup;
     refs.shoppingListEl.addEventListener('click', onTrashClick);
-    spinerStop();
   } else {
     pasteEmptyNotificationContainer();
   }
+  spinerStop();
 }
 
 function pasteEmptyNotificationContainer() {
