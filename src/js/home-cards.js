@@ -1,25 +1,31 @@
 import { getTopBooks } from './api-book';
 import refs from './refs';
 import { spinerStart, spinerStop } from './loader';
+import throttle from 'lodash.throttle';
 // import booksCardTpl from '../templates/gallery-card.hbs';
 
 export { createTopBooksMarkup };
 
+const homeContainer = document.querySelector('.home__main-container');
+let isActive;
 let currentRenderWidth = 375;
+let reloadState = true;
 
-addEventListener('resize', event => {
-  let state = false;
+
+window.addEventListener('resize', throttle(onResizewindow, 200));
+
+function onResizewindow() {
+  isActive = homeContainer.classList.contains('container_active');
+  if (!isActive) return;
   if (
     (window.innerWidth > 767 && currentRenderWidth < 768) ||
     (window.innerWidth > 1439 && currentRenderWidth < 1440) ||
     (window.innerWidth < 1440 && currentRenderWidth > 1439) ||
     (window.innerWidth < 768 && currentRenderWidth > 767)
   ) {
-    
-      location.reload();
-    }
-  
-});
+    location.reload();
+  }
+}
 
 currentRenderWidth = window.innerWidth;
 let amountRenderedBooks = 1;
