@@ -31,6 +31,7 @@ const refs = {
   // Spinner/loader
 
   // Scroll up
+  scrollBtnEl: document.querySelector('.btn-up'),
 };
 
 export default refs;
