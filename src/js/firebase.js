@@ -1,4 +1,4 @@
-// import { closeModal } from './modalSignUp';
+import { closeModal } from './modalSignUp';
 import { Notify } from 'notiflix';
 import { initializeApp } from 'firebase/app';
 import {
