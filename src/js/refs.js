@@ -21,6 +21,7 @@ const refs = {
   closeModalPopBtn: document.querySelector('[data-modal-close]'),
   modalPopEl: document.querySelector('[data-modal]'),
   backdrop: document.querySelector('.backdrop'),
+  modalPopInfoEl: document.querySelector('.modal-info__description'),
 
   // Mobile - menu - modal
 
