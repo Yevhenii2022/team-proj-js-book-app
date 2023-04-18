@@ -21,8 +21,12 @@ import './js/storage-methods';
 import './js/dark-theme';
 import './js/slider';
 import './js/loader';
+
 import './js/firebase';
 import './js/modalSignUp';
+
+
+
 
 // приклади імпортів NPM пакетів
 

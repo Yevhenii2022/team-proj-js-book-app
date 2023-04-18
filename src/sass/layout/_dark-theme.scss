@@ -12,7 +12,8 @@
     background-color: $color-dark;
 }
 
-.dark-mode .category-item {
+.dark-mode .category-item,
+.dark-mode .modal-info__description {
   color: $color-text-dark-theme;
 }
   
@@ -34,7 +35,8 @@
   .dark-mode .modal-info__title,
   .dark-mode .modal-info__text,
   .dark-mode .modal-pop__icon-close,
-  .dark-mode .modal-info__button{
+  .dark-mode .modal-info__button,
+  .dark-mode .burger-meny-btn-close__icon{
     color: $color-white;
     fill: $color-white;
     stroke: $color-white;
@@ -47,9 +49,7 @@
    color: $color-text-grey;
 }
 
-.dark-mode .shoppingshop:nth-child(1)> .shopping__shop-img {
-  filter: grayscale(1) brightness(10);
-}
+
 
 
 

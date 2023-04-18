@@ -13,16 +13,19 @@ refs.listBookEl.addEventListener('click', openModalPop);
 
 //OPEN/CLOSE MODAL VINDOW
 function openModalPop(event) {
-  // event.preventDefault();
+  event.preventDefault();
 
-  if (event.target.nodeName !== 'IMG') return;
+  // if (event.target.nodeName !== 'IMG') return;
+  if (!event.target.closest('.books__item-link')) return;
 
   refs.scrollBtnEl.classList.add('btn-up_hide');
   document.body.classList.add('no-scroll');
 
   const ffffff = event.target;
   // console.log(ffffff);
-  const bookId = event.target.getAttribute('data-id');
+  const bookId = event.target
+    .closest('.books__item-link')
+    .getAttribute('data-id');
   // console.log(bookId);
 
   refs.backdrop.classList.remove('backdrop--is-hidden');
