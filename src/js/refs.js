@@ -25,6 +25,7 @@ const refs = {
   modalPopEl: document.querySelector('[data-modal]'),
   backdrop: document.querySelector('.backdrop'),
   modalPopInfoEl: document.querySelector('.modal-info__description'),
+  descriptionBookEl: document.querySelector('.description-non'),
 
   // Mobile - menu - modal
   mobileNavLinksEl: document.querySelectorAll('.mobile__home-item > a'),
