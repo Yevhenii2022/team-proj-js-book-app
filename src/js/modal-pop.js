@@ -13,7 +13,7 @@ refs.listBookEl.addEventListener('click', openModalPop);
 
 //OPEN/CLOSE MODAL VINDOW
 function openModalPop(event) {
-  event.preventDefault();
+  // event.preventDefault();
 
   if (event.target.nodeName !== 'IMG') return;
 
