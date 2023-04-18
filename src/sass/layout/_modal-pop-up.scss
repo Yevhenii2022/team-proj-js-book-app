@@ -41,6 +41,9 @@
   position: relative;
 
   @include tablet {
+    min-height: 465px;
+    max-height: 501px;
+
     margin: 0;
     padding: 40px;
     width: 579px;
