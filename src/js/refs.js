@@ -20,7 +20,7 @@ const refs = {
   SHOP_LIST_KEY: 'selected-books',
 
   //Pop-up-modal
-  listBookEl: document.querySelector('.books__container'),
+  listBookEl: document.querySelector('.main'),
   closeModalPopBtn: document.querySelector('[data-modal-close]'),
   modalPopEl: document.querySelector('[data-modal]'),
   backdrop: document.querySelector('.backdrop'),
