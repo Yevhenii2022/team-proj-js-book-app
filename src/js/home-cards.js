@@ -4,6 +4,7 @@ import { spinerStart, spinerStop } from './loader';
 import throttle from 'lodash.throttle';
 import { showTypeBook } from './home-categories';
 
+
 export { cutBookTitle, cutBookAuthor };
 export { createTopBooksMarkup };
 
@@ -11,6 +12,7 @@ const homeContainer = document.querySelector('.home__main-container');
 let isActive;
 let currentRenderWidth = 375;
 let reloadState = true;
+
 
 window.addEventListener('resize', throttle(onResizewindow, 200));
 
@@ -36,6 +38,7 @@ if (currentRenderWidth < 768) {
 } else {
   amountRenderedBooks = 5;
 }
+
 
 const createTopBooksMarkup = async () => {
   spinerStart();
@@ -64,17 +67,21 @@ const createTopBooksMarkup = async () => {
 
 createTopBooksMarkup();
 
+
+
 function booksCardTemplate(data) {
+
   return data
     .map(elements => {
+
       return `
         <li class="books__list">
   <h3 class="books__list-title">${elements.list_name}</h3>
   <ul class="books__card-container"> ${elements.books
-    .map(book => {
-      return `
+          .map(book => {
+            return `
     <li class="books__item">
-      <a href="#" class="books__item-link" data-id='${book._id}'>
+      <a href="#" class="books__item-link">
       <div class="books__card">
         <img
           src="${book.book_image}"
@@ -82,7 +89,7 @@ function booksCardTemplate(data) {
           class="books__card-title-img"
           width="180"
           height="256"
-          
+          data-id='${book._id}'
         />
         <div class="books__overlay">
           <p class="books__overlay-text">quick view</p>
@@ -94,17 +101,18 @@ function booksCardTemplate(data) {
         </div>
      </a>
     </li>`;
-    })
-    .slice(0, amountRenderedBooks)
-    .join('')}
+          })
+          .slice(0, amountRenderedBooks)
+          .join('')}
   </ul>
-<button class="books__btn" type="button" data-id="${
-        elements.list_name
-      }">see more</button>
+<button class="books__btn" type="button" data-id="${elements.list_name}">see more</button>
 </li>`;
     })
     .join('');
+
 }
+
+
 
 function cutBookTitle(title) {
   if (window.innerWidth <= 767 && title.length >= 27)
@@ -121,6 +129,7 @@ function cutBookTitle(title) {
 
   return title;
 }
+
 
 function cutBookAuthor(author) {
   if (window.innerWidth <= 767 && author.length >= 37)

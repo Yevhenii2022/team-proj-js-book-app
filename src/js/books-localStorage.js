@@ -10,18 +10,10 @@ refs.modalPopEl.addEventListener('click', event => {
   if (event.target.classList.contains('modal-info__button')) {
     handleModalPopElClick();
   }
-
-  if (event.target.textContent === 'remove from the shopping list') {
-    refs.modalPopInfoEl.innerHTML =
-      'Congratulations! You have added the book to the shopping list. To delete, press the button "Remove from the shopping list.';
-  }
-
-  if (event.target.textContent === 'add to shopping list') {
-    refs.modalPopInfoEl.innerHTML = '';
-  }
 });
 
 function handleModalPopElClick() {
+  // console.log('click btn');
   const activeBook = LsService.load('active-book');
 
   const watchedBtnRef = refs.modalPopEl.querySelector('.modal-info__button');

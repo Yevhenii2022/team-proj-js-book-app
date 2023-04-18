@@ -2,7 +2,6 @@ import refs from './refs';
 import { getPagination } from './pagination';
 import localStoragemethod from './storage-methods';
 import { spinerStart, spinerStop } from './loader';
-import { setActiveState } from './set-active-state';
 import amazonImage1 from '../images/shopping-list-shops/amazon-shop-1x.png';
 import amazonImage2 from '../images/shopping-list-shops/amazon-shop-2x.png';
 import appleImage1 from '../images/shopping-list-shops/apple-shop-1x.png';
@@ -10,8 +9,7 @@ import appleImage2 from '../images/shopping-list-shops/apple-shop-2x.png';
 import bookshopImage1 from '../images/shopping-list-shops/bookshop-1x.png';
 import bookshopImage2 from '../images/shopping-list-shops/bookshop-2x.png';
 import bookshopImage2 from '../images/shopping-list-shops/bookshop-2x.png';
-
-setActiveState(refs.navlinks);
+console.log('Is it works?');
 let bookList = localStoragemethod.load(refs.SHOP_LIST_KEY);
 
 let currentPage = 1;
@@ -41,8 +39,6 @@ function renderShoppingList(data, page = 1) {
           _id,
           book_image,
           author,
-          book_image_width,
-          book_image_height,
           title,
           list_name,
           description,
@@ -52,7 +48,7 @@ function renderShoppingList(data, page = 1) {
   <div class="shopping__block">
     <div>
       <div class="shopping__thumb">
-        <img src="${book_image}" alt="${list_name}" class="shopping__book-img" width="${book_image_width}" height="${book_image_height}"/>
+        <img src="${book_image}" alt="" class="shopping__book-img" />
       </div>
       <p class="shopping__book-author">${author}</p>
     </div>
