@@ -38,30 +38,37 @@
   }
 }
 
+.menu-modal-wrapper::before {
+  position: absolute;
+  content: '';
+  top: 55%;
+  left: 50%;
+  width: 451px;
+  height: 440px;
+
+  transform: translate(-60%, 0) rotate(-15deg);
+  transform-origin: top right;
+  background: url(../images/mobile-menu-bkg/mobile-menu-bg.png);
+  background-size: contain;
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background: url(../images/mobile-menu-bkg/mobile-menu-bg-1.png);
+    background-size: contain;
+  }
+}
+
 .menu-modal-wrapper::-webkit-scrollbar {
   width: 0;
   height: 0;
 }
 
 .menu-modal {
+  position: relative;
   display: flex;
   flex-direction: column;
   height: 100%;
-  background: linear-gradient(
-    183.6% 183.01% at 59.76% -23.42%,
-    #4f2ee8 18.03%,
-    #ffffff 100%
-  );
-
-  @media screen and (min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
-    background: linear-gradient(
-      183.6% 183.01% at 59.76% -23.42%,
-      #4f2ee8 18.03%,
-      #ffffff 100%
-    );
-  }
 }
 
 .signup-btn {
@@ -131,6 +138,19 @@
   }
 }
 
+.mobile__home-item > a {
+  padding: 8px 0px;
+  color: $color-white;
+}
+
+.mobile__home-item > a.is-activ {
+  font-weight: 700;
+  background: $color-hover-activ;
+  padding-left: 16px;
+  padding-right: 16px;
+  color: $color-dark;
+}
+
 .mobile__shoplist {
   display: flex;
   align-items: center;
@@ -145,20 +165,11 @@
 }
 
 .mobile__home-item:first-child {
-  padding: 8px 16px;
-
-  width: 72px;
-  height: 34px;
-
   font-weight: 700;
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.04em;
   text-transform: uppercase;
-
-  color: $color-dark;
-
-  background: $color-hover-activ;
   border-radius: 36px;
 }
 
@@ -180,6 +191,15 @@
 
   width: 118px;
   height: 48px;
+
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.04em;
+
+  color: $color-dark;
 
   border: 1.5px solid $color-dark;
   border-radius: 18px;

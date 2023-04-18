@@ -1,4 +1,7 @@
 const refs = {
+  //Body
+  bodyEl: document.querySelector('body'),
+
   //Header
   navlinks: document.querySelectorAll('.navigation__link'),
   // Home
@@ -24,6 +27,10 @@ const refs = {
   modalPopInfoEl: document.querySelector('.modal-info__description'),
 
   // Mobile - menu - modal
+  mobileNavLinksEl: document.querySelectorAll('.mobile__home-item > a'),
+  mobileMenuEl: document.querySelector('.menu-modal-wrapper'),
+  openMenuBtnEl: document.querySelector('.burger-meny-btn'),
+  closeMenuBtnEl: document.querySelector('.burger-meny-btn-close'),
 
   // Authorization - modal
 
