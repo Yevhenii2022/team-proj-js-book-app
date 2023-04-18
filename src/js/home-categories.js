@@ -28,13 +28,13 @@ const renderCategories = async () => {
         }
       });
     });
-    spinerStop();
   } catch (error) {
     console.log(error);
     Notiflix.Notify.failure(
       `Oops! Something went wrong. You caught the following error: ${error.message}.`
     );
   }
+  spinerStop();
 };
 
 renderCategories();
