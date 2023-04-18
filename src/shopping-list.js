@@ -5,3 +5,5 @@ import './js/slider';
 import './js/shopping-list';
 import './js/loader';
 import './js/menu-modal';
+import './js/firebase';
+import './js/modalSignUp';
