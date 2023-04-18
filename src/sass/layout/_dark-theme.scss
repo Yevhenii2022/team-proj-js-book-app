@@ -12,7 +12,8 @@
     background-color: $color-dark;
 }
 
-.dark-mode .category-item {
+.dark-mode .category-item,
+.dark-mode .modal-info__description {
   color: $color-text-dark-theme;
 }
   
@@ -47,9 +48,7 @@
    color: $color-text-grey;
 }
 
-.dark-mode .shoppingshop:nth-child(1)> .shopping__shop-img {
-  filter: grayscale(1) brightness(10);
-}
+
 
 
 
