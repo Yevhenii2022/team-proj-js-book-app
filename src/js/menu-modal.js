@@ -17,6 +17,8 @@ window.matchMedia('(min-width: 768px)').addEventListener('change', e => {
   if (!e.matches) return;
   refs.mobileMenuEl.classList.remove('is-open');
   refs.openMenuBtnEl.setAttribute('aria-expanded', false);
+  refs.openMenuBtnEl.classList.remove('mobile-btn-close');
+  refs.closeMenuBtnEl.classList.add('mobile-btn-close');
 });
 
 refs.openMenuBtnEl.addEventListener('click', toggleMenu);
