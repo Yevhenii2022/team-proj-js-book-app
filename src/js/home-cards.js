@@ -51,6 +51,7 @@ const createTopBooksMarkup = async () => {
   refs.homeContainer.classList.add('container_active');
   refs.cardContainerEl.innerHTML = await booksCardTemplate(markup);
 
+
   const homeBtnEl = document.querySelectorAll('.books__btn');
   homeBtnEl.forEach(btn => {
     btn.addEventListener('click', event => {
@@ -59,6 +60,7 @@ const createTopBooksMarkup = async () => {
       if (ActiveCategory) {
         ActiveCategory.classList.remove('active');
       }
+      event.target.classList.add('active');
     });
   });
 
@@ -67,21 +69,19 @@ const createTopBooksMarkup = async () => {
 
 createTopBooksMarkup();
 
-
-
 function booksCardTemplate(data) {
 
   return data
     .map(elements => {
-
       return `
         <li class="books__list">
+
   <h3 class="books__list-title">${elements.list_name}</h3>
   <ul class="books__card-container"> ${elements.books
           .map(book => {
             return `
     <li class="books__item">
-      <a href="#" class="books__item-link">
+      <a href="#" class="books__item-link" aria-label="books-item-link" rel="noopener noreferrer">
       <div class="books__card">
         <img
           src="${book.book_image}"

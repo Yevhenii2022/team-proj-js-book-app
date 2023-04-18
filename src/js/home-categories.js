@@ -4,7 +4,7 @@ import { createTopBooksMarkup } from './home-cards';
 import { spinerStart, spinerStop } from './loader';
 import { cutBookTitle, cutBookAuthor } from './home-cards';
 
-export {showTypeBook, markupTopBooksByType};
+export { showTypeBook, markupTopBooksByType };
 
 
 const renderCategories = async () => {
