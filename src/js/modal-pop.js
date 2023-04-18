@@ -4,9 +4,13 @@ import Notiflix from 'notiflix';
 import LsService from './storage-methods';
 import { spinerStart, spinerStop } from './loader';
 import defaultImage from '../images/shopping-list-empty-bg/shoping-list-empty-lg.png';
-import amazonImg from '../images/book-store-icon/amazon.png';
-import appleImg from '../images/book-store-icon/apple-books.png';
-import bookShopImg from '../images/book-store-icon/book-shop.png';
+import amazonImage1 from '../images/shopping-list-shops/amazon-shop-1x.png';
+import amazonImage2 from '../images/shopping-list-shops/amazon-shop-2x.png';
+import appleImage1 from '../images/shopping-list-shops/apple-shop-1x.png';
+import appleImage2 from '../images/shopping-list-shops/apple-shop-2x.png';
+import bookshopImage1 from '../images/shopping-list-shops/bookshop-1x.png';
+import bookshopImage2 from '../images/shopping-list-shops/bookshop-2x.png';
+import bookshopImage2 from '../images/shopping-list-shops/bookshop-2x.png';
 
 //OPEN/CLOSE MODAL VINDOW
 refs.listBookEl.addEventListener('click', openModalPop);
@@ -77,11 +81,11 @@ async function renderBookById(id) {
       refs.descriptionBookEl.innerHTML = '';
     }
 
-    // console.log(buy_links[0].url);
-
     const isActivBook = Boolean(
       LsService.load('selected-books')?.find(el => el._id === book._id)
     );
+
+    console.log(buy_links[0].url);
 
     const markup = `
       <div class="modal-info">
@@ -94,22 +98,22 @@ async function renderBookById(id) {
             <li>
               <a class="modal-info__link" href="${
                 buy_links[0].url
-              }" target="_blank">
-                <img src="${amazonImg}" />
+              }" target="_blank" crossorigin="anonymous"  rel="noopener noreferrer" aria-label="Amazon">
+                <img srcset="${amazonImage1} 1x, ${amazonImage2} 2x" src="${amazonImage1}" alt="amazon" />
               </a>
             </li>
             <li>
               <a class="modal-info__link" href="${
                 buy_links[1].url
-              }" target="_blank">
-                <img src="${appleImg}" alt="apple-books" />
+              }" target="_blank" crossorigin="anonymous"  rel="noopener noreferrer" aria-label="Apple-books">
+                <img srcset="${appleImage1} 1x, ${appleImage2} 2x" src="${appleImage1}" alt="apple-books" />
               </a>
             </li>
             <li>
               <a class="modal-info__link" href="${
                 buy_links[4].url
-              }" target="_blank">
-                <img src="${bookShopImg}" />
+              }" target="_blank" crossorigin="anonymous"  rel="noopener noreferrer" aria-label="Bookshop">
+                <img srcset="${bookshopImage1} 1x, ${bookshopImage2} 2x" src="${bookshopImage1}" alt="bookshop" />
               </a>
             </li>
           </ul>
@@ -119,6 +123,7 @@ async function renderBookById(id) {
       ${isActivBook ? 'remove from the shopping list' : 'add to shopping list'}
       </button>
      `;
+
     refs.modalPopEl.innerHTML = markup;
   } catch (error) {
     console.log(error);
