@@ -7,6 +7,7 @@ import Notiflix from 'notiflix';
 
 export { showTypeBook, markupTopBooksByType };
 
+
 const renderCategories = async () => {
   try {
     spinerStart();
