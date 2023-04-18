@@ -7,7 +7,6 @@ import Notiflix from 'notiflix';
 
 export { showTypeBook, markupTopBooksByType };
 
-
 const renderCategories = async () => {
   try {
     spinerStart();
@@ -94,6 +93,7 @@ function markupTopBooksByType(data, typeBooks) {
             <p class="books__card-author">
             ${cutBookAuthor(book.author)}
             </p>
+            </div>
             </a>
             </li>`
           )
