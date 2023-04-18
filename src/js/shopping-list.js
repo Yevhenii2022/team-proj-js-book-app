@@ -41,6 +41,8 @@ function renderShoppingList(data, page = 1) {
           _id,
           book_image,
           author,
+          book_image_width,
+          book_image_height,
           title,
           list_name,
           description,
@@ -50,7 +52,7 @@ function renderShoppingList(data, page = 1) {
   <div class="shopping__block">
     <div>
       <div class="shopping__thumb">
-        <img src="${book_image}" alt="" class="shopping__book-img" />
+        <img src="${book_image}" alt="${list_name}" class="shopping__book-img" width="${book_image_width}" height="${book_image_height}"/>
       </div>
       <p class="shopping__book-author">${author}</p>
     </div>
