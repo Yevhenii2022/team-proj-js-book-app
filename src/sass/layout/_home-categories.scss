@@ -11,6 +11,8 @@
 .main {
   @media screen and(min-width: $desktop) {
     grid-area: content;
+
+    // margin-left: 336px;
   }
 }
 

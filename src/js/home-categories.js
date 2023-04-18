@@ -93,6 +93,7 @@ function markupTopBooksByType(data, typeBooks) {
             <p class="books__card-author">
             ${cutBookAuthor(book.author)}
             </p>
+            </div>
             </a>
             </li>`
           )

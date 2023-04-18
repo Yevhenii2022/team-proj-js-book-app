@@ -3,7 +3,7 @@ import { setActiveState } from './set-active-state';
 
 setActiveState(refs.mobileNavLinksEl);
 const toggleMenu = () => {
-  refs.bodyEl.classList.toggle('no-scroll');
+  refs.bodyEl.classList.toggle('no-scroll-menu');
   refs.mobileMenuEl.classList.toggle('is-open');
   refs.openMenuBtnEl.classList.toggle('mobile-btn-close');
   refs.closeMenuBtnEl.classList.toggle('mobile-btn-close');
