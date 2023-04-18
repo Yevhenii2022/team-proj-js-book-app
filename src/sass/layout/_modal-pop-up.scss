@@ -250,3 +250,21 @@
     line-height: calc(14 / 12);
   }
 }
+
+.description-non {
+  position: absolute;
+  top: 70%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+
+  font-size: 14px;
+  line-height: calc(18px / 14px);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  color: $color-dark;
+
+  @include tablet {
+    top: 35%;
+    left: 62.5%;
+  }
+}

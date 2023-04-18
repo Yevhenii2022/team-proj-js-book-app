@@ -8,25 +8,20 @@ import amazonImg from '../images/book-store-icon/amazon.png';
 import appleImg from '../images/book-store-icon/apple-books.png';
 import bookShopImg from '../images/book-store-icon/book-shop.png';
 
-//Work of Modal-Pop
+//OPEN/CLOSE MODAL VINDOW
 refs.listBookEl.addEventListener('click', openModalPop);
 
-//OPEN/CLOSE MODAL VINDOW
 function openModalPop(event) {
   event.preventDefault();
 
-  // if (event.target.nodeName !== 'IMG') return;
   if (!event.target.closest('.books__item-link')) return;
 
   refs.scrollBtnEl.classList.add('btn-up_hide');
   document.body.classList.add('no-scroll');
 
-  const ffffff = event.target;
-  // console.log(ffffff);
   const bookId = event.target
     .closest('.books__item-link')
     .getAttribute('data-id');
-  // console.log(bookId);
 
   refs.backdrop.classList.remove('backdrop--is-hidden');
   refs.backdrop.addEventListener('click', handleBackdropClick);
@@ -71,13 +66,18 @@ async function renderBookById(id) {
   try {
     spinerStart();
     const book = await getBooksId(id);
-    // console.log(book);
-    // console.log(book._id);
+
     LsService.save('active-book', book);
 
     const { book_image, title, author, description, buy_links } = book;
 
-    console.log(buy_links[0].url);
+    if (description === '') {
+      refs.descriptionBookEl.innerHTML = 'there is no description of this book';
+    } else {
+      refs.descriptionBookEl.innerHTML = '';
+    }
+
+    // console.log(buy_links[0].url);
 
     const isActivBook = Boolean(
       LsService.load('selected-books')?.find(el => el._id === book._id)
