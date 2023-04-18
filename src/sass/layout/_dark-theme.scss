@@ -17,11 +17,7 @@
   color: $color-text-dark-theme;
 }
   
-  .dark-mode .category-item.active,
-  .dark-mode .category-item:hover {
-    color: $color-hover-activ;
- }
-
+  
   .dark-mode .navigation__link,
   .dark-mode .navigation--btn__icon,
   .dark-mode .books__main-title,
@@ -36,7 +32,8 @@
   .dark-mode .modal-info__text,
   .dark-mode .modal-pop__icon-close,
   .dark-mode .modal-info__button,
-  .dark-mode .burger-meny-btn-close__icon{
+  .dark-mode .burger-meny-btn-close__icon,
+  .dark-mode .description-non {
     color: $color-white;
     fill: $color-white;
     stroke: $color-white;
@@ -49,8 +46,58 @@
    color: $color-text-grey;
 }
 
+// Modal registration window-->
+.dark-mode ::placeholder {
+  color: $color-home-background;
+}
+
+.dark-mode .rightleft,
+.dark-mode .leftright {
+  background-color: $color-white;
+}
+
+.dark-mode .modal-content {
+  background-color: $color-dark-accent;
+  border-color: $color-home-background;
+}
+
+.dark-mode input {
+  background: transparent;
+  color: #ffe;
+  border-color: $color-home-background;
+ }
+
+ .dark-mode .registration-form__btn,.dark-mode .login-form__btn {
+  font-weight: 700;
+  color: $color-dark-accent;
+   background-color: $color-home-background;
+ }
 
 
+ .dark-mode .links-container a{
+  color: $colour-grey;
+ }
+// ========================================
 
 
+// Hover,Active-->
 
+ .dark-mode .modal-pop__icon-close:hover {
+  stroke: $color-blue;
+ }
+
+ .dark-mode .links-container a.active,
+ .dark-mode .links-container a:hover {
+  color:$color-blue;
+ }
+
+ .dark-mode .registration-form__btn:hover,
+ .dark-mode .login-form__btn:hover{
+   background-color: $color-blue;
+ }
+
+ .dark-mode .category-item.active,
+  .dark-mode .category-item:hover {
+    color: $color-hover-activ;
+ }
+//  =========================================
