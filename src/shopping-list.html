@@ -36,11 +36,12 @@
     <link rel="stylesheet" href="./sass/index.scss" />
   </head>
   <body>
-    <!-- partials header -->
+   <div class="wrapper--body">
+     <!-- partials header -->
     <include src="./partials/header.html"></include>
     <include src="./partials/modalSignUp.html"></include>
     <include src="./partials/menu-modal.html"></include>
-    <main>
+    <main class="main">
       <div class="shopping-container container" id="shopping-list">
         <include src="./partials/shopping-list-comp.html"></include>
       </div>
@@ -49,6 +50,7 @@
    <include src="./partials/footer.html"></include>
    <!-- modal-footer -->
    <include src="./partials/modal_footer.html"></include>
+   </div>
     <script type="module" src="./shopping-list.js"></script>
-  </body>
+     </body>
 </html>
