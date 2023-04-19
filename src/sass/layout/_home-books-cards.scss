@@ -58,8 +58,10 @@
 
   &-title-img {
     border-radius: 8px;
+    width: 280px;
+    height: 406px;
 
-    @media screen and(max-width: $befor-tablet) {
+    @media screen and(min-width: $phone) {
       width: 335px;
       height: 485px;
     }
