@@ -21,7 +21,7 @@ const refs = {
 
   //Pop-up-modal
   listBookEl: document.querySelector('.main'),
-  closeModalPopBtn: document.querySelector('[data-modal-close]'),
+  closeModalPopBtn: document.querySelector('[data-modal-pop-close]'),
   modalPopEl: document.querySelector('[data-modal]'),
   backdrop: document.querySelector('.backdrop'),
   modalPopInfoEl: document.querySelector('.modal-info__description'),
