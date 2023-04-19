@@ -59,12 +59,16 @@ const createTopBooksMarkup = async () => {
       }
       event.target.classList.add('active');
     });
+
+
   });
 
   spinerStop();
 };
 
 createTopBooksMarkup();
+
+
 function booksCardTemplate(data) {
   return `
     <h1 class="books__main-title">
@@ -106,8 +110,6 @@ function booksCardTemplate(data) {
       </li>
       `
   }).join('')}</ul>`
-
-
 
 }
 
