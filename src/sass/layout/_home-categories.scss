@@ -11,11 +11,13 @@
 .main {
   @media screen and(min-width: $desktop) {
     grid-area: content;
-
-    // margin-left: 336px;
   }
 }
-
+.books__item {
+  @media screen and(max-width: $tablet) {
+    margin-bottom: 40px;
+  }
+}
 .home__main-container {
   display: none;
 }
@@ -37,6 +39,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: calc(18 / 16);
+  
   @media screen and(min-width: $tablet) {
     width: 335px;
     height: 472px;
@@ -85,7 +88,10 @@
 .category-item:focus {
   text-transform: uppercase;
   font-weight: 700;
-  color: #4f2ee8;
+  color: $color-blue;
+
+  transition-duration: $transition-duration;
+  transition-timing-function: $cubic;
 }
 
 .sidenav {
