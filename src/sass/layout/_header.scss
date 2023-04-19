@@ -21,12 +21,17 @@
   @media screen and(min-width: $desktop) {
     margin-right: 83px;
   }
+  
   @include transition(scale);
+  &:hover,
+  &:focus {
+    scale: 1.1;
+  }
 }
 
-.logo:hover {
-  scale: 1.1;
-}
+// .logo:hover {
+//   scale: 1.1;
+// }
 
 .logo-book {
   width: 57px;
@@ -70,7 +75,6 @@
     padding-bottom: 7px;
   }
 }
-
 
 .is-activ,
 .is-activ:hover,
