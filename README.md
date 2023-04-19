@@ -43,7 +43,7 @@ We are students of the FullStack Developer course
 [<img src="https://img.shields.io/badge/Go-IT-orange" />](https://goit.ua), the
 project is written at the end of the study of JavaScript.
 
-## How to use Filmoteka?
+## How to use BookApp?
 
 📚 This is a site for finding, browsing and buying books.
 
