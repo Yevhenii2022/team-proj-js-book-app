@@ -39,16 +39,23 @@
     <!-- partials header -->
     <include src="./partials/header.html"></include>
     <!-- <a href="./shopping-list.html">Shopping list</a> -->
-    <main class="container home-container">
-      <!-- home -->
-      <aside class="sidenav">
-        <include src="./partials/categories.html"></include>
-        <include src="./partials/home__support.html"></include>
-      </aside>
-      <div class="main">
-        <include src="./partials/home.html"></include>
-        <include src="./partials/home-categories.html"></include>
-      </div>
+    <include src="./partials/menu-modal.html"></include>
+
+    <main>
+      <section class="container home-container">
+        <!-- home -->
+
+        <aside class="sidenav">
+          <include src="./partials/categories.html"></include>
+          <include src="./partials/home__support.html"></include>
+        </aside>
+        <div class="main">
+          <include src="./partials/home.html"></include>
+          <include src="./partials/home-categories.html"></include>
+        </div>
+      </section>
+
+
     </main>
 
     <!-- pop-up-modal -->

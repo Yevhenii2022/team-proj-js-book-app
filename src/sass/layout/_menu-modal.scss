@@ -3,7 +3,7 @@
   z-index: 20;
 }
 
-.header__container > .container {
+.header > .container {
   display: flex;
   align-items: center;
 }
@@ -138,14 +138,14 @@
 .mobile__home-item > a {
   border-radius: 36px;
   font-weight: 700;
-  padding: 8px 16px;
+  padding: 8px 0;
   color: $color-white;
 }
 
 .mobile__home-item > a.is-activ {
-  font-weight: 700;
   background: $color-hover-activ;
   color: $color-dark;
+  padding: 8px 16px;
 }
 
 .mobile__shoplist {
