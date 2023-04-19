@@ -23,7 +23,7 @@
     #4f2ee8 18.03%,
     #ffffff 100%
   );
-  overflow-y: auto;
+  overflow: hidden;
 
   transform: translateY(-100%);
 
@@ -127,10 +127,7 @@
 }
 
 .is-active-now {
-  font-weight: 700;
-  padding: 8px 16px;
   background: $color-hover-activ;
-  border-radius: 36px;
   color: $color-dark;
 
   .shoplist__icon {
@@ -139,15 +136,15 @@
 }
 
 .mobile__home-item > a {
-  padding: 8px 0px;
+  border-radius: 36px;
+  font-weight: 700;
+  padding: 8px 16px;
   color: $color-white;
 }
 
 .mobile__home-item > a.is-activ {
   font-weight: 700;
   background: $color-hover-activ;
-  padding-left: 16px;
-  padding-right: 16px;
   color: $color-dark;
 }
 
@@ -162,6 +159,10 @@
   letter-spacing: -0.04em;
   text-transform: uppercase;
   color: $color-white;
+
+  &.is-activ > .shoplist__icon {
+    fill: $color-dark;
+  }
 }
 
 .mobile__home-item:first-child {

@@ -4,7 +4,6 @@ import { spinerStart, spinerStop } from './loader';
 import throttle from 'lodash.throttle';
 import { showTypeBook } from './home-categories';
 
-
 export { cutBookTitle, cutBookAuthor };
 export { createTopBooksMarkup };
 
@@ -12,7 +11,6 @@ const homeContainer = document.querySelector('.home__main-container');
 let isActive;
 let currentRenderWidth = 375;
 let reloadState = true;
-
 
 window.addEventListener('resize', throttle(onResizewindow, 200));
 
@@ -39,7 +37,6 @@ if (currentRenderWidth < 768) {
   amountRenderedBooks = 5;
 }
 
-
 const createTopBooksMarkup = async () => {
   spinerStart();
   let markup = await getTopBooks();
@@ -51,6 +48,7 @@ const createTopBooksMarkup = async () => {
   refs.homeContainer.classList.add('container_active');
   refs.cardContainerEl.innerHTML = await booksCardTemplate(markup);
 
+
   const homeBtnEl = document.querySelectorAll('.books__btn');
   homeBtnEl.forEach(btn => {
     btn.addEventListener('click', event => {
@@ -59,6 +57,7 @@ const createTopBooksMarkup = async () => {
       if (ActiveCategory) {
         ActiveCategory.classList.remove('active');
       }
+      event.target.classList.add('active');
     });
   });
 
@@ -66,50 +65,46 @@ const createTopBooksMarkup = async () => {
 };
 
 createTopBooksMarkup();
-
-
-
 function booksCardTemplate(data) {
+  return `
+    <h1 class="books__main-title">
+      Best Sellers <span class="books__main-title-attribute">Books</span>
+    </h1> ${data.map(elements => {
+    return `
+      <li class="books__list"> 
+      <h3 class="books__list-title">${elements.list_name}</h3>
+        <ul class="books__card-container">
+          ${elements.books.map(book => {
+      return `<li class="books__item">
 
-  return data
-    .map(elements => {
-
-      return `
-        <li class="books__list">
-  <h3 class="books__list-title">${elements.list_name}</h3>
-  <ul class="books__card-container"> ${elements.books
-          .map(book => {
-            return `
-    <li class="books__item">
-      <a href="#" class="books__item-link">
-      <div class="books__card">
-        <img
-          src="${book.book_image}"
-          alt="${book.title}"
-          class="books__card-title-img"
-          width="180"
-          height="256"
-          data-id='${book._id}'
-        />
-        <div class="books__overlay">
-          <p class="books__overlay-text">quick view</p>
-        </div>
-       </div> 
-        <div class="books__descr">
-          <h3 class="books__card-title">${cutBookTitle(book.title)}</h3>
-          <p class="books__card-author">${cutBookAuthor(book.author)}</p>
-        </div>
-     </a>
-    </li>`;
-          })
-          .slice(0, amountRenderedBooks)
-          .join('')}
-  </ul>
-<button class="books__btn" type="button" data-id="${elements.list_name}">see more</button>
-</li>`;
-    })
-    .join('');
-
+            <a href="#" class="books__item-link" aria-label="books-item-link" rel="noopener noreferrer" data-id='${book._id}'>
+      
+            <div class="books__card">
+              <img
+                src="${book.book_image}"
+                alt="${book.title}"
+                class="books__card-title-img"
+                width="180"
+                height="256"
+      
+              />
+              <div class="books__overlay">
+                <p class="books__overlay-text">quick view</p>
+              </div>
+             </div> 
+              <div class="books__descr">
+                <h3 class="books__card-title">${cutBookTitle(book.title)}</h3>
+                <p class="books__card-author">${cutBookAuthor(book.author)}</p>
+              </div>
+           </a>
+          </li>`
+    }).slice(0, amountRenderedBooks)
+        .join('')}
+        </ul>
+        <button class="books__btn" type="button" data-id="${elements.list_name
+      }">see more</button>
+      </li>`
+  }).join('')}`
 }
 
 
@@ -129,7 +124,6 @@ function cutBookTitle(title) {
 
   return title;
 }
-
 
 function cutBookAuthor(author) {
   if (window.innerWidth <= 767 && author.length >= 37)
