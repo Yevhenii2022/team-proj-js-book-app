@@ -83,6 +83,13 @@
     color: $color-dark;
 
     margin-bottom: 4px;
+
+    @media screen and(min-width: $tablet) {
+      width: 218px;
+    }
+    @media screen and(min-width: $desktop) {
+      width: 180px;
+    }
   }
 
   &-author {
