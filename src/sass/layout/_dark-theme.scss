@@ -101,3 +101,20 @@
   color: $color-hover-activ;
 }
 //  =========================================
+
+// .dark-mode .shopping__shop-img {
+//   filter: grayscale(1) brightness(10);
+// }
+
+.dark-mode .shopping__shop-img {
+  filter: none;
+}
+
+.dark-mode .shopping__shops--tablet  {
+  filter: invert(1);
+}
+
+.dark-mode .modal-info__list   {
+  filter: invert(1);
+}
+
