@@ -9,7 +9,8 @@ const refs = {
   backdrop: document.querySelector('.js-backdrop'),
   addBodyClass: document.querySelector('body'),
 };
-export function openModal() {
+export function openModal(event) {
+  event.preventDefault();
   refs.modal.classList.remove('is-hidden');
   refs.addBodyClass.classList.add('modal-open');
   document.addEventListener('keydown', onClickEscape);
