@@ -7,6 +7,7 @@ body {
   font-size: 12px;
   color: $color-text-grey;
   background-color: $color-home-background;
+  @include transition(background-color);
 
   // Забороняє прокрутку сторінки при відкритому модальному вікні
   &.no-scroll {
@@ -19,5 +20,18 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
+  }
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #e0e0e0;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: $color-text-grey;
   }
 }
