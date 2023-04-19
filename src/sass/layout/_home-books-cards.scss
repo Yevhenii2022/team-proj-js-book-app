@@ -119,8 +119,9 @@
   background-color: transparent;
   border: 2px solid $color-blue;
   border-radius: 40px;
-  transition-duration: 500ms;
-  transition-timing-function: ease-out;
+
+  transition-duration: $transition-duration;
+  transition-timing-function: $cubic;
 
   &:hover,
   &:focus {
@@ -150,8 +151,8 @@
   background: $color-hover-activ;
   user-select: none;
 
-  transition-duration: 500ms;
-  transition-timing-function: ease-out;
+  transition-duration: $transition-duration;
+  transition-timing-function: $cubic;
 
   &-text {
     position: absolute;
