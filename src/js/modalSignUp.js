@@ -1,6 +1,6 @@
 const signupBtn = document.querySelector('[data-modal-open]'); // кнопка "Зарегистрироваться"
-const signupModal = document.querySelector('[data-close-modal]'); // модальное окно регистрации
-const closeBtn = signupModal.querySelector('[modal-close]'); // кнопка закрытия модального окна
+const signupModal = document.querySelector('[data-modal-show]'); // модальное окно регистрации
+const closeBtn = signupModal.querySelector('[data-modal-close]'); // кнопка закрытия модального окна
 
 const registrationFormWrapper = document.querySelector('.regisraion-wrapper'); // контейнер формы регистрации
 const registrationLink = document.querySelector('.registration-link'); // ссылка на форму регистрации
@@ -10,33 +10,42 @@ const loginLink = document.querySelector('.login-link'); // ссылка на ф
 
 // Функция для закрытия модального окна
 export function closeModal() {
-  const modal = document.querySelector('[data-close-modal]');
-  modal.style.display = 'none';
+  signupModal.style.display = 'none';
+  closeBtn.removeEventListener('click', closeModal);
+  window.removeEventListener('click', outsideClick);
+  document.removeEventListener('keydown', escapePress);
 }
 
 // Обработчик клика на кнопку "Зарегистрироваться"
 signupBtn.addEventListener('click', () => {
   signupModal.style.display = 'block'; // Показываем модальное окно регистрации
+  closeBtn.addEventListener('click', closeModal);
+  window.addEventListener('click', outsideClick);
+  document.addEventListener('keydown', escapePress);
 });
 
-// Обработчик клика на кнопку закрытия модального окна
-closeBtn.addEventListener('click', () => {
-  signupModal.style.display = 'none'; // Скрываем модальное окно регистрации
-});
+// const signupBtn2 = document.querySelector('.signup-btn'); // кнопка "Sign up"
+// // Обработчик клика на кнопку "Sign up"
+// signupBtn2.addEventListener('click', () => {
+//   signupModal.style.display = 'block'; // Показываем модальное окно регистрации
+//   closeBtn.addEventListener('click', closeModal);
+//   window.addEventListener('click', outsideClick);
+//   document.addEventListener('keydown', escapePress);
+// });
 
-// Обработчик клика на любой элемент вне модального окна
-window.addEventListener('click', event => {
+// Функция для обработки клика вне модального окна
+function outsideClick(event) {
   if (event.target === signupModal) {
-    signupModal.style.display = 'none'; // Скрываем модальное окно регистрации
+    closeModal();
   }
-});
+}
 
-// Обработчик нажатия клавиши Escape для закрытия модального окна
-document.addEventListener('keydown', event => {
+// Функция для обработки нажатия клавиши Escape
+function escapePress(event) {
   if (event.key === 'Escape' && signupModal.style.display === 'block') {
-    signupModal.style.display = 'none'; // Скрываем модальное окно регистрации
+    closeModal();
   }
-});
+}
 
 // Обработчик клика на ссылку на форму входа
 loginLink.addEventListener('click', () => {

@@ -2,10 +2,12 @@
 .dark-mode .modal-pop {
   background-color: $color-dark-accent;
   border-color: $color-white;
+  transition: 0.5s;
 }
 .dark-mode .header__container {
   border: 1.5px solid $color-white;
   background-color: $color-dark;
+  transition: 0.5s;
 }
 
 .dark-mode .shopping__card {
@@ -101,3 +103,17 @@
   color: $color-hover-activ;
 }
 //  =========================================
+
+.dark-mode .shopping__shop-img {
+  filter: invert(1);
+  transition: 0.5s;
+}
+
+.dark-mode .shopping__shop-img:hover {
+ transform: translateY(-7);
+}
+
+.dark-mode .modal-info__list   {
+  filter: invert(1);
+}
+
