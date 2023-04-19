@@ -125,6 +125,9 @@ async function renderBookById(id) {
      `;
 
     refs.modalPopEl.innerHTML = markup;
+
+    const linksShops = document.querySelectorAll('.modal-info__link');
+    onLinksClick(linksShops);
   } catch (error) {
     console.log(error);
     Notiflix.Notify.failure(
@@ -132,5 +135,15 @@ async function renderBookById(id) {
     );
   } finally {
     spinerStop();
+  }
+}
+
+function onLinksClick(links) {
+  for (let i = 0; i < links.length; i++) {
+    let link = links[i];
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      window.open(this.href);
+    });
   }
 }
