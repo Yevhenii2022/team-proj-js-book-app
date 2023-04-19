@@ -1,5 +1,5 @@
 //==========Close container===========
-.close-container {
+.close-container--sign {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,8 +17,8 @@
   }
 }
 
-.leftright,
-.rightleft {
+.leftright--sign,
+.rightleft--sign {
   width: 20px;
   height: 4px;
   width: 20px;
@@ -34,11 +34,11 @@
   }
 }
 
-.rightleft {
+.rightleft--sign {
   transform: rotate(-45deg);
 }
 
-.close-container:hover .leftright {
+.close-container:hover .leftright--sign {
   transform: rotate(-45deg);
   background-color: $color-blue;
 
@@ -46,7 +46,7 @@
   box-shadow: 0 8px 43px $color-blue;
 }
 
-.close-container:hover .rightleft {
+.close-container:hover .rightleft--sign {
   transform: rotate(45deg);
   background-color: $color-blue;
 
