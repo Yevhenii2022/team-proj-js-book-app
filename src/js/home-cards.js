@@ -48,7 +48,6 @@ const createTopBooksMarkup = async () => {
   refs.homeContainer.classList.add('container_active');
   refs.cardContainerEl.innerHTML = await booksCardTemplate(markup);
 
-
   const homeBtnEl = document.querySelectorAll('.books__btn');
   homeBtnEl.forEach(btn => {
     btn.addEventListener('click', event => {
@@ -69,15 +68,19 @@ function booksCardTemplate(data) {
   return `
     <h1 class="books__main-title">
       Best Sellers <span class="books__main-title-attribute">Books</span>
-    </h1> ${data.map(elements => {
-    return `
+    </h1> ${data
+      .map(elements => {
+        return `
       <li class="books__list"> 
       <h3 class="books__list-title">${elements.list_name}</h3>
         <ul class="books__card-container">
-          ${elements.books.map(book => {
-      return `<li class="books__item">
+          ${elements.books
+            .map(book => {
+              return `<li class="books__item">
 
-            <a href="#" class="books__item-link" aria-label="books-item-link" rel="noopener noreferrer" data-id='${book._id}'>
+            <a href="#" class="books__item-link" aria-label="books-item-link" rel="noopener noreferrer" data-id='${
+              book._id
+            }'>
       
             <div class="books__card">
               <img
@@ -97,17 +100,18 @@ function booksCardTemplate(data) {
                 <p class="books__card-author">${cutBookAuthor(book.author)}</p>
               </div>
            </a>
-          </li>`
-    }).slice(0, amountRenderedBooks)
-        .join('')}
+          </li>`;
+            })
+            .slice(0, amountRenderedBooks)
+            .join('')}
         </ul>
-        <button class="books__btn" type="button" data-id="${elements.list_name
-      }">see more</button>
-      </li>`
-  }).join('')}`
+        <button class="books__btn" type="button" data-id="${
+          elements.list_name
+        }">see more</button>
+      </li>`;
+      })
+      .join('')}`;
 }
-
-
 
 function cutBookTitle(title) {
   if (window.innerWidth <= 767 && title.length >= 27)
