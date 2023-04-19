@@ -1,27 +1,3 @@
-// .container {
-// margin-left: auto;
-// margin-right: auto;
-// padding-left: 20px;
-// padding-right: 20px;
-
-// @media screen and(max-width: 767.98px) {
-//     max-width: 375px;
-// }
-
-// @media screen and(min-width: $tablet) {
-//     width: 768px;
-//     padding-left: 32px;
-//     padding-right: 32px;
-// }
-
-// @media screen and(min-width: $desktop) {
-//     width: 1200px;
-//     padding-left: 24px;
-//     padding-right: 24px;
-// }
-
-// }
-
 .header {
   display: flex;
   align-items: center;
@@ -39,12 +15,13 @@
   padding-bottom: 18px;
 
   @media screen and(min-width: $tablet) {
-    margin-right: 32px;
+    margin-right: 16px;
   }
 
   @media screen and(min-width: $desktop) {
-    margin-right: 99px;
+    margin-right: 83px;
   }
+  @include transition(scale);
 }
 
 .logo:hover {
@@ -93,6 +70,7 @@
     padding-bottom: 7px;
   }
 }
+
 
 .is-activ,
 .is-activ:hover,
