@@ -21,7 +21,7 @@
   @media screen and(min-width: $desktop) {
     margin-right: 83px;
   }
-  
+
   @include transition(scale);
   &:hover,
   &:focus {
@@ -101,6 +101,7 @@
 .burger-meny-btn-close__icon {
   stroke: $color-dark;
   @include transition(stroke);
+
   &:hover,
   &:focus {
     stroke: $color-blue;
@@ -115,6 +116,7 @@
   background-color: transparent;
   color: $color-dark;
   cursor: pointer;
+  @include transition(color);
 
   &:hover {
     color: $color-blue;

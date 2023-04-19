@@ -120,6 +120,7 @@
   border: 2px solid $color-blue;
   border-radius: 40px;
 
+  transition-property: background-color, color;
   transition-duration: $transition-duration;
   transition-timing-function: $cubic;
 
