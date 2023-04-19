@@ -63,6 +63,7 @@ const showTypeBook = async type => {
 };
 
 function markupTopBooksByType(data, typeBooks) {
+  spinerStart();
   if (data.length > 0) {
     return `<h3 class="books__main-title">${typeBooks.substring(
       0,
@@ -102,4 +103,5 @@ function markupTopBooksByType(data, typeBooks) {
   } else {
     Notiflix.Notify.failure(`Not found`);
   }
+  spinerStop();
 }

@@ -2,7 +2,6 @@ import refs from './refs';
 import { getBooksId } from './api-book';
 import Notiflix from 'notiflix';
 import LsService from './storage-methods';
-import { spinerStart, spinerStop } from './loader';
 import defaultImage from '../images/shopping-list-empty-bg/shoping-list-empty-lg.png';
 import amazonImage1 from '../images/shopping-list-shops/amazon-shop-1x.png';
 import amazonImage2 from '../images/shopping-list-shops/amazon-shop-2x.png';
@@ -70,7 +69,6 @@ async function renderBookById(id) {
   refs.modalPopEl.innerHTML = '';
 
   try {
-    spinerStart();
     const book = await getBooksId(id);
 
     LsService.save('active-book', book);
@@ -133,8 +131,6 @@ async function renderBookById(id) {
     Notiflix.Notify.failure(
       `Oops! Something went wrong. You caught the following error: ${error.message}.`
     );
-  } finally {
-    spinerStop();
   }
 }
 
