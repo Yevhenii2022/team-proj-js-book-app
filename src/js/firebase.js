@@ -34,6 +34,7 @@ const passwordInput = form.querySelector(
   '.registration-form__input[type="password"]'
 );
 const signUpButton = document.querySelector('.sign-up-btn__text');
+const mobileSignUpButton = document.querySelector('.signup-btn__text'); //mobile btn
 
 function signUp() {
   const name = nameInput.value;
@@ -106,12 +107,15 @@ function logout() {
     signOut(auth)
       .then(() => {
         signUpButton.textContent = 'Sign Up';
+        mobileSignUpButton.textContent = 'Sign Up';
         nameInput.value = '';
         emailInput.value = '';
         passwordInput.value = '';
         Notify.success('Вы успешно вышли из системы!');
         removeUserDataFromLocalStorage(user);
         document.querySelector('.log-out-btn').style.display = 'none'; // Скрываем кнопку log out при выходе пользователя
+        document.querySelector('.mobile__logout').style.display = 'none'; // Скрываем кнопку 2 ую log out при выходе пользователя
+        document.querySelector('.mobile__thumb').style.display = 'none';
       })
       .catch(error => {
         console.error(error);
@@ -122,13 +126,21 @@ function logout() {
 function updateSignUpButton() {
   const user = auth.currentUser;
   const userData = JSON.parse(localStorage.getItem('user'));
+  const mobileThumb = document.querySelector('.mobile__thumb');
+
   if (user || userData) {
     const name = user?.displayName || userData?.displayName;
     signUpButton.textContent = name ?? 'Sign Up';
+    mobileSignUpButton.textContent = name ?? 'Sign Up'; //mob btn
     document.querySelector('.log-out-btn').style.display = 'flex'; // Показываем кнопку log out, если пользователь авторизован
+    document.querySelector('.mobile__logout').style.display = 'flex'; // Показываем кнопку log out, если пользователь авторизован
+    mobileThumb.classList.remove('visually-hidden'); // Показываем элемент с классом "mobile__thumb", если пользователь авторизован
   } else {
     signUpButton.textContent = 'Sign Up';
+    mobileSignUpButton.textContent = 'Sign Up'; //mob btn
     document.querySelector('.log-out-btn').style.display = 'none'; // Скрываем кнопку log out, если пользователь не авторизован
+    document.querySelector('.mobile__logout').style.display = 'none'; // Скрываем кнопку log out 2, если пользователь не авторизован
+    mobileThumb.classList.add('visually-hidden'); // Скрываем элемент с классом "mobile__thumb", если пользователь не авторизован
   }
 }
 
@@ -158,6 +170,12 @@ function saveUserDataToLocalStorage(user, name) {
 function removeUserDataFromLocalStorage() {
   localStorage.removeItem('user');
 }
+
+// const signUpBtn = document.querySelector('.signup-btn');
+// signUpBtn.addEventListener('click', signUp);
+
+const mobileLogoutBtn = document.querySelector('.mobile__logout');
+mobileLogoutBtn.addEventListener('click', logout);
 
 window.addEventListener('load', () => {
   const userData = JSON.parse(localStorage.getItem('user'));
