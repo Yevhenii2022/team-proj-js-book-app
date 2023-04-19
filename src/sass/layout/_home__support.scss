@@ -1,5 +1,8 @@
 .support__container {
-  max-width: 335px;
+  @media screen and (max-width: 374px) {
+    max-width: 335px;
+  }
+
   margin: 0 auto;
   padding-top: 24px;
   padding-bottom: 20px;
@@ -20,7 +23,8 @@
 
   @include desktop {
     margin: 0;
-    width: 356px;
+    min-width: 335px;
+    max-width: 356px;
   }
 }
 

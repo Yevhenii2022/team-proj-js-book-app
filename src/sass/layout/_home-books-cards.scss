@@ -9,102 +9,104 @@
 
   @media screen and(min-width: $tablet) {
     font-size: 48px;
-    line-height: 52px;
-  }
-
-  @media screen and(min-width: $desktop) {
-    font-size: 48px;
     line-height: calc(52 / 48);
   }
-}
-.books__main-title-attribute {
-  color: $color-blue;
-}
 
-.books__card-container {
-  @media screen and(min-width: $tablet) {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px 25px;
+  &-attribute {
+    color: $color-blue;
   }
 }
 
-.books__item {
-  @media screen and(max-width: $befor-tablet) {
-    margin-bottom: 40px;
-  }
-}
+.books__list {
+  margin-bottom: 40px;
 
-.books__list-title {
-  display: block;
-  font-size: 14px;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  color: $color-text-grey;
-  margin-bottom: 18px;
+  &-title {
+    display: block;
+    font-size: 14px;
+    line-height: calc(18 / 14);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: $color-text-grey;
 
-  @media screen and(min-width: $tablet) {
-    line-height: calc(24 / 14);
+    margin-bottom: 18px;
+
+    @media screen and(min-width: $tablet) {
+      line-height: calc(24 / 14);
+    }
   }
 }
 
 .books__card {
+  &-container {
+    margin-bottom: 8px;
+
+    @media screen and(min-width: $tablet) {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px 25px;
+
+      margin-bottom: 20px;
+    }
+    @media screen and(min-width: $desktop) {
+      margin-bottom: 32px;
+    }
+  }
+
   position: relative;
   overflow: hidden;
   margin-bottom: 14px;
+
+  &-title-img {
+    border-radius: 8px;
+    width: 280px;
+    height: 406px;
+
+    @media screen and(min-width: $phone) {
+      width: 335px;
+      height: 485px;
+    }
+
+    @media screen and(min-width: $tablet) {
+      width: 218px;
+      height: 316px;
+    }
+    @media screen and(min-width: $desktop) {
+      height: 256px;
+      width: 180px;
+    }
+  }
+
+  &-title {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: calc(18 / 16);
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    color: $color-dark;
+
+    margin-bottom: 4px;
+
+    @media screen and(min-width: $tablet) {
+      width: 218px;
+    }
+    @media screen and(min-width: $desktop) {
+      width: 180px;
+    }
+  }
+
+  &-author {
+    font-style: italic;
+    font-size: 12px;
+    line-height: calc(14 / 12);
+    letter-spacing: -0.04em;
+
+    color: $color-text-grey;
+  }
 }
 
-.books__card-title-img {
-  border-radius: 8px;
-
-  @media screen and(max-width: $befor-tablet) {
-    width: 335px;
-    height: 485px;
-  }
-
-  @media screen and(min-width: $tablet) {
-    width: 218px;
-    height: 316px;
-  }
-  @media screen and(min-width: $desktop) {
-    height: 256px;
-    width: 180px;
-  }
-}
-.books__card-title {
-  font-weight: 700;
-  font-size: 16px;
-  line-height: calc(18 / 16);
-  letter-spacing: -0.04em;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-
-  color: $color-dark;
-  margin-bottom: 4px;
-
-  @media screen and(min-width: $tablet) {
-    width: 218px;
-  }
-  @media screen and(min-width: $desktop) {
-    width: 180px;
-    font-size: 14px;
-    line-height: calc(24 / 14);
-    letter-spacing: 0.03em;
-  }
-}
-.books__card-author {
-  font-style: italic;
-  font-size: 12px;
-  line-height: calc(14 / 12);
-  letter-spacing: -0.04em;
-
-  color: $color-text-grey;
-}
 .books__btn {
   display: block;
   margin-left: auto;
-  margin-top: 8px;
-  margin-bottom: 40px;
   padding: 14px 28px;
 
   font-weight: 700;
@@ -117,13 +119,8 @@
   background-color: transparent;
   border: 2px solid $color-blue;
   border-radius: 40px;
-
-  @media screen and(min-width: $tablet) {
-    margin-top: 20px;
-  }
-  @media screen and(min-width: $desktop) {
-    margin-top: 32px;
-  }
+  transition-duration: 500ms;
+  transition-timing-function: ease-out;
 
   &:hover,
   &:focus {
@@ -133,11 +130,6 @@
 }
 
 .books__item-link {
-  &:hover,
-  &:focus {
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
-      1px 4px 6px rgba(0, 0, 0, 0.16);
-  }
   &:hover .books__overlay {
     opacity: 1;
     transform: translateY(0);
@@ -158,7 +150,7 @@
   background: $color-hover-activ;
   user-select: none;
 
-  transition-duration: 300ms;
+  transition-duration: 500ms;
   transition-timing-function: ease-out;
 
   &-text {

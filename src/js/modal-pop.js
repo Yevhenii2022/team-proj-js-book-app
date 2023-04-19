@@ -2,7 +2,6 @@ import refs from './refs';
 import { getBooksId } from './api-book';
 import Notiflix from 'notiflix';
 import LsService from './storage-methods';
-import { spinerStart, spinerStop } from './loader';
 import defaultImage from '../images/shopping-list-empty-bg/shoping-list-empty-lg.png';
 import amazonImg from '../images/book-store-icon/amazon.png';
 import appleImg from '../images/book-store-icon/apple-books.png';
@@ -48,6 +47,8 @@ function closeModalPop() {
   if (scrollParam > coords) {
     refs.scrollBtnEl.classList.remove('btn-up_hide');
   }
+
+  refs.modalPopInfoEl.innerHTML = '';
 }
 
 function onEscKeyPress(event) {
@@ -66,7 +67,6 @@ async function renderBookById(id) {
   refs.modalPopEl.innerHTML = '';
 
   try {
-    spinerStart();
     const book = await getBooksId(id);
     console.log(book);
     console.log(book._id);
@@ -116,12 +116,23 @@ async function renderBookById(id) {
       }                 
       </button>`;
     refs.modalPopEl.innerHTML = markup;
+
+    const linksShops = document.querySelectorAll('.modal-info__link');
+    onLinksClick(linksShops);
   } catch (error) {
     console.log(error);
     Notiflix.Notify.failure(
       `Oops! Something went wrong. You caught the following error: ${error.message}.`
     );
-  } finally {
-    spinerStop();
+  }
+}
+
+function onLinksClick(links) {
+  for (let i = 0; i < links.length; i++) {
+    let link = links[i];
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      window.open(this.href);
+    });
   }
 }

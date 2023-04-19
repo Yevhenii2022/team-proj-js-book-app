@@ -65,11 +65,14 @@ const showTypeBook = async type => {
 };
 
 function markupTopBooksByType(data, typeBooks) {
-  if (data.length>0){
-  return `<h3 class="books__main-title">${typeBooks.substring(
-    0,typeBooks.lastIndexOf(' '))}<span class="books__main-title-attribute"> ${typeBooks
-    .split(' ')
-    .pop()}</span></h3>
+  spinerStart();
+  if (data.length > 0) {
+    return `<h3 class="books__main-title">${typeBooks.substring(
+      0,
+      typeBooks.lastIndexOf(' ')
+    )}<span class="books__main-title-attribute"> ${typeBooks
+      .split(' ')
+      .pop()}</span></h3>
         <ul class="books__card-container">
         ${data
       .map(
@@ -97,10 +100,13 @@ function markupTopBooksByType(data, typeBooks) {
             </div>
             </a>
             </li>`
-      )
-      .join('')}
-         </ul>`;} 
-         else {Notiflix.Notify.failure(`Not found`)}
+          )
+          .join('')}
+         </ul>`;
+  } else {
+    Notiflix.Notify.failure(`Not found`);
+  }
+  spinerStop();
 }
 
 
