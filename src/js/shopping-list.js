@@ -64,7 +64,7 @@ function renderShoppingList(data, page = 1) {
         <li class="shopping__shop">
           <a href="${
             amazon.url
-          }" class="shopping__shop-link" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">
+          }" class="shopping__shop-link" target="_blank" crossorigin="anonymous"  rel="noopener noreferrer" aria-label="Amazon-book site">
             <img srcset="${amazonImage1} 1x, ${amazonImage2} 2x" src="${amazonImage1}" alt="${
             amazon.name
           }" class="shopping__shop-img" width="48" height="15"/>
@@ -73,7 +73,7 @@ function renderShoppingList(data, page = 1) {
         <li class="shopping__shop">
           <a href="${
             apple.url
-          }" class="shopping__shop-link" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">
+          }" class="shopping__shop-link" target="_blank" crossorigin="anonymous"  rel="noopener noreferrer" aria-label="Apple-book site">
             <img srcset="${appleImage1} 1x, ${appleImage2} 2x" src="${appleImage1}" alt="${
             apple.name
           }" class="shopping__shop-img" width="28" height="27"/>
@@ -82,7 +82,7 @@ function renderShoppingList(data, page = 1) {
         <li class="shopping__shop">
           <a href="${
             bookshop.url
-          }" class="shopping__shop-link" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">
+          }" class="shopping__shop-link" target="_blank" crossorigin="anonymous"  rel="noopener noreferrer" aria-label="Book-shop site">
             <img srcset="${bookshopImage1} 1x, ${bookshopImage2} 2x" src="${bookshopImage1}" alt="${
             bookshop.name
           }" class="shopping__shop-img" width="32" height="30"/>
@@ -95,7 +95,7 @@ function renderShoppingList(data, page = 1) {
         <li class="shopping__shop">
           <a href="${
             amazon.url
-          }" class="shopping__shop-link" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">
+          }" class="shopping__shop-link" target="_blank" crossorigin="anonymous"  rel="noopener noreferrer" aria-label="Amazon-book site">
             <img srcset="${amazonImage1} 1x, ${amazonImage2} 2x" src="${amazonImage1}" alt="${
             amazon.name
           }" class="shopping__shop-img" width="48" height="15"/>
@@ -104,7 +104,7 @@ function renderShoppingList(data, page = 1) {
         <li class="shopping__shop">
           <a href="${
             apple.url
-          }" class="shopping__shop-link" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">
+          }" class="shopping__shop-link" target="_blank" crossorigin="anonymous"  rel="noopener noreferrer" aria-label="Apple-book site">
             <img srcset="${appleImage1} 1x, ${appleImage2} 2x" src="${appleImage1}" alt="${
             apple.name
           }" class="shopping__shop-img" width="28" height="27"/>
@@ -113,7 +113,7 @@ function renderShoppingList(data, page = 1) {
         <li class="shopping__shop">
           <a href="${
             bookshop.url
-          }" class="shopping__shop-link" target="_blank" crossorigin="anonymous" referrerpolicy="no-referrer">
+          }" class="shopping__shop-link" target="_blank" crossorigin="anonymous"  rel="noopener noreferrer" aria-label="Book-shop site">
             <img srcset="${bookshopImage1} 1x, ${bookshopImage2} 2x" src="${bookshopImage1}" alt="${
             bookshop.name
           }" class="shopping__shop-img" width="32" height="30"/>
