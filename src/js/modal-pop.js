@@ -50,6 +50,8 @@ function closeModalPop() {
   if (scrollParam > coords) {
     refs.scrollBtnEl.classList.remove('btn-up_hide');
   }
+
+  refs.modalPopInfoEl.innerHTML = '';
 }
 
 function onEscKeyPress(event) {
@@ -84,8 +86,6 @@ async function renderBookById(id) {
     const isActivBook = Boolean(
       LsService.load('selected-books')?.find(el => el._id === book._id)
     );
-
-    console.log(buy_links[0].url);
 
     const markup = `
       <div class="modal-info">
