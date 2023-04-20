@@ -126,6 +126,8 @@ function logout() {
         document.querySelector('.user-sign').classList.add('hidden');
         document.querySelector('.signup-btn-mobile').classList.remove('hidden');
         document.querySelector('.log-out-btn').classList.add('hidden');
+        document.querySelector('.log-out-btn').style.display = 'none';
+        document.querySelector('.navigation').classList.remove('hidden');
       })
       .catch(error => {
         console.error(error);
@@ -144,6 +146,7 @@ function updateSignUpButton() {
   const mobUserConEl = document.querySelector('.user__container');
   const descLogOutEl = document.querySelector('.log-out-btn');
   const mobLogOutEl = document.querySelector('.mobile__logout');
+  const navigationDescEl = document.querySelector('.navigation');
   if (user || userData) {
     const name = user?.displayName || userData?.displayName;
     // signUpButton.textContent = name ?? 'Sign Up';
@@ -162,6 +165,7 @@ function updateSignUpButton() {
       document.querySelector('.mobile__logout').classList.remove('hidden');
       document.querySelector('.mobile__thumb').classList.remove('hidden');
       document.querySelector('.log-out-btn').classList.remove('hidden');
+      document.querySelector('.navigation').classList.remove('hidden');
       // document.querySelector('.user__container').style.display = 'flex';
       // document.querySelector('.sign-up-btn').style.display = 'none';
       // document.querySelector('.user-sign').classList.add('show');
@@ -170,7 +174,7 @@ function updateSignUpButton() {
       // document.querySelector('.mobile__logout').style.display = 'flex';
     } else {
       document.querySelector('.log-out-btn').classList.add('hidden');
-
+      document.querySelector('.navigation').classList.add('hidden');
       // document.querySelector('.user__container').style.display = 'none';
       // document.querySelector('.sign-up-btn').style.display = 'flex';
       // document.querySelector('.signup-btn-mobile').style.display = 'flex';
@@ -184,6 +188,7 @@ function updateSignUpButton() {
     document.querySelector('.mobile__logout').classList.add('hidden');
     document.querySelector('.mobile__thumb').classList.add('hidden');
     document.querySelector('.sign-up-btn').classList.remove('hidden');
+    document.querySelector('.navigation').classList.add('hidden');
 
     // document.querySelector('.signup-btn-mobile').style.display = 'flex';
     // document.querySelector('.user__container').style.display = 'none';

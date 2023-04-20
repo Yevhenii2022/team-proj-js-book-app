@@ -38,7 +38,7 @@
   transform: rotate(-45deg);
 }
 
-.close-container:hover .leftright--sign {
+.close-container--sign:hover .leftright--sign {
   transform: rotate(-45deg);
   background-color: $color-blue;
 
@@ -46,7 +46,7 @@
   box-shadow: 0 8px 43px $color-blue;
 }
 
-.close-container:hover .rightleft--sign {
+.close-container--sign:hover .rightleft--sign {
   transform: rotate(45deg);
   background-color: $color-blue;
 
@@ -116,7 +116,7 @@
 
   @include tablet {
     width: 579px;
-    height: 516px;
+    // height: 516px;
 
     padding: 80px 40px 40px;
   }
@@ -137,7 +137,8 @@
 
   margin: 0 10px;
   border-bottom: 2px solid transparent;
-
+  @include transition(color);
+  @include transition(border-bottom);
   @include tablet {
     font-size: 18px;
     line-height: 1.33;
@@ -218,6 +219,9 @@
   color: #f3f3f3;
   background-color: #111111;
   border-radius: 40px;
+}
+.registration-form__input {
+  outline: none;
 }
 
 .registration-form__input:hover,

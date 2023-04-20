@@ -144,5 +144,9 @@
     <symbol id="icon-fi-ss-caret-down" viewBox="0 0 28 32">
       <path d="M5.898 12h16.513l-7.423 8.391c-0.221 0.25-0.521 0.39-0.834 0.39s-0.613-0.14-0.834-0.39l-7.422-8.391z"></path>
     </symbol>  
+        <symbol id="arrow-narrow-right-mobile-menu" viewBox="0 0 32 32">
+      <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.2"
+        d="M5.333 16h21.333m.001 0-8-8m8 8-8 8" />
+    </symbol>
   </defs>
 </svg>

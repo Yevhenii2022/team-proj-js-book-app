@@ -61,3 +61,10 @@ registrationLink.addEventListener('click', () => {
   registrationLink.classList.add('active'); // Добавляем класс "active" для ссылки на форму регистрации
   loginLink.classList.remove('active'); // Убираем класс "active" для ссылки на ссылки на форму входа
 });
+
+document.querySelector('.user-sign').addEventListener('click', onLogoutClick);
+
+function onLogoutClick(e) {
+  console.log(e);
+  document.querySelector('.log-out-btn').style.display = 'flex';
+}
