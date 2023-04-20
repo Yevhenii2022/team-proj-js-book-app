@@ -251,3 +251,13 @@
 .signup-btn-mobile:hover .signup-btn__icon {
   stroke: $color-dark;
 }
+
+.logout__icon {
+  stroke: $color-dark;
+  @include transition(stroke);
+}
+
+.mobile__logout:hover .logout__icon,
+.mobile__logout:focus .logout__icon {
+  stroke: $color-white;
+}
