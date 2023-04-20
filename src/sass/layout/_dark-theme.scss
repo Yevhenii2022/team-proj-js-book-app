@@ -40,7 +40,7 @@
 .dark-mode .modal-pop__icon-close,
 .dark-mode .modal-info__button,
 .dark-mode .burger-meny-btn-close__icon,
-.dark-mode .description-non{
+.dark-mode .description-non {
   color: $color-white;
   fill: $color-white;
   stroke: $color-white;
@@ -61,7 +61,7 @@
 .dark-mode .rightleft,
 .dark-mode .leftright,
 .dark-mode .rightleft--sign,
-.dark-mode .leftright--sign  {
+.dark-mode .leftright--sign {
   background-color: $color-white;
 }
 
@@ -102,6 +102,7 @@
 .dark-mode .registration-form__btn:hover,
 .dark-mode .login-form__btn:hover {
   background-color: $color-blue;
+  color: $color-white;
 }
 
 .dark-mode .category-item.active,
@@ -116,10 +117,9 @@
 }
 
 .dark-mode .shopping__shop-img:hover {
- transform: translateY(-7);
+  transform: translateY(-7);
 }
 
-.dark-mode .modal-info__list   {
+.dark-mode .modal-info__list {
   filter: invert(1);
 }
-
