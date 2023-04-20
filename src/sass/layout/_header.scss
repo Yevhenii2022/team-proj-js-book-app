@@ -210,8 +210,10 @@
 // SIGN-UP-BUTTON
 
 .userbar {
-  position: relative;
-  width: 184px;
+  @include tablet {
+    position: relative;
+    min-width: 184px;
+  }
 }
 
 .sign-up-btn {

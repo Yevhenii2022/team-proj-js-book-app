@@ -229,9 +229,25 @@
 
   letter-spacing: -0.04em;
 
-  color: #ffffff;
+  color: $color-white;
   background-color: #4f2ee8;
   border: 1.5px solid #111111;
   border-radius: 18px;
   cursor: pointer;
+  @include transition(color);
+  @include transition(background-color);
+  &:hover,
+  &:focus {
+    color: $color-dark;
+    background-color: $color-hover-activ;
+  }
+}
+
+.signup-btn__icon {
+  stroke: $color-hover-activ;
+  @include transition(stroke);
+}
+
+.signup-btn-mobile:hover .signup-btn__icon {
+  stroke: $color-dark;
 }
