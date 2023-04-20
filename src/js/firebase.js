@@ -44,7 +44,7 @@ function signUp() {
     .then(() => {
       const user = auth.currentUser;
       saveUserDataToLocalStorage(user);
-      Notify.success('Вы успешно зарегистрировались!');
+      Notify.success('YOU HAVE SUCCESSFULLY REGISTERED!');
       closeModal();
       return signInWithEmailAndPassword(auth, email, password);
     })
@@ -71,7 +71,7 @@ function signUp() {
     .catch(error => {
       console.error(error);
       const errorMessage = error.message;
-      Notify.failure(`Произошла ошибка: ${errorMessage}`);
+      Notify.failure(`An error has occurred: ${errorMessage}`);
     });
 }
 
@@ -79,7 +79,7 @@ function login() {
   const email = loginForm.querySelector('[data-login-email]').value;
   const password = loginForm.querySelector('[data-login-pass]').value;
   if (!password) {
-    Notify.failure('Введите пароль');
+    Notify.failure('ENTER PASSWORD');
     return;
   }
   signInWithEmailAndPassword(auth, email, password)
@@ -89,13 +89,13 @@ function login() {
       localStorage.setItem('user', JSON.stringify(user));
 
       updateSignUpButton();
-      Notify.success('Авторизация прошла успешно!');
+      Notify.success('Authorization was successful!');
       closeModal();
     })
     .catch(error => {
       console.error(error);
       const errorMessage = error.message;
-      Notify.failure(`Произошла ошибка: ${errorMessage}`);
+      Notify.failure(`An error has occurred: ${errorMessage}`);
     });
 }
 
@@ -109,7 +109,7 @@ function logout() {
         nameInput.value = '';
         emailInput.value = '';
         passwordInput.value = '';
-        Notify.success('Вы успешно вышли из системы!');
+        Notify.success('You have successfully logged out!');
         removeUserDataFromLocalStorage(user);
         document.querySelector('.sign-up-btn').classList.remove('hidden');
         document.querySelector('.user__container').classList.add('hidden');
