@@ -44,6 +44,7 @@
   color: $color-white;
   fill: $color-white;
   stroke: $color-white;
+  transition: 0.5s;
 }
 
 .dark-mode .modal-info__author,
@@ -63,17 +64,20 @@
 .dark-mode .rightleft--sign,
 .dark-mode .leftright--sign {
   background-color: $color-white;
+  transition: 0.5s;
 }
 
 .dark-mode .modal-content {
   background-color: $color-dark-accent;
   border-color: $color-home-background;
+  transition: 0.5s;
 }
 
 .dark-mode input {
   background: transparent;
   color: #ffe;
   border-color: $color-home-background;
+  transition: 0.5s;
 }
 
 .dark-mode .registration-form__btn,
@@ -81,10 +85,12 @@
   font-weight: 700;
   color: $color-dark-accent;
   background-color: $color-home-background;
+  transition: 0.5s;
 }
 
 .dark-mode .links-container a {
   color: $colour-grey;
+  transition: 0.5s;
 }
 // ========================================
 
