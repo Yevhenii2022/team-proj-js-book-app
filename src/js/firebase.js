@@ -75,8 +75,6 @@ function signUp() {
     });
 }
 
-// =======
-
 function login() {
   const email = loginForm.querySelector('[data-login-email]').value;
   const password = loginForm.querySelector('[data-login-pass]').value;
@@ -113,34 +111,83 @@ function logout() {
         passwordInput.value = '';
         Notify.success('Вы успешно вышли из системы!');
         removeUserDataFromLocalStorage(user);
-        document.querySelector('.log-out-btn').style.display = 'none'; // Скрываем кнопку log out при выходе пользователя
-        document.querySelector('.mobile__logout').style.display = 'none'; // Скрываем кнопку 2 ую log out при выходе пользователя
-        document.querySelector('.mobile__thumb').style.display = 'none';
+        // document.querySelector('.log-out-btn').style.display = 'none'; // Скрываем кнопку log out при выходе пользователя
+        // document.querySelector('.mobile__logout').style.display = 'none'; // Скрываем кнопку 2 ую log out при выходе пользователя
+        // document.querySelector('.mobile__thumb').style.display = 'none';
+        // document.querySelector('.user__container').style.display = 'none';
+        // document.querySelector('.signup-btn-mobile').style.display = 'flex';
+        // document.querySelector('.user-sign').style.display = 'none';
+        // document.querySelector('.sign-up-btn').style.display = 'none';
+        document.querySelector('.sign-up-btn').classList.remove('hidden');
+        document.querySelector('.user__container').classList.add('hidden');
+        document.querySelector('.mobile__logout').classList.add('hidden');
+        document.querySelector('.mobile__thumb').classList.add('hidden');
+        document.querySelector('.user-sign').classList.remove('show');
+        document.querySelector('.user-sign').classList.add('hidden');
+        document.querySelector('.signup-btn-mobile').classList.remove('hidden');
       })
       .catch(error => {
         console.error(error);
       });
   }
 }
-
+// mobile__home-item > mobile__shoplist
 function updateSignUpButton() {
   const user = auth.currentUser;
   const userData = JSON.parse(localStorage.getItem('user'));
   const mobileThumb = document.querySelector('.mobile__thumb');
 
+  const mobileSignUpBtn = document.querySelector('.signup-btn-mobile');
+  const descSignUpBtn = document.querySelector('.sign-up-btn');
+  const descUserContEl = document.querySelector('.user-sign');
+  const mobUserConEl = document.querySelector('.user__container');
+  const descLogOutEl = document.querySelector('.log-out-btn');
+  const mobLogOutEl = document.querySelector('.mobile__logout');
   if (user || userData) {
     const name = user?.displayName || userData?.displayName;
     signUpButton.textContent = name ?? 'Sign Up';
     mobileSignUpButton.textContent = name ?? 'Sign Up'; //mob btn
     document.querySelector('.log-out-btn').style.display = 'flex'; // Показываем кнопку log out, если пользователь авторизован
-    document.querySelector('.mobile__logout').style.display = 'flex'; // Показываем кнопку log out, если пользователь авторизован
+    mobileSignUpButton.textContent = name ?? 'Sign Up'; //mob btn
+    document.querySelector('.user__name').textContent = name;
+    document.querySelector('.user-signtext').textContent = name;
+
     mobileThumb.classList.remove('visually-hidden'); // Показываем элемент с классом "mobile__thumb", если пользователь авторизован
+    if (name) {
+      document.querySelector('.sign-up-btn').classList.add('hidden');
+      document.querySelector('.user-sign').classList.add('show');
+      document.querySelector('.signup-btn-mobile').classList.add('hidden');
+      document.querySelector('.user__container').classList.remove('hidden');
+      document.querySelector('.mobile__logout').classList.remove('hidden');
+      document.querySelector('.mobile__thumb').classList.remove('hidden');
+      // document.querySelector('.user__container').style.display = 'flex';
+      // document.querySelector('.sign-up-btn').style.display = 'none';
+      // document.querySelector('.user-sign').classList.add('show');
+      // document.querySelector('.signup-btn-mobile').style.display = 'none';
+      // document.querySelector('.signup-btn-mobile').style.display = 'none';
+      // document.querySelector('.mobile__logout').style.display = 'flex';
+    } else {
+      document.querySelector('.log-out-btn').classList.add('hidden');
+
+      // document.querySelector('.user__container').style.display = 'none';
+      // document.querySelector('.sign-up-btn').style.display = 'flex';
+      // document.querySelector('.signup-btn-mobile').style.display = 'flex';
+      // document.querySelector('.mobile__logout').style.display = 'none';
+    }
   } else {
-    signUpButton.textContent = 'Sign Up';
-    mobileSignUpButton.textContent = 'Sign Up'; //mob btn
-    document.querySelector('.log-out-btn').style.display = 'none'; // Скрываем кнопку log out, если пользователь не авторизован
-    document.querySelector('.mobile__logout').style.display = 'none'; // Скрываем кнопку log out 2, если пользователь не авторизован
-    mobileThumb.classList.add('visually-hidden'); // Скрываем элемент с классом "mobile__thumb", если пользователь не авторизован
+    document.querySelector('.log-out-btn').classList.add('hidden');
+    document.querySelector('.user-sign').classList.remove('show');
+    document.querySelector('.user-sign').classList.add('hidden');
+    document.querySelector('.user__container').classList.add('hidden');
+    document.querySelector('.mobile__logout').classList.add('hidden');
+    document.querySelector('.mobile__thumb').classList.add('hidden');
+    document.querySelector('.sign-up-btn').classList.remove('hidden');
+    // document.querySelector('.signup-btn-mobile').style.display = 'flex';
+    // document.querySelector('.user__container').style.display = 'none';
+    // document.querySelector('.user-sign ').style.display = 'none';
+    // document.querySelector('.log-out-btn').style.display = 'none'; // Скрываем кнопку log out, если пользователь не авторизован
+    // document.querySelector('.mobile__logout').style.display = 'none'; // Скрываем кнопку log out 2, если пользователь не авторизован
+    // mobileThumb.classList.add('visually-hidden'); // Скрываем элемент с классом "mobile__thumb", если пользователь не авторизован
   }
 }
 

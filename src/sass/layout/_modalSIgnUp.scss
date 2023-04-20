@@ -220,15 +220,18 @@
 }
 // =================
 .log-out-btn {
+  // display: flex;
   display: none;
-  position: absolute;
-  min-width: 184px;
-  cursor: pointer;
-  background: $color-white;
-  color: $color-dark;
-  border: 1.5px solid $color-dark;
-  border-radius: 18px;
-  justify-content: space-between;
-  align-items: center;
-  padding: 13px 14px;
+  @media screen and(min-width: $tablet) {
+    position: absolute;
+    width: 184px;
+    cursor: pointer;
+    background: $color-white;
+    color: $color-dark;
+    border: 1.5px solid $color-dark;
+    border-radius: 18px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 13px 14px;
+  }
 }

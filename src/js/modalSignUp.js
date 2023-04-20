@@ -8,6 +8,8 @@ const registrationLink = document.querySelector('.registration-link'); // ссы
 const loginFormWrapper = document.querySelector('.login-form-wrapper'); // контейнер формы входа
 const loginLink = document.querySelector('.login-link'); // ссылка на форму входа
 
+// const userSignDesc = document.querySelector('.user-sign');
+
 // Функция для закрытия модального окна
 export function closeModal() {
   signupModal.style.display = 'none';
