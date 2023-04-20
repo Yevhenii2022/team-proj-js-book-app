@@ -36,12 +36,14 @@
     <link rel="stylesheet" href="./sass/index.scss" />
   </head>
   <body>
-    <!-- partials header -->
+<div class="wrapper--body">
+      <!-- partials header -->
     <include src="./partials/header.html"></include>
     <!-- <a href="./shopping-list.html">Shopping list</a> -->
     <include src="./partials/menu-modal.html"></include>
+    <main class="main--wrapper">
+      <!-- home -->
 
-    <main>
       <section class="container home-container">
         <!-- home -->
 
@@ -68,13 +70,12 @@
     <!-- scroll-up  -->
     <button type="button" class="btn-up btn-up_hide"></button>
 
-    <!-- footer -->
-    <include src="./partials/footer.html"></include>
-
-    <!-- modal-footer -->
-    <include src="./partials/modal_footer.html"></include>
-
-    <!-- scrypts  -->
+     <!-- footer -->
+     <include src="./partials/footer.html"></include>
+     <!-- modal-footer -->
+     <include src="./partials/modal_footer.html"></include>
+</div>
+         <!-- scripts  -->
     <script type="module" src="./index.js"></script>
   </body>
 </html>

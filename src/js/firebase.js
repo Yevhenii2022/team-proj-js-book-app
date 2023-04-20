@@ -44,7 +44,7 @@ function signUp() {
     .then(() => {
       const user = auth.currentUser;
       saveUserDataToLocalStorage(user);
-      Notify.success('Вы успешно зарегистрировались!');
+      Notify.success('YOU HAVE SUCCESSFULLY REGISTERED!');
       closeModal();
       return signInWithEmailAndPassword(auth, email, password);
     })
@@ -71,17 +71,15 @@ function signUp() {
     .catch(error => {
       console.error(error);
       const errorMessage = error.message;
-      Notify.failure(`Произошла ошибка: ${errorMessage}`);
+      Notify.failure(`An error has occurred: ${errorMessage}`);
     });
 }
-
-// =======
 
 function login() {
   const email = loginForm.querySelector('[data-login-email]').value;
   const password = loginForm.querySelector('[data-login-pass]').value;
   if (!password) {
-    Notify.failure('Введите пароль');
+    Notify.failure('ENTER PASSWORD');
     return;
   }
   signInWithEmailAndPassword(auth, email, password)
@@ -91,13 +89,13 @@ function login() {
       localStorage.setItem('user', JSON.stringify(user));
 
       updateSignUpButton();
-      Notify.success('Авторизация прошла успешно!');
+      Notify.success('Authorization was successful!');
       closeModal();
     })
     .catch(error => {
       console.error(error);
       const errorMessage = error.message;
-      Notify.failure(`Произошла ошибка: ${errorMessage}`);
+      Notify.failure(`An error has occurred: ${errorMessage}`);
     });
 }
 
@@ -111,18 +109,25 @@ function logout() {
         nameInput.value = '';
         emailInput.value = '';
         passwordInput.value = '';
-        Notify.success('Вы успешно вышли из системы!');
+        Notify.success('You have successfully logged out!');
         removeUserDataFromLocalStorage(user);
-        document.querySelector('.log-out-btn').style.display = 'none'; // Скрываем кнопку log out при выходе пользователя
-        document.querySelector('.mobile__logout').style.display = 'none'; // Скрываем кнопку 2 ую log out при выходе пользователя
-        document.querySelector('.mobile__thumb').style.display = 'none';
+        document.querySelector('.sign-up-btn').classList.remove('hidden');
+        document.querySelector('.user__container').classList.add('hidden');
+        document.querySelector('.mobile__logout').classList.add('hidden');
+        document.querySelector('.mobile__thumb').classList.add('hidden');
+        document.querySelector('.user-sign').classList.remove('show');
+        document.querySelector('.user-sign').classList.add('hidden');
+        document.querySelector('.signup-btn-mobile').classList.remove('hidden');
+        document.querySelector('.log-out-btn').classList.add('hidden');
+        document.querySelector('.log-out-btn').classList.remove('is-open');
+        document.querySelector('.navigation').classList.add('hidden');
       })
       .catch(error => {
         console.error(error);
       });
   }
 }
-
+// mobile__home-item > mobile__shoplist
 function updateSignUpButton() {
   const user = auth.currentUser;
   const userData = JSON.parse(localStorage.getItem('user'));
@@ -130,17 +135,34 @@ function updateSignUpButton() {
 
   if (user || userData) {
     const name = user?.displayName || userData?.displayName;
-    signUpButton.textContent = name ?? 'Sign Up';
-    mobileSignUpButton.textContent = name ?? 'Sign Up'; //mob btn
-    document.querySelector('.log-out-btn').style.display = 'flex'; // Показываем кнопку log out, если пользователь авторизован
-    document.querySelector('.mobile__logout').style.display = 'flex'; // Показываем кнопку log out, если пользователь авторизован
+
+    document.querySelector('.user__name').textContent = name;
+    document.querySelector('.user-signtext').textContent = name;
+
     mobileThumb.classList.remove('visually-hidden'); // Показываем элемент с классом "mobile__thumb", если пользователь авторизован
+    if (name) {
+      document.querySelector('.sign-up-btn').classList.add('hidden');
+      document.querySelector('.user-sign').classList.add('show');
+      document.querySelector('.signup-btn-mobile').classList.add('hidden');
+      document.querySelector('.user__container').classList.remove('hidden');
+      document.querySelector('.mobile__logout').classList.remove('hidden');
+      document.querySelector('.mobile__thumb').classList.remove('hidden');
+      document.querySelector('.log-out-btn').classList.remove('hidden');
+      document.querySelector('.navigation').classList.remove('hidden');
+    } else {
+      document.querySelector('.log-out-btn').classList.add('hidden');
+      document.querySelector('.navigation').classList.add('hidden');
+    }
   } else {
-    signUpButton.textContent = 'Sign Up';
-    mobileSignUpButton.textContent = 'Sign Up'; //mob btn
-    document.querySelector('.log-out-btn').style.display = 'none'; // Скрываем кнопку log out, если пользователь не авторизован
-    document.querySelector('.mobile__logout').style.display = 'none'; // Скрываем кнопку log out 2, если пользователь не авторизован
-    mobileThumb.classList.add('visually-hidden'); // Скрываем элемент с классом "mobile__thumb", если пользователь не авторизован
+    document.querySelector('.log-out-btn').classList.add('hidden');
+    document.querySelector('.user-sign').classList.remove('show');
+    document.querySelector('.user-sign').classList.add('hidden');
+    document.querySelector('.user__container').classList.add('hidden');
+    document.querySelector('.mobile__logout').classList.add('hidden');
+    document.querySelector('.mobile__thumb').classList.add('hidden');
+    document.querySelector('.sign-up-btn').classList.remove('hidden');
+    document.querySelector('.navigation').classList.add('hidden');
+    document.querySelector('.log-out-btn').classList.add('hidden');
   }
 }
 
@@ -170,9 +192,6 @@ function saveUserDataToLocalStorage(user, name) {
 function removeUserDataFromLocalStorage() {
   localStorage.removeItem('user');
 }
-
-// const signUpBtn = document.querySelector('.signup-btn');
-// signUpBtn.addEventListener('click', signUp);
 
 const mobileLogoutBtn = document.querySelector('.mobile__logout');
 mobileLogoutBtn.addEventListener('click', logout);

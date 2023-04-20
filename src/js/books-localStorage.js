@@ -7,8 +7,23 @@ const shoppingListArray = LsService.load(refs.SHOP_LIST_KEY);
 refs.modalPopEl.addEventListener('click', event => {
   event.preventDefault();
 
-  if (event.target.classList.contains('modal-info__button')) {
-    handleModalPopElClick();
+  if (localStorage.getItem('user') === null) {
+    if (event.target.classList.contains('modal-info__button')) {
+      refs.modalPopInfoEl.innerHTML = 'PLEASE REGISTER TO ACCESS USER FEATURE';
+      // refs.modalPopInfoEl.style.color = 'red';
+      Notiflix.Notify.warning('YOU ARE NOT REGISTERED');
+    }
+  } else {
+    if (event.target.classList.contains('modal-info__button')) {
+      handleModalPopElClick();
+    }
+    if (event.target.textContent === 'remove from the shopping list') {
+      refs.modalPopInfoEl.innerHTML =
+        'Congratulations! You have added the book to the shopping list. To delete, press the button "Remove from the shopping list.';
+    }
+    if (event.target.textContent === 'add to shopping list') {
+      refs.modalPopInfoEl.innerHTML = '';
+    }
   }
 });
 
@@ -17,7 +32,6 @@ function handleModalPopElClick() {
   const activeBook = LsService.load('active-book');
 
   const watchedBtnRef = refs.modalPopEl.querySelector('.modal-info__button');
-  // console.log(watchedBtnRef);
 
   if (shoppingListArray.find(el => el._id === activeBook._id)) {
     const idx = shoppingListArray.findIndex(el => el._id === activeBook._id);

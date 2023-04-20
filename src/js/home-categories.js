@@ -1,7 +1,12 @@
 import { getCategoryList, getBooksCategory } from './api-book';
 import refs from './refs';
 import { createTopBooksMarkup } from './home-cards';
-import { spinerStart, spinerStop } from './loader';
+import {
+  spinerStart,
+  spinerStop,
+  spinerStartForCategories,
+  spinerStopForCategories,
+} from './loader';
 import { cutBookTitle, cutBookAuthor } from './home-cards';
 import Notiflix from 'notiflix';
 
@@ -9,32 +14,32 @@ export {showTypeBook, markupTopBooksByType};
 
 
 const renderCategories = async () => {
-  try{
-    spinerStart();
-  const category = await getCategoryList();
-  refs.categoriesSidebar.innerHTML = await markupCategoriesList(category);
-  const ListCategory = document.querySelectorAll('.category-item');
-  ListCategory.forEach(itemCategory => {
-    itemCategory.addEventListener('click', event => {
-      const ActiveCategory = document.querySelector('.category-item.active');
-      if (ActiveCategory) {
-        ActiveCategory.classList.remove('active');
-      }
-      event.target.classList.add('active');
+  spinerStartForCategories();
+  try {
+    const category = await getCategoryList();
+    refs.categoriesSidebar.innerHTML = await markupCategoriesList(category);
+    const ListCategory = document.querySelectorAll('.category-item');
+    ListCategory.forEach(itemCategory => {
+      itemCategory.addEventListener('click', event => {
+        const ActiveCategory = document.querySelector('.category-item.active');
+        if (ActiveCategory) {
+          ActiveCategory.classList.remove('active');
+        }
+        event.target.classList.add('active');
 
-      if (event.target.dataset.id === 'all-categories') {
-        createTopBooksMarkup();
-      } else {
-        showTypeBook(event.target.dataset.id);
-      }
+        if (event.target.dataset.id === 'all-categories') {
+          createTopBooksMarkup().then(spinerStop);
+        } else {
+          showTypeBook(event.target.dataset.id).then(spinerStopForCategories);
+        }
+      });
     });
-  });
-  spinerStop();}
-  catch (error) {
-    console.log(error);
+  } catch (error) {
     Notiflix.Notify.failure(
       `Oops! Something went wrong. You caught the following error: ${error.message}.`
-    );}
+    );
+    spinerStopForCategories();
+  }
 };
 
 renderCategories();
@@ -53,19 +58,14 @@ function markupCategoriesList(categories) {
 
 
 const showTypeBook = async type => {
-  spinerStart();
-
   const typeBooksMore = await getBooksCategory(type);
   refs.homeContainer.classList.remove('container_active');
   refs.homeBooksByType.classList.add('container_active');
   refs.homeBooksByType.innerHTML = markupTopBooksByType(typeBooksMore, type);
-
-  spinerStop();
-
 };
 
 function markupTopBooksByType(data, typeBooks) {
-  spinerStart();
+  spinerStartForCategories();
   if (data.length > 0) {
     return `<h3 class="books__main-title">${typeBooks.substring(
       0,
@@ -106,7 +106,6 @@ function markupTopBooksByType(data, typeBooks) {
   } else {
     Notiflix.Notify.failure(`Not found`);
   }
-  spinerStop();
 }
 
 

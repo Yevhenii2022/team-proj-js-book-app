@@ -4,7 +4,13 @@
   border-color: $color-white;
   transition: 0.5s;
 }
-.dark-mode .header__container {
+// .dark-mode .header__container {
+//   border: 1.5px solid $color-white;
+//   background-color: $color-dark;
+//   transition: 0.5s;
+// }
+
+.dark-mode .header {
   border: 1.5px solid $color-white;
   background-color: $color-dark;
   transition: 0.5s;
@@ -39,10 +45,12 @@
 .dark-mode .modal-pop__icon-close,
 .dark-mode .modal-info__button,
 .dark-mode .burger-meny-btn-close__icon,
-.dark-mode .description-non{
+.dark-mode .description-non,
+.dark-mode .shopping__book-description {
   color: $color-white;
   fill: $color-white;
   stroke: $color-white;
+  transition: 0.5s;
 }
 
 .dark-mode .modal-info__author,
@@ -59,19 +67,22 @@
 .dark-mode .rightleft,
 .dark-mode .leftright,
 .dark-mode .rightleft--sign,
-.dark-mode .leftright--sign  {
+.dark-mode .leftright--sign {
   background-color: $color-white;
+  transition: 0.5s;
 }
 
 .dark-mode .modal-content {
   background-color: $color-dark-accent;
   border-color: $color-home-background;
+  transition: 0.5s;
 }
 
 .dark-mode input {
   background: transparent;
   color: #ffe;
   border-color: $color-home-background;
+  transition: 0.5s;
 }
 
 .dark-mode .registration-form__btn,
@@ -79,10 +90,12 @@
   font-weight: 700;
   color: $color-dark-accent;
   background-color: $color-home-background;
+  transition: 0.5s;
 }
 
 .dark-mode .links-container a {
   color: $colour-grey;
+  transition: 0.5s;
 }
 // ========================================
 
@@ -100,6 +113,7 @@
 .dark-mode .registration-form__btn:hover,
 .dark-mode .login-form__btn:hover {
   background-color: $color-blue;
+  color: $color-white;
 }
 
 .dark-mode .category-item.active,
@@ -114,10 +128,9 @@
 }
 
 .dark-mode .shopping__shop-img:hover {
- transform: translateY(-7);
+  transform: translateY(-7);
 }
 
-.dark-mode .modal-info__list   {
+.dark-mode .modal-info__list {
   filter: invert(1);
 }
-

@@ -1,5 +1,6 @@
 .home-container {
   padding-top: 40px;
+  padding-bottom: 10px;
 
   @media screen and(min-width: $desktop) {
     display: grid;
@@ -41,7 +42,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: calc(18 / 16);
-  
+
   @media screen and(min-width: $tablet) {
     width: 335px;
     height: 472px;
@@ -58,7 +59,9 @@
 .category-item {
   color: rgba(17, 17, 17, 0.6);
   cursor: pointer;
+  @include transition(text-transform, color);
 }
+
 .category-item:not(:last-child) {
   margin-bottom: 24px;
   @media screen and(min-width: $tablet) {
@@ -76,9 +79,6 @@
   text-transform: uppercase;
   font-weight: 700;
   color: $color-blue;
-
-  transition-duration: $transition-duration;
-  transition-timing-function: $cubic;
 }
 
 .sidenav {

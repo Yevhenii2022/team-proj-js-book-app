@@ -1,27 +1,3 @@
-// .container {
-// margin-left: auto;
-// margin-right: auto;
-// padding-left: 20px;
-// padding-right: 20px;
-
-// @media screen and(max-width: 767.98px) {
-//     max-width: 375px;
-// }
-
-// @media screen and(min-width: $tablet) {
-//     width: 768px;
-//     padding-left: 32px;
-//     padding-right: 32px;
-// }
-
-// @media screen and(min-width: $desktop) {
-//     width: 1200px;
-//     padding-left: 24px;
-//     padding-right: 24px;
-// }
-
-// }
-
 .header {
   display: flex;
   align-items: center;
@@ -39,17 +15,23 @@
   padding-bottom: 18px;
 
   @media screen and(min-width: $tablet) {
-    margin-right: 32px;
+    margin-right: 16px;
   }
 
   @media screen and(min-width: $desktop) {
-    margin-right: 99px;
+    margin-right: 83px;
+  }
+
+  @include transition(scale);
+  &:hover,
+  &:focus {
+    scale: 1.1;
   }
 }
 
-.logo:hover {
-  scale: 1.1;
-}
+// .logo:hover {
+//   scale: 1.1;
+// }
 
 .logo-book {
   width: 57px;
@@ -109,9 +91,32 @@
   border: 0;
   padding: 0;
 
+  color: $color-dark;
+  background-color: transparent;
+
+  cursor: pointer;
+}
+
+.burger-meny-btn__icon,
+.burger-meny-btn-close__icon {
+  stroke: $color-dark;
+  @include transition(stroke);
+
+  &:hover,
+  &:focus {
+    stroke: $color-blue;
+  }
+}
+
+.mobile-btn-close {
+  display: none;
+}
+
+.burger-meny-btn {
   background-color: transparent;
   color: $color-dark;
   cursor: pointer;
+  @include transition(color);
 
   &:hover {
     color: $color-blue;
@@ -210,21 +215,66 @@
 
 // SIGN-UP-BUTTON
 
+.userbar {
+  @include tablet {
+    position: relative;
+    min-width: 184px;
+  }
+}
+
 .sign-up-btn {
   display: none;
   @media screen and(min-width: $tablet) {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-width: 184px;
+    width: 100%;
     padding: 13px 14px;
 
     background-color: $color-blue;
-
+    color: $color-white;
     border: 1.5px solid $color-dark;
     border-radius: 18px;
     cursor: pointer;
+    @include transition(color);
+    @include transition(background-color);
   }
+}
+
+.sign-up-btn:hover,
+.sign-up-btn:focus {
+  background-color: $color-hover-activ;
+  color: $color-dark;
+}
+
+.sign-up-btn__icon {
+  stroke: $color-hover-activ;
+  @include transition(stroke);
+}
+
+.sign-up-btn:hover .sign-up-btn__icon,
+.sign-up-btn:focus {
+  stroke: $color-dark;
+}
+
+// .sign-up-btn.signup-btn-mobile {
+//   @media screen and(max-width: $tablet) {
+//     display: none;
+//   }
+// }
+
+.signup-btn-mobile {
+  display: flex;
+  @media screen and(min-width: $tablet) {
+    display: none;
+  }
+}
+
+.signup-btn-mobile.show {
+  @media screen and(max-width: 374px) {
+    display: flex;
+  }
+  display: none;
 }
 
 .sign-up-btn__text {
@@ -232,5 +282,136 @@
   font-size: 14px;
   line-height: calc(18 / 14);
   letter-spacing: -0.04em;
-  color: $color-white;
+}
+
+// ===========
+
+.wrapper-user-sign {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 37px;
+  height: 37px;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+.user-sign {
+  @media screen and(max-width: 374px) {
+    display: none;
+  }
+  padding: 4px 12px;
+  background-color: #4f2ee8;
+
+  border-radius: 36px;
+  cursor: pointer;
+  @include transition(background-color);
+
+  &:hover,
+  &:focus {
+    background-color: $color-hover-activ;
+    color: $color-dark;
+  }
+}
+
+.user-sign.show {
+  display: none;
+  @media screen and(min-width: $tablet) {
+    display: flex;
+    // justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+  }
+}
+
+.user-sign__icon-down {
+  margin-left: auto;
+  @include transition(transform);
+
+  &.rotation {
+    transform: rotate(180deg);
+  }
+}
+
+.user-signtext {
+  font-family: 'DM Sans';
+
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.32;
+  letter-spacing: -0.02em;
+
+  color: #ffffff;
+}
+
+.user-sign:hover .user-signtext,
+.user-sign:focus .user-signtext {
+  color: $color-dark;
+}
+
+.user-signicon {
+  fill: #4f2ee8;
+}
+
+.user-sign__icon-down {
+  fill: white;
+}
+
+.user-sign:hover .user-sign__icon-down,
+.user-sign:focus .user-sign__icon-down {
+  fill: $color-dark;
+}
+
+// ===
+.sign-up-btn.hidden {
+  @media screen and(min-width: $tablet) {
+    display: none;
+  }
+}
+
+.log-out-btn {
+  display: none;
+  @media screen and(min-width: $tablet) {
+    position: absolute;
+    width: 100%;
+    cursor: pointer;
+
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: -0.04em;
+
+    color: #111111;
+
+    background: $color-white;
+    color: $color-dark;
+    border: 1.5px solid $color-dark;
+    border-radius: 18px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 13px 14px;
+    @include transition(background-color);
+
+    &.is-open {
+      display: flex;
+    }
+  }
+}
+
+.log-out-btn:hover,
+.log-out-btn:focus {
+  background-color: $color-hover-activ;
+}
+
+.log-out-btn__icon {
+  stroke: $color-hover-activ;
+  @include transition(stroke);
+}
+
+.log-out-btn:hover .log-out-btn__icon,
+.log-out-btn:focus .log-out-btn__icon {
+  stroke: $color-dark;
 }

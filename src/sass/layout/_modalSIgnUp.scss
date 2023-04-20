@@ -38,7 +38,7 @@
   transform: rotate(-45deg);
 }
 
-.close-container:hover .leftright--sign {
+.close-container--sign:hover .leftright--sign {
   transform: rotate(-45deg);
   background-color: $color-blue;
 
@@ -46,7 +46,7 @@
   box-shadow: 0 8px 43px $color-blue;
 }
 
-.close-container:hover .rightleft--sign {
+.close-container--sign:hover .rightleft--sign {
   transform: rotate(45deg);
   background-color: $color-blue;
 
@@ -116,7 +116,7 @@
 
   @include tablet {
     width: 579px;
-    height: 516px;
+    // height: 516px;
 
     padding: 80px 40px 40px;
   }
@@ -129,10 +129,21 @@
 }
 
 .links-container a {
+  font-size: 14px;
+  line-height: 1.29;
+
+  letter-spacing: -0.01em;
   color: rgba(17, 17, 17, 0.5);
 
   margin: 0 10px;
   border-bottom: 2px solid transparent;
+  @include transition(color);
+  @include transition(border-bottom);
+  @include tablet {
+    font-size: 18px;
+    line-height: 1.33;
+    letter-spacing: -0.01em;
+  }
 }
 
 .links-container a.active,
@@ -167,9 +178,9 @@
   font-family: 'DM Sans';
   font-style: normal;
   font-weight: 700;
-  font-size: 18px;
-  line-height: 24px;
-
+  font-size: 16px;
+  line-height: 1.12px;
+  letter-spacing: -0.01em;
   color: #ffffff;
   padding-left: 40px;
 
@@ -179,6 +190,8 @@
   border-radius: 40px;
 
   @include tablet {
+    font-size: 18px;
+    line-height: 1.33px;
     width: 499px;
     height: 64px;
   }
@@ -192,10 +205,23 @@
   padding: 20px 0;
   gap: 10px;
 
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.12;
+  /* identical to box height, or 112% */
+
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+
   width: 100%;
   color: #f3f3f3;
-  background: #111111;
+  background-color: #111111;
   border-radius: 40px;
+}
+.registration-form__input {
+  outline: none;
 }
 
 .registration-form__input:hover,
@@ -209,7 +235,6 @@
 .login-form__btn:hover,
 .registration-form__btn:focus,
 .login-form__btn:focus {
-  border: 1.5px solid $color-dark;
   background-color: $color-blue;
   color: $color-white;
   transition: all 0.5s;
@@ -219,16 +244,75 @@
   color: $color-dark;
 }
 // =================
-.log-out-btn {
-  display: none;
-  position: absolute;
-  min-width: 184px;
-  cursor: pointer;
-  background: $color-white;
-  color: $color-dark;
-  border: 1.5px solid $color-dark;
-  border-radius: 18px;
-  justify-content: space-between;
-  align-items: center;
-  padding: 13px 14px;
+// .slide-in-elliptic-top-bck {
+//   animation: slide-in-elliptic-top-bck 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+//     both;
+// }
+
+// @keyframes slide-in-elliptic-top-bck {
+//   0% {
+//     transform: translateY(-600px) rotateX(30deg) scale(6.5);
+//     transform-origin: 50% 200%;
+//     opacity: 0;
+//   }
+//   100% {
+//     transform: translateY(0) rotateX(0) scale(1);
+//     transform-origin: 50% -500px;
+//     opacity: 1;
+//   }
+// }
+
+.slide-in-blurred-top {
+  animation: slide-in-blurred-top 0.6s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+@keyframes slide-in-blurred-top {
+  0% {
+    transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
+    transform-origin: 50% 0;
+    filter: blur(40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) scaleY(1) scaleX(1);
+    transform-origin: 50% 50%;
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-elliptic-right-fwd {
+  animation: slide-in-elliptic-right-fwd 0.7s
+    cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes slide-in-elliptic-right-fwd {
+  0% {
+    transform: translateX(800px) rotateY(-30deg) scale(0);
+    transform-origin: -100% 50%;
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) rotateY(0) scale(1);
+    transform-origin: -1800px 50%;
+    opacity: 1;
+  }
+}
+
+.slide-in-elliptic-left-fwd {
+  animation: slide-in-elliptic-left-fwd 0.7s
+    cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes slide-in-elliptic-left-fwd {
+  0% {
+    transform: translateX(-800px) rotateY(30deg) scale(0);
+    transform-origin: -100% 50%;
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) rotateY(0) scale(1);
+    transform-origin: 1800px 50%;
+    opacity: 1;
+  }
 }

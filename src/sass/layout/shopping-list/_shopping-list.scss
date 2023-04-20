@@ -301,3 +301,14 @@
   margin: 0 auto;
   width: 265px;
 }
+
+
+//  =========================================
+
+.shopping__shop-img {
+  filter: invert(0);
+  transition: 0.5s;
+}
+ .shopping__shop-img:hover {
+  transform: translateY(-7);
+}
