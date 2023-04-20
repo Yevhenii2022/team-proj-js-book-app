@@ -4,7 +4,13 @@
   border-color: $color-white;
   transition: 0.5s;
 }
-.dark-mode .header__container {
+// .dark-mode .header__container {
+//   border: 1.5px solid $color-white;
+//   background-color: $color-dark;
+//   transition: 0.5s;
+// }
+
+.dark-mode .header {
   border: 1.5px solid $color-white;
   background-color: $color-dark;
   transition: 0.5s;
