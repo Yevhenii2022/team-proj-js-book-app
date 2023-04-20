@@ -1,6 +1,6 @@
 import { getTopBooks } from './api-book';
 import refs from './refs';
-import { spinerStart, spinerStop } from './loader';
+import { spinerStart, spinerStop, spinerStopForCategories } from './loader';
 import throttle from 'lodash.throttle';
 import { showTypeBook } from './home-categories';
 
@@ -51,7 +51,7 @@ const createTopBooksMarkup = async () => {
   const homeBtnEl = document.querySelectorAll('.books__btn');
   homeBtnEl.forEach(btn => {
     btn.addEventListener('click', event => {
-      showTypeBook(event.target.dataset.id);
+      showTypeBook(event.target.dataset.id).then(spinerStopForCategories);
       const ActiveCategory = document.querySelector('.category-item.active');
       if (ActiveCategory) {
         ActiveCategory.classList.remove('active');

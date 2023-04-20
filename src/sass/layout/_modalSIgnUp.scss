@@ -129,10 +129,20 @@
 }
 
 .links-container a {
+  font-size: 14px;
+  line-height: 1.29;
+
+  letter-spacing: -0.01em;
   color: rgba(17, 17, 17, 0.5);
 
   margin: 0 10px;
   border-bottom: 2px solid transparent;
+
+  @include tablet {
+    font-size: 18px;
+    line-height: 1.33;
+    letter-spacing: -0.01em;
+  }
 }
 
 .links-container a.active,
@@ -167,9 +177,9 @@
   font-family: 'DM Sans';
   font-style: normal;
   font-weight: 700;
-  font-size: 18px;
-  line-height: 24px;
-
+  font-size: 16px;
+  line-height: 1.12px;
+  letter-spacing: -0.01em;
   color: #ffffff;
   padding-left: 40px;
 
@@ -179,6 +189,8 @@
   border-radius: 40px;
 
   @include tablet {
+    font-size: 18px;
+    line-height: 1.33px;
     width: 499px;
     height: 64px;
   }
@@ -192,9 +204,19 @@
   padding: 20px 0;
   gap: 10px;
 
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.12;
+  /* identical to box height, or 112% */
+
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+
   width: 100%;
   color: #f3f3f3;
-  background: #111111;
+  background-color: #111111;
   border-radius: 40px;
 }
 
@@ -224,8 +246,20 @@
   display: none;
   @media screen and(min-width: $tablet) {
     position: absolute;
-    width: 184px;
+    width: 100%;
     cursor: pointer;
+
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.29;
+    /* identical to box height, or 129% */
+
+    letter-spacing: -0.04em;
+
+    color: #111111;
+
     background: $color-white;
     color: $color-dark;
     border: 1.5px solid $color-dark;

@@ -210,6 +210,7 @@
 // SIGN-UP-BUTTON
 
 .userbar {
+  position: relative;
   width: 184px;
 }
 
@@ -283,10 +284,15 @@
   display: none;
   @media screen and(min-width: $tablet) {
     display: flex;
-    justify-content: center;
+    // justify-content: space-between;
     align-items: center;
     gap: 5px;
+    width: 100%;
   }
+}
+
+.user-sign__icon-down {
+  margin-left: auto;
 }
 
 .user-signtext {

@@ -213,3 +213,25 @@
     color: $color-white;
   }
 }
+
+.signup-btn-mobile {
+  justify-content: space-between;
+  padding: 15px 14px;
+  width: 184px;
+  // height: 48px;
+
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  /* identical to box height, or 129% */
+
+  letter-spacing: -0.04em;
+
+  color: #ffffff;
+  background-color: #4f2ee8;
+  border: 1.5px solid #111111;
+  border-radius: 18px;
+  cursor: pointer;
+}

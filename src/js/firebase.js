@@ -125,6 +125,7 @@ function logout() {
         document.querySelector('.user-sign').classList.remove('show');
         document.querySelector('.user-sign').classList.add('hidden');
         document.querySelector('.signup-btn-mobile').classList.remove('hidden');
+        document.querySelector('.log-out-btn').classList.add('hidden');
       })
       .catch(error => {
         console.error(error);
@@ -145,10 +146,10 @@ function updateSignUpButton() {
   const mobLogOutEl = document.querySelector('.mobile__logout');
   if (user || userData) {
     const name = user?.displayName || userData?.displayName;
-    signUpButton.textContent = name ?? 'Sign Up';
-    mobileSignUpButton.textContent = name ?? 'Sign Up'; //mob btn
-    document.querySelector('.log-out-btn').style.display = 'flex'; // Показываем кнопку log out, если пользователь авторизован
-    mobileSignUpButton.textContent = name ?? 'Sign Up'; //mob btn
+    // signUpButton.textContent = name ?? 'Sign Up';
+    // mobileSignUpButton.textContent = name ?? 'Sign Up'; //mob btn
+
+    // mobileSignUpButton.textContent = name ?? 'Sign Up'; //mob btn
     document.querySelector('.user__name').textContent = name;
     document.querySelector('.user-signtext').textContent = name;
 
@@ -160,6 +161,7 @@ function updateSignUpButton() {
       document.querySelector('.user__container').classList.remove('hidden');
       document.querySelector('.mobile__logout').classList.remove('hidden');
       document.querySelector('.mobile__thumb').classList.remove('hidden');
+      document.querySelector('.log-out-btn').classList.remove('hidden');
       // document.querySelector('.user__container').style.display = 'flex';
       // document.querySelector('.sign-up-btn').style.display = 'none';
       // document.querySelector('.user-sign').classList.add('show');
@@ -182,6 +184,7 @@ function updateSignUpButton() {
     document.querySelector('.mobile__logout').classList.add('hidden');
     document.querySelector('.mobile__thumb').classList.add('hidden');
     document.querySelector('.sign-up-btn').classList.remove('hidden');
+
     // document.querySelector('.signup-btn-mobile').style.display = 'flex';
     // document.querySelector('.user__container').style.display = 'none';
     // document.querySelector('.user-sign ').style.display = 'none';
