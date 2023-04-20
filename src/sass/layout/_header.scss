@@ -226,11 +226,29 @@
     padding: 13px 14px;
 
     background-color: $color-blue;
-
+    color: $color-white;
     border: 1.5px solid $color-dark;
     border-radius: 18px;
     cursor: pointer;
+    @include transition(color);
+    @include transition(background-color);
   }
+}
+
+.sign-up-btn:hover,
+.sign-up-btn:focus {
+  background-color: $color-hover-activ;
+  color: $color-dark;
+}
+
+.sign-up-btn__icon {
+  stroke: $color-hover-activ;
+  @include transition(stroke);
+}
+
+.sign-up-btn:hover .sign-up-btn__icon,
+.sign-up-btn:focus {
+  stroke: $color-dark;
 }
 
 // .sign-up-btn.signup-btn-mobile {
@@ -258,7 +276,6 @@
   font-size: 14px;
   line-height: calc(18 / 14);
   letter-spacing: -0.04em;
-  color: $color-white;
 }
 
 // ===========
@@ -278,8 +295,17 @@
     display: none;
   }
   padding: 4px 12px;
-  background: #4f2ee8;
+  background-color: #4f2ee8;
+
   border-radius: 36px;
+  cursor: pointer;
+  @include transition(background-color);
+
+  &:hover,
+  &:focus {
+    background-color: $color-hover-activ;
+    color: $color-dark;
+  }
 }
 
 .user-sign.show {
@@ -295,6 +321,11 @@
 
 .user-sign__icon-down {
   margin-left: auto;
+  @include transition(transform);
+
+  &.rotation {
+    transform: rotate(180deg);
+  }
 }
 
 .user-signtext {
@@ -308,11 +339,22 @@
   color: #ffffff;
 }
 
-// .user-signicon-down {
-//   fill: white;
-// }
+.user-sign:hover .user-signtext,
+.user-sign:focus .user-signtext {
+  color: $color-dark;
+}
+
+.user-signicon {
+  fill: #4f2ee8;
+}
+
 .user-sign__icon-down {
   fill: white;
+}
+
+.user-sign:hover .user-sign__icon-down,
+.user-sign:focus .user-sign__icon-down {
+  fill: $color-dark;
 }
 
 // ===
@@ -320,4 +362,50 @@
   @media screen and(min-width: $tablet) {
     display: none;
   }
+}
+
+.log-out-btn {
+  display: none;
+  @media screen and(min-width: $tablet) {
+    position: absolute;
+    width: 100%;
+    cursor: pointer;
+
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: -0.04em;
+
+    color: #111111;
+
+    background: $color-white;
+    color: $color-dark;
+    border: 1.5px solid $color-dark;
+    border-radius: 18px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 13px 14px;
+    @include transition(background-color);
+
+    &.is-open {
+      display: flex;
+    }
+  }
+}
+
+.log-out-btn:hover,
+.log-out-btn:focus {
+  background-color: $color-hover-activ;
+}
+
+.log-out-btn__icon {
+  stroke: $color-hover-activ;
+  @include transition(stroke);
+}
+
+.log-out-btn:hover .log-out-btn__icon,
+.log-out-btn:focus .log-out-btn__icon {
+  stroke: $color-dark;
 }

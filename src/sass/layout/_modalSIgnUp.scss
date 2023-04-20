@@ -245,31 +245,3 @@
   color: $color-dark;
 }
 // =================
-.log-out-btn {
-  // display: flex;
-  display: none;
-  @media screen and(min-width: $tablet) {
-    position: absolute;
-    width: 100%;
-    cursor: pointer;
-
-    font-family: 'DM Sans';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 1.29;
-    /* identical to box height, or 129% */
-
-    letter-spacing: -0.04em;
-
-    color: #111111;
-
-    background: $color-white;
-    color: $color-dark;
-    border: 1.5px solid $color-dark;
-    border-radius: 18px;
-    justify-content: space-between;
-    align-items: center;
-    padding: 13px 14px;
-  }
-}

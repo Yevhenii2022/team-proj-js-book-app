@@ -127,7 +127,7 @@ function logout() {
         document.querySelector('.signup-btn-mobile').classList.remove('hidden');
         document.querySelector('.log-out-btn').classList.add('hidden');
         document.querySelector('.log-out-btn').style.display = 'none';
-        document.querySelector('.navigation').classList.remove('hidden');
+        document.querySelector('.navigation').classList.add('hidden');
       })
       .catch(error => {
         console.error(error);
@@ -140,19 +140,16 @@ function updateSignUpButton() {
   const userData = JSON.parse(localStorage.getItem('user'));
   const mobileThumb = document.querySelector('.mobile__thumb');
 
-  const mobileSignUpBtn = document.querySelector('.signup-btn-mobile');
-  const descSignUpBtn = document.querySelector('.sign-up-btn');
-  const descUserContEl = document.querySelector('.user-sign');
-  const mobUserConEl = document.querySelector('.user__container');
-  const descLogOutEl = document.querySelector('.log-out-btn');
-  const mobLogOutEl = document.querySelector('.mobile__logout');
-  const navigationDescEl = document.querySelector('.navigation');
+  // const mobileSignUpBtn = document.querySelector('.signup-btn-mobile');
+  // const descSignUpBtn = document.querySelector('.sign-up-btn');
+  // const descUserContEl = document.querySelector('.user-sign');
+  // const mobUserConEl = document.querySelector('.user__container');
+  // const descLogOutEl = document.querySelector('.log-out-btn');
+  // const mobLogOutEl = document.querySelector('.mobile__logout');
+  // const navigationDescEl = document.querySelector('.navigation');
   if (user || userData) {
     const name = user?.displayName || userData?.displayName;
-    // signUpButton.textContent = name ?? 'Sign Up';
-    // mobileSignUpButton.textContent = name ?? 'Sign Up'; //mob btn
 
-    // mobileSignUpButton.textContent = name ?? 'Sign Up'; //mob btn
     document.querySelector('.user__name').textContent = name;
     document.querySelector('.user-signtext').textContent = name;
 
@@ -166,19 +163,9 @@ function updateSignUpButton() {
       document.querySelector('.mobile__thumb').classList.remove('hidden');
       document.querySelector('.log-out-btn').classList.remove('hidden');
       document.querySelector('.navigation').classList.remove('hidden');
-      // document.querySelector('.user__container').style.display = 'flex';
-      // document.querySelector('.sign-up-btn').style.display = 'none';
-      // document.querySelector('.user-sign').classList.add('show');
-      // document.querySelector('.signup-btn-mobile').style.display = 'none';
-      // document.querySelector('.signup-btn-mobile').style.display = 'none';
-      // document.querySelector('.mobile__logout').style.display = 'flex';
     } else {
       document.querySelector('.log-out-btn').classList.add('hidden');
       document.querySelector('.navigation').classList.add('hidden');
-      // document.querySelector('.user__container').style.display = 'none';
-      // document.querySelector('.sign-up-btn').style.display = 'flex';
-      // document.querySelector('.signup-btn-mobile').style.display = 'flex';
-      // document.querySelector('.mobile__logout').style.display = 'none';
     }
   } else {
     document.querySelector('.log-out-btn').classList.add('hidden');
@@ -189,13 +176,6 @@ function updateSignUpButton() {
     document.querySelector('.mobile__thumb').classList.add('hidden');
     document.querySelector('.sign-up-btn').classList.remove('hidden');
     document.querySelector('.navigation').classList.add('hidden');
-
-    // document.querySelector('.signup-btn-mobile').style.display = 'flex';
-    // document.querySelector('.user__container').style.display = 'none';
-    // document.querySelector('.user-sign ').style.display = 'none';
-    // document.querySelector('.log-out-btn').style.display = 'none'; // Скрываем кнопку log out, если пользователь не авторизован
-    // document.querySelector('.mobile__logout').style.display = 'none'; // Скрываем кнопку log out 2, если пользователь не авторизован
-    // mobileThumb.classList.add('visually-hidden'); // Скрываем элемент с классом "mobile__thumb", если пользователь не авторизован
   }
 }
 
@@ -225,9 +205,6 @@ function saveUserDataToLocalStorage(user, name) {
 function removeUserDataFromLocalStorage() {
   localStorage.removeItem('user');
 }
-
-// const signUpBtn = document.querySelector('.signup-btn');
-// signUpBtn.addEventListener('click', signUp);
 
 const mobileLogoutBtn = document.querySelector('.mobile__logout');
 mobileLogoutBtn.addEventListener('click', logout);
