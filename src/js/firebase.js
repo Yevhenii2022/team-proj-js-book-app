@@ -111,13 +111,6 @@ function logout() {
         passwordInput.value = '';
         Notify.success('Вы успешно вышли из системы!');
         removeUserDataFromLocalStorage(user);
-        // document.querySelector('.log-out-btn').style.display = 'none'; // Скрываем кнопку log out при выходе пользователя
-        // document.querySelector('.mobile__logout').style.display = 'none'; // Скрываем кнопку 2 ую log out при выходе пользователя
-        // document.querySelector('.mobile__thumb').style.display = 'none';
-        // document.querySelector('.user__container').style.display = 'none';
-        // document.querySelector('.signup-btn-mobile').style.display = 'flex';
-        // document.querySelector('.user-sign').style.display = 'none';
-        // document.querySelector('.sign-up-btn').style.display = 'none';
         document.querySelector('.sign-up-btn').classList.remove('hidden');
         document.querySelector('.user__container').classList.add('hidden');
         document.querySelector('.mobile__logout').classList.add('hidden');
@@ -126,7 +119,7 @@ function logout() {
         document.querySelector('.user-sign').classList.add('hidden');
         document.querySelector('.signup-btn-mobile').classList.remove('hidden');
         document.querySelector('.log-out-btn').classList.add('hidden');
-        document.querySelector('.log-out-btn').style.display = 'none';
+        document.querySelector('.log-out-btn').classList.remove('is-open');
         document.querySelector('.navigation').classList.add('hidden');
       })
       .catch(error => {
@@ -140,13 +133,6 @@ function updateSignUpButton() {
   const userData = JSON.parse(localStorage.getItem('user'));
   const mobileThumb = document.querySelector('.mobile__thumb');
 
-  // const mobileSignUpBtn = document.querySelector('.signup-btn-mobile');
-  // const descSignUpBtn = document.querySelector('.sign-up-btn');
-  // const descUserContEl = document.querySelector('.user-sign');
-  // const mobUserConEl = document.querySelector('.user__container');
-  // const descLogOutEl = document.querySelector('.log-out-btn');
-  // const mobLogOutEl = document.querySelector('.mobile__logout');
-  // const navigationDescEl = document.querySelector('.navigation');
   if (user || userData) {
     const name = user?.displayName || userData?.displayName;
 
@@ -176,6 +162,7 @@ function updateSignUpButton() {
     document.querySelector('.mobile__thumb').classList.add('hidden');
     document.querySelector('.sign-up-btn').classList.remove('hidden');
     document.querySelector('.navigation').classList.add('hidden');
+    document.querySelector('.log-out-btn').classList.add('hidden');
   }
 }
 
