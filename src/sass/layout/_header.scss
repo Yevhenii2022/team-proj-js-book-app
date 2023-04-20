@@ -209,13 +209,17 @@
 
 // SIGN-UP-BUTTON
 
+.userbar {
+  width: 184px;
+}
+
 .sign-up-btn {
   display: none;
   @media screen and(min-width: $tablet) {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-width: 184px;
+    width: 100%;
     padding: 13px 14px;
 
     background-color: $color-blue;
@@ -226,10 +230,86 @@
   }
 }
 
+// .sign-up-btn.signup-btn-mobile {
+//   @media screen and(max-width: $tablet) {
+//     display: none;
+//   }
+// }
+
+.signup-btn-mobile {
+  display: flex;
+  @media screen and(min-width: $tablet) {
+    display: none;
+  }
+}
+
+.signup-btn-mobile.show {
+  @media screen and(max-width: 374px) {
+    display: flex;
+  }
+  display: none;
+}
+
 .sign-up-btn__text {
   font-weight: 500;
   font-size: 14px;
   line-height: calc(18 / 14);
   letter-spacing: -0.04em;
   color: $color-white;
+}
+
+// ===========
+
+.wrapper-user-sign {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 37px;
+  height: 37px;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+.user-sign {
+  @media screen and(max-width: 374px) {
+    display: none;
+  }
+  padding: 4px 12px;
+  background: #4f2ee8;
+  border-radius: 36px;
+}
+
+.user-sign.show {
+  display: none;
+  @media screen and(min-width: $tablet) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+}
+
+.user-signtext {
+  font-family: 'DM Sans';
+
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.32;
+  letter-spacing: -0.02em;
+
+  color: #ffffff;
+}
+
+// .user-signicon-down {
+//   fill: white;
+// }
+.user-sign__icon-down {
+  fill: white;
+}
+
+// ===
+.sign-up-btn.hidden {
+  @media screen and(min-width: $tablet) {
+    display: none;
+  }
 }
