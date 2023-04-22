@@ -397,3 +397,12 @@ export function openModal(event) {
 
   closeModalBtn.addEventListener('click', closeModal);
 }
+
+
+// ----------предотвращает мерцание модалки  при перезагрузке страницы------------
+
+  document.addEventListener("DOMContentLoaded", function() {
+  const modalFooter = document.getElementById("modalFooter");
+  modalFooter.style.display = "flex";
+  });
+
