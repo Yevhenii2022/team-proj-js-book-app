@@ -10,8 +10,10 @@
   }
 }
 .main {
+
   @media screen and(min-width: $desktop) {
     grid-area: content;
+    
   }
 }
 .books__item {
@@ -28,9 +30,11 @@
 }
 .home-typeBook {
   display: none;
+  
 }
 .home-typeBook.container_active {
   display: block;
+  
   
 }
 .sidebar__categories {

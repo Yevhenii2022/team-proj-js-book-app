@@ -77,7 +77,7 @@ function markupTopBooksByType(data, typeBooks) {
         ${data
       .map(
         book => `<li class="books__item">
-            <a href="#" class="books__item-link">
+            <a href="#" class="books__item-link" rel="noopener noreferrer">
             <div class="books__card">
             <img
                 class="books__card-title-img"
