@@ -180,9 +180,11 @@
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: -0.04em;
+  max-width: 98px;
 
   @include tablet {
     display: none;
+    max-width: 116px;
   }
 }
 
