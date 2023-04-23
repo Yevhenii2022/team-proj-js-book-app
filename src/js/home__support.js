@@ -81,7 +81,7 @@ function renderLogos() {
     .map(({ title, url, img }, index) => {
       const paddedIndex = (index + 1).toString().padStart(2, '0');
       return `<div class="logo__item fund-item"><p class="fundNumber">${paddedIndex}</p>
-  <a href="${url}" class="logo__img" target="_blank" >
+  <a href="${url}" class="logo__img" target="_blank" rel="noopener noreferrer nofollow">
     <img src="${img}" alt="${title}" loading="lazy">
   </a></div>
   `;
