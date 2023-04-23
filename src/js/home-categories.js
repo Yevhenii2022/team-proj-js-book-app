@@ -10,7 +10,8 @@ import {
 import { cutBookTitle, cutBookAuthor } from './home-cards';
 import Notiflix from 'notiflix';
 
-export { showTypeBook, markupTopBooksByType };
+export {showTypeBook, markupTopBooksByType};
+
 
 const renderCategories = async () => {
   spinerStartForCategories();
@@ -47,13 +48,14 @@ function markupCategoriesList(categories) {
   return `<li class="category-item active" data-id="all-categories">
         All categories</li>
         ${categories
-          .map(
-            category => `<li class="category-item" data-id="${category.list_name}">
+      .map(
+        category => `<li class="category-item" data-id="${category.list_name}">
         ${category.list_name}
         </li>`
-          )
-          .join('')}`;
+      )
+      .join('')}`;
 }
+
 
 const showTypeBook = async type => {
   const typeBooksMore = await getBooksCategory(type);
@@ -73,9 +75,9 @@ function markupTopBooksByType(data, typeBooks) {
       .pop()}</span></h3>
         <ul class="books__card-container">
         ${data
-          .map(
-            book => `<li class="books__item">
-            <a href="#" class="books__item-link"  data-id='${book._id}'>
+      .map(
+        book => `<li class="books__item">
+            <a href="#" class="books__item-link" rel="noopener noreferrer">
             <div class="books__card">
             <img
                 class="books__card-title-img"
@@ -83,7 +85,8 @@ function markupTopBooksByType(data, typeBooks) {
                 alt="${book.title}"
                 width="180"
                 height="256"
-                loading="lazy"               
+                loading="lazy"
+                data-id='${book._id}'
             />
             <div class="books__overlay">
             <p class="books__overlay-text">Quick view</p>
@@ -104,3 +107,5 @@ function markupTopBooksByType(data, typeBooks) {
     Notiflix.Notify.failure(`Not found`);
   }
 }
+
+

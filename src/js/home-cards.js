@@ -4,6 +4,7 @@ import { spinerStart, spinerStop, spinerStopForCategories } from './loader';
 import throttle from 'lodash.throttle';
 import { showTypeBook } from './home-categories';
 
+
 export { cutBookTitle, cutBookAuthor };
 export { createTopBooksMarkup };
 
@@ -11,6 +12,7 @@ const homeContainer = document.querySelector('.home__main-container');
 let isActive;
 let currentRenderWidth = 375;
 let reloadState = true;
+
 
 window.addEventListener('resize', throttle(onResizewindow, 200));
 
@@ -36,6 +38,7 @@ if (currentRenderWidth < 768) {
 } else {
   amountRenderedBooks = 5;
 }
+
 
 const createTopBooksMarkup = async () => {
   spinerStart();
@@ -171,6 +174,7 @@ function cutBookTitle(title) {
 
   return title;
 }
+
 
 function cutBookAuthor(author) {
   if (window.innerWidth <= 767 && author.length >= 37)

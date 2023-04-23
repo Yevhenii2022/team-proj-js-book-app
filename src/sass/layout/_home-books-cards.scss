@@ -132,6 +132,10 @@
 }
 
 .books__item-link {
+  @media screen and(min-width: $desktop) {
+    flex-basis: calc((100% - 100px)/5);
+  }
+  
   &:hover .books__overlay {
     opacity: 1;
     transform: translateY(0);

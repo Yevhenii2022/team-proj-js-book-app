@@ -19,6 +19,11 @@
 .dark-mode .shopping__card {
   background-color: $color-dark;
 }
+  
+  .dark-mode .category-item.active,
+  .dark-mode .category-item:hover {
+    color: $color-hover-activ;
+ }
 
 .dark-mode .category-item,
 .dark-mode .modal-info__description {
@@ -55,9 +60,8 @@
   color: $color-text-grey;
 }
 
-// Modal registration window-->
-.dark-mode ::placeholder {
-  color: $color-home-background;
+.dark-mode .shoppingshop:nth-child(1)> .shopping__shop-img {
+  filter: grayscale(1) brightness(10);
 }
 
 .dark-mode .rightleft,

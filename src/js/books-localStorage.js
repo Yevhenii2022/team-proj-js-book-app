@@ -28,6 +28,7 @@ refs.modalPopEl.addEventListener('click', event => {
 });
 
 function handleModalPopElClick() {
+  // console.log('click btn');
   const activeBook = LsService.load('active-book');
 
   const watchedBtnRef = refs.modalPopEl.querySelector('.modal-info__button');
