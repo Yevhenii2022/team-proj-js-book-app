@@ -99,7 +99,7 @@ function renderLogos() {
     .map(({ title, url, img, img2, width, height }, index) => {
       const paddedIndex = (index + 1).toString().padStart(2, '0');
       return `<div class="logo__item fund-item"><p class="fundNumber">${paddedIndex}</p>
-      <a href="${url}" class="logo__img"  target="_blank" crossorigin="anonymous"  rel="noopener noreferrer" aria-label="${title}" >
+      <a href="${url}" class="logo__img"  target="_blank" crossorigin="anonymous"  rel="noopener noreferrer nofollow" aria-label="${title}" >
       <picture>
       <source srcset="${img}, ${img2} 2x" />
       <img src="${img}" alt="${title}" loading="lazy" width="${width}" height="${height}">
