@@ -65,7 +65,6 @@ registrationLink.addEventListener('click', () => {
 document.querySelector('.user-sign').addEventListener('click', onLogoutClick);
 
 function onLogoutClick(e) {
-  console.log(e);
   // document.querySelector('.log-out-btn').style.display = 'flex';
   document.querySelector('.log-out-btn').classList.toggle('is-open');
   document.querySelector('.user-sign__icon-down').classList.toggle('rotation');
