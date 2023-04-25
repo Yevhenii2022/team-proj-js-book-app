@@ -1,12 +1,5 @@
 //IMPORTS
 
-import {
-  getCategoryList,
-  getBooksCategory,
-  getTopBooks,
-  getBooksId,
-} from './js/api-book';
-
 import './js/refs';
 import './js/set-active-state';
 import './js/header-nav';
@@ -21,17 +14,11 @@ import './js/storage-methods';
 import './js/dark-theme';
 import './js/slider';
 import './js/loader';
-
 import './js/firebase';
 import './js/modalSignUp';
-
 import './js/modal_footer';
 import './js/render_footer_modal';
 import './js/slider_glide';
-
-
-
-
 
 // приклади імпортів NPM пакетів
 
