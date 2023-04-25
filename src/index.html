@@ -36,48 +36,42 @@
     <link rel="stylesheet" href="./sass/index.scss" />
   </head>
   <body>
-<div class="wrapper--body">
+    <div class="wrapper--body">
       <!-- partials header -->
-    <include src="./partials/header.html"></include>
-    <include src="./partials/modalSignUp.html"></include>
-    <!-- <a href="./shopping-list.html">Shopping list</a> -->
-    <include src="./partials/menu-modal.html"></include>
-    <main class="main--wrapper">
+      <include src="./partials/header.html"></include>
+      <include src="./partials/modalSignUp.html"></include>
+      <include src="./partials/menu-modal.html"></include>
+
       <!-- home -->
+      <main class="main--wrapper">
+        <section>
+          <div class="container home-container">
+            <aside class="sidenav">
+              <include src="./partials/categories.html"></include>
+              <include src="./partials/home__support.html"></include>
+            </aside>
+            <div class="main">
+              <include src="./partials/home.html"></include>
+              <include src="./partials/home-categories.html"></include>
+            </div>
+          </div>
+        </section>
+      </main>
 
-      <section >
-        <!-- home -->
-        <div class="container home-container">
-        <aside class="sidenav">
-          <include src="./partials/categories.html"></include>
-          <include src="./partials/home__support.html"></include>
-        </aside>
-        <div class="main">
-          <include src="./partials/home.html"></include>
-          <include src="./partials/home-categories.html"></include>
-        </div>
-      </div>
-      </section>
+      <!-- pop-up-modal -->
+      <include src="./partials/modal-pop-up.html"></include>
 
+      <!-- scroll-up  -->
+      <button type="button" class="btn-up btn-up_hide"></button>
 
-    </main>
+      <!-- footer -->
+      <include src="./partials/footer.html"></include>
 
-    <!-- pop-up-modal -->
-    <include src="./partials/modal-pop-up.html"></include>
+      <!-- modal-footer -->
+      <include src="./partials/modal_footer.html"></include>
+    </div>
 
-    <!-- mobile-menu-modal -->
-
-    <!-- authorization-modal -->
-
-    <!-- scroll-up  -->
-    <button type="button" class="btn-up btn-up_hide"></button>
-
-     <!-- footer -->
-     <include src="./partials/footer.html"></include>
-     <!-- modal-footer -->
-     <include src="./partials/modal_footer.html"></include>
-</div>
-         <!-- scripts  -->
+    <!-- scripts  -->
     <script type="module" src="./index.js"></script>
   </body>
 </html>

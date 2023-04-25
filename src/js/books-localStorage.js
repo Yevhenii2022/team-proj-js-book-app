@@ -10,7 +10,6 @@ refs.modalPopEl.addEventListener('click', event => {
   if (localStorage.getItem('user') === null) {
     if (event.target.classList.contains('modal-info__button')) {
       refs.modalPopInfoEl.innerHTML = 'PLEASE REGISTER TO ACCESS USER FEATURE';
-      // refs.modalPopInfoEl.style.color = 'red';
       Notiflix.Notify.warning('YOU ARE NOT REGISTERED');
     }
   } else {
