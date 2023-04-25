@@ -173,7 +173,7 @@ function logout() {
         // window.location.replace(
         //   'https://yevhenii2022.github.io/team-proj-js-book-app/'
         // );
-        location.replace('/index.html');
+        location.replace('team-proj-js-book-app/index.html');
       })
       .catch(error => {
         console.error(error);
