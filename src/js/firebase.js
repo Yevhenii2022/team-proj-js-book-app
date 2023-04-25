@@ -1,4 +1,7 @@
 import { closeModal } from './modalSignUp';
+import refs from './refs';
+import LsService from './storage-methods';
+
 import { Notify } from 'notiflix';
 import { initializeApp } from 'firebase/app';
 import {
@@ -8,7 +11,7 @@ import {
   signOut,
   updateProfile,
 } from 'firebase/auth';
-import { getDatabase, ref, set } from 'firebase/database';
+import { getDatabase, ref, set, get } from 'firebase/database';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDnbTZrtxRCm7S5kEYMz7d0ZvM5OmZwHj0',
@@ -75,9 +78,34 @@ function signUp() {
     });
 }
 
+// function login() {
+//   const email = loginForm.querySelector('[data-login-email]').value;
+//   const password = loginForm.querySelector('[data-login-pass]').value;
+//   if (!password) {
+//     Notify.failure('Введите пароль');
+//     return;
+//   }
+//   signInWithEmailAndPassword(auth, email, password)
+//     .then(() => {
+//       const user = auth.currentUser;
+//       console.log(user);
+//       localStorage.setItem('user', JSON.stringify(user));
+
+//       updateSignUpButton();
+//       Notify.success('Авторизация прошла успешно!');
+//       closeModal();
+//     })
+//     .catch(error => {
+//       console.error(error);
+//       const errorMessage = error.message;
+//       Notify.failure(`Произошла ошибка: ${errorMessage}`);
+//     });
+// }
+
 function login() {
   const email = loginForm.querySelector('[data-login-email]').value;
   const password = loginForm.querySelector('[data-login-pass]').value;
+
   if (!password) {
     Notify.failure('ENTER PASSWORD');
     return;
@@ -87,7 +115,15 @@ function login() {
       const user = auth.currentUser;
       console.log(user);
       localStorage.setItem('user', JSON.stringify(user));
-
+      const userId = user.uid;
+      const userRef = ref(database, 'users/' + userId);
+      return get(userRef).then(snapshot => {
+        const userData = snapshot.val();
+        const shoppingListArray = userData.shoppingList || [];
+        LsService.save(refs.SHOP_LIST_KEY, shoppingListArray);
+      });
+    })
+    .then(() => {
       updateSignUpButton();
       Notify.success('Authorization was successful!');
       closeModal();
@@ -102,7 +138,19 @@ function login() {
 function logout() {
   const user = auth.currentUser;
   if (user) {
+    const shoppingListArray = LsService.load(refs.SHOP_LIST_KEY);
+    const userData = {
+      name: user.displayName,
+      email: user.email,
+      shoppingList: shoppingListArray,
+    };
+
     signOut(auth)
+      .then(() => {
+        const userId = user.uid;
+        const userRef = ref(database, 'users/' + userId);
+        return set(userRef, userData);
+      })
       .then(() => {
         signUpButton.textContent = 'Sign Up';
         mobileSignUpButton.textContent = 'Sign Up';
@@ -111,6 +159,7 @@ function logout() {
         passwordInput.value = '';
         Notify.success('You have successfully logged out!');
         removeUserDataFromLocalStorage(user);
+        LsService.remove(refs.SHOP_LIST_KEY);
         document.querySelector('.sign-up-btn').classList.remove('hidden');
         document.querySelector('.user__container').classList.add('hidden');
         document.querySelector('.mobile__logout').classList.add('hidden');
@@ -124,13 +173,14 @@ function logout() {
         window.location.replace(
           'https://yevhenii2022.github.io/team-proj-js-book-app/'
         );
+        location.replace('/index.html');
       })
       .catch(error => {
         console.error(error);
       });
   }
 }
-// mobile__home-item > mobile__shoplist
+
 function updateSignUpButton() {
   const user = auth.currentUser;
   const userData = JSON.parse(localStorage.getItem('user'));
@@ -142,7 +192,7 @@ function updateSignUpButton() {
     document.querySelector('.user__name').textContent = name;
     document.querySelector('.user-signtext').textContent = name;
 
-    mobileThumb.classList.remove('visually-hidden'); // Показываем элемент с классом "mobile__thumb", если пользователь авторизован
+    mobileThumb.classList.remove('visually-hidden');
     if (name) {
       document.querySelector('.sign-up-btn').classList.add('hidden');
       document.querySelector('.user-sign').classList.add('show');
