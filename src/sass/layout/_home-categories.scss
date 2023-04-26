@@ -117,3 +117,8 @@
     max-width: 180px;
   }
 }
+.category__item{
+  @media screen and(min-width: $desktop) {
+    flex-basis: calc((100% - 100px)/5);
+  }
+}
