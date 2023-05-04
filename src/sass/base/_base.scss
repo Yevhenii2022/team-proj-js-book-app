@@ -13,6 +13,8 @@ body {
   // Забороняє прокрутку сторінки при відкритому модальному вікні
   &.no-scroll {
     overflow-y: hidden;
+    position: fixed;
+    width: 100%;
   }
 
   &.no-scroll-menu {

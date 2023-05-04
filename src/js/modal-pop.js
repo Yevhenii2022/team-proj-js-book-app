@@ -18,9 +18,10 @@ function openModalPop(event) {
   event.preventDefault();
 
   if (!event.target.closest('.books__item-link')) return;
-
+  const scrollPosition = document.documentElement.scrollTop;
   refs.scrollBtnEl.classList.add('btn-up_hide');
   document.body.classList.add('no-scroll');
+  document.body.style.top = -scrollPosition + 'px';
 
   const bookId = event.target
     .closest('.books__item-link')
@@ -35,6 +36,7 @@ function openModalPop(event) {
 }
 
 function closeModalPop() {
+  const topPosition = Number.parseInt(document.body.style.top) * -1;
   document.body.classList.remove('no-scroll');
   refs.backdrop.classList.toggle('backdrop--is-hidden');
 
@@ -42,7 +44,7 @@ function closeModalPop() {
   refs.closeModalPopBtn.removeEventListener('click', closeModalPop);
   window.removeEventListener('keydown', onEscKeyPress);
   LsService.remove('active-book');
-
+  scrollToTheCurrentPosition(topPosition);
   const scrollParam = window.scrollY;
   const coords = document.documentElement.clientHeight;
 
@@ -142,4 +144,10 @@ function onLinksClick(links) {
       window.open(this.href);
     });
   }
+}
+
+function scrollToTheCurrentPosition(topPosition) {
+  document.documentElement.style.scrollBehavior = 'auto';
+  window.scrollTo(0, topPosition);
+  document.documentElement.style.scrollBehavior = '';
 }
