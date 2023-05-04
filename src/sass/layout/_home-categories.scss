@@ -72,7 +72,7 @@
 .category-item {
   color: rgba(17, 17, 17, 0.6);
   cursor: pointer;
-  transform: scale(1);
+  transform: scale(0.97);
   transform-origin: center left;
   @include transition(color);
   @include transition(transform);
@@ -95,7 +95,7 @@
   text-transform: uppercase;
   font-weight: 700;
   color: $color-blue;
-  transform: scale(1.1);
+  transform: scale(1);
 }
 
 .sidenav {
