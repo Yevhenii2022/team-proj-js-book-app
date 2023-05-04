@@ -1,18 +1,17 @@
 .footer {
   padding: 29px 0;
   position: sticky;
-  box-shadow: 0 2px 8px #5f41af80, inset 0 1px #ffffff4d, inset 0 10px #fff3, inset 0 10px 20px #ffffff40, inset 0 -15px 30px #7e35d34d;
+  box-shadow: 0 2px 8px #5f41af80, inset 0 1px #ffffff4d, inset 0 10px #fff3,
+    inset 0 10px 20px #ffffff40, inset 0 -15px 30px #7e35d34d;
 }
 
-
 .footer__wrapper {
-
   font-family: 'Roboto';
   font-size: 14px;
   line-height: 1.14;
   text-align: center;
 
-  color:  #6f4bca;
+  color: #6f4bca;
 
   @media screen and (min-width: 768px) {
     font-size: 16px;
@@ -48,9 +47,23 @@
   margin-left: 4px;
 }
 
-.students--link { 
-  background: -webkit-linear-gradient(left, #9584db, #8a78d1, #5a4b97,  #5f43ce, #9584db);
-  background: linear-gradient(left, #9584db, #8a78d1, #5a4b97,  #5f43ce, #9584db);
+.students--link {
+  background: -webkit-linear-gradient(
+    left,
+    #9584db,
+    #8a78d1,
+    #5a4b97,
+    #5f43ce,
+    #9584db
+  );
+  background: linear-gradient(
+    left,
+    #9584db,
+    #8a78d1,
+    #5a4b97,
+    #5f43ce,
+    #9584db
+  );
   background-size: 3200px 200px;
   color: transparent;
   -webkit-background-clip: text;
@@ -68,28 +81,28 @@
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
   transition: font-size 500ms ease-in-out;
-  }
-  
-  @keyframes animate-logo {
+}
+
+@keyframes animate-logo {
   0% {
-  background-position: 0 3200px;
+    background-position: 0 3200px;
   }
   100% {
-  background-position: 3200px 0;
+    background-position: 3200px 0;
   }
-  }
+}
 
 //---- притискання футера до низа екрану----
 
-html, body {
-  height: 100%;
+html,
+body {
   margin: 0;
   padding: 0;
 }
 .wrapper--body {
- display: flex;
- flex-direction: column;
- min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
 }
 
 .main--wrapper {
@@ -98,6 +111,3 @@ html, body {
 .footer {
   margin-top: auto;
 }
-
-  
-

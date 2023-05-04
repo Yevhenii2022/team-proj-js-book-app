@@ -170,10 +170,8 @@ function logout() {
         document.querySelector('.log-out-btn').classList.add('hidden');
         document.querySelector('.log-out-btn').classList.remove('is-open');
         document.querySelector('.navigation').classList.add('hidden');
-        // window.location.replace(
-        //   'https://yevhenii2022.github.io/team-proj-js-book-app/'
-        // );
-        location.replace('/team-proj-js-book-app/');
+
+        location.replace('./index.html');
       })
       .catch(error => {
         console.error(error);

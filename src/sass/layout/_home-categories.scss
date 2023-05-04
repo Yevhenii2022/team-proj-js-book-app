@@ -72,7 +72,10 @@
 .category-item {
   color: rgba(17, 17, 17, 0.6);
   cursor: pointer;
-  @include transition(text-transform, color);
+  transform: scale(1);
+  transform-origin: center left;
+  @include transition(color);
+  @include transition(transform);
 }
 
 .category-item:not(:last-child) {
@@ -92,6 +95,7 @@
   text-transform: uppercase;
   font-weight: 700;
   color: $color-blue;
+  transform: scale(1.1);
 }
 
 .sidenav {
@@ -117,8 +121,8 @@
     max-width: 180px;
   }
 }
-.category__item{
+.category__item {
   @media screen and(min-width: $desktop) {
-    flex-basis: calc((100% - 100px)/5);
+    flex-basis: calc((100% - 100px) / 5);
   }
 }
