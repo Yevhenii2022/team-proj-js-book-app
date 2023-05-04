@@ -37,7 +37,7 @@ const passwordInput = form.querySelector(
   '.registration-form__input[type="password"]'
 );
 const signUpButton = document.querySelector('.sign-up-btn__text');
-const mobileSignUpButton = document.querySelector('.signup-btn__text'); //mobile btn
+const mobileSignUpButton = document.querySelector('.signup-btn__text');
 
 function signUp() {
   const name = nameInput.value;
